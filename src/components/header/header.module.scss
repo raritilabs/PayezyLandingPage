@@ -1,0 +1,192 @@
+@import "~@openfonts/museomoderno_vietnamese/index.css";
+.headerMainContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 76px;
+  padding-bottom: 198px;
+  padding-left: 162px;
+  padding-right: 112px;
+  z-index: 2;
+}
+.headerMainContainerMob {
+  background: #0a0c19;
+  padding-top: 43px;
+
+  padding-bottom: 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+  right: 0px;
+  left: 0px;
+  top: 0px;
+  z-index: 6;
+}
+.fairexLogoMob {
+  width: 119px;
+  height: 21px;
+}
+.fairexTextMob {
+  width: 104px;
+}
+.logoContainer {
+  display: flex;
+  gap: 3px;
+}
+
+.docsButton {
+  text-decoration: none;
+  font-family: "Metrophobic";
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 21px;
+  color: #ffffff;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.docsButtonMob {
+  font-size: 18px;
+  padding-right: 10px;
+}
+.ifLogin {
+  @media screen and (max-width: 992px) {
+    padding-right: 45px;
+  }
+}
+.docsButton:hover {
+  color: #05d2ff;
+}
+.sendButton {
+  font-family: "Metrophobic";
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 21px;
+  color: #01c1ae;
+  background: transparent;
+  border: none;
+  padding-right: 30px;
+  cursor: pointer;
+}
+.sendButtonMob {
+  font-size: 15px;
+  padding-right: 15px;
+}
+.loginButton {
+  border-radius: 20px;
+  background: transparent;
+  margin-left: 47px;
+  padding: 7px 32px;
+  font-family: "Metrophobic";
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 21px;
+  color: #ffffff;
+  cursor: pointer;
+  border: 1px solid #ffffff; /* Start with a transparent border */
+  transition: border-color 0.3s ease; /* Smooth transition for the border color */
+}
+
+.loginButtonMob {
+  border-radius: 16px;
+  padding: 3px 15px;
+  font-size: 15px;
+  margin-left: 0px;
+}
+
+.loginButton:hover {
+  border: 1px solid #05d2ff; /* Start with a transparent border */
+  box-shadow: 0 0 10px #05d2ff; /* Add box shadow on hover */
+}
+// .loginButton:hover {
+//     background: 0 0 10px var(--blue-linear-membervouch, linear-gradient(106deg, #05D2FF 38.97%, rgba(37, 63, 224, 0.62) 107.51%, rgba(6, 14, 208, 0.28) 151.44%));
+//     /* Other styles for hover effect */
+// }
+.logoutButton {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin-right: 5px;
+  margin-top: 3px;
+  cursor: pointer;
+}
+.logoutButton:hover .logoutIcon {
+  -webkit-transform: scale(1);
+  transform: scale(0.8);
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+.profileEmailContainer {
+  border-radius: 5px;
+  background: linear-gradient(180deg, #212c3d 0%, #101d2e 100%);
+  font-family: "Metrophobic";
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 125%;
+  text-align: center;
+  letter-spacing: -0.02em;
+  color: #f9fafa;
+  margin-left: 20px;
+  display: flex;
+}
+.connectWalletContainer {
+  display: flex;
+  align-items: center;
+  z-index: 2;
+}
+.profileEmail {
+  padding: 5px 10px;
+  font-size: 20px;
+  line-height: 13px;
+}
+.profileEmailMob {
+  padding: 6px 10px;
+}
+.settingsButton {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin-left: 12px;
+  cursor: pointer;
+}
+
+.hamburgerMenuClose {
+  z-index: 10;
+  background: transparent;
+  border: none;
+}
+.hamburgerButton {
+  background: transparent;
+  border: none;
+}
+.payezyText {
+  height: 23px;
+  margin-top: 10px;
+  width: 95%;
+  @media screen and (max-width: 992px) {
+    width: 81%;
+    height: 19px;
+  }
+}
+.popupOverlay {
+  position: fixed;
+  inset: 0px;
+  background: rgba(196, 196, 196, 0.15);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 200000;
+  color: white;
+}
+.popupContent {
+  background: #081527;
+  border-radius: 15px;
+  width: 506px;
+  height: auto;
+  overflow: auto;
+  @media screen and (max-width: 992px) {
+    width: 100%;
+    margin-left: 14px;
+    margin-right: 14px;
+  }
+}

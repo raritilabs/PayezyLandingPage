@@ -1,0 +1,561 @@
+.sendRUD {
+  border: 1px solid #02aab0;
+  border-radius: 10px;
+  padding-left: 39px;
+  padding-bottom: 15px;
+  margin-left: 32px;
+  margin-right: 32px;
+  margin-bottom: 30px;
+}
+.sendRUDMob {
+  margin-left: 16px;
+  margin-right: 16px;
+  padding-left: 16px;
+  margin-bottom: 18px;
+}
+.sendRUDMainContainer {
+  padding-top: 38px;
+}
+.sendRUDMainContainerMob {
+  padding-top: 22px;
+}
+.sendRUDDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.sendingRUD {
+  font-family: "Metrophobic";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #99b2c6;
+  padding-bottom: 4px;
+  padding-top: 15px;
+}
+.treasuryBalance {
+  font-family: "Metrophobic";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #f9b959;
+  padding-bottom: 4px;
+}
+.sendingRUDValue {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.dollarSymbol,
+.INRSymbol {
+  font-family: "Metrophobic";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 33px;
+  color: white;
+}
+.dollarSymbolMob,
+.INRSymbolMob {
+  font-size: 22px;
+  line-height: 30px;
+}
+.inputAmount {
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 33px;
+  color: white;
+  width: 100%;
+  background: transparent;
+  border: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.inputAmountMob {
+  font-size: 22px;
+  line-height: 31px;
+}
+
+.inputAmount::placeholder {
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 33px;
+  color: #99b2c6;
+  @media screen and (max-width: 992px) {
+    font-size: 22px;
+    line-height: 30px;
+  }
+}
+.RUDSending {
+  font-family: "Metrophobic";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 33px;
+  color: #ffffff;
+  margin-right: 39px;
+}
+.getINRContainer {
+  border-radius: 10px;
+  border: 1px solid #02aab0;
+  margin-right: 32px;
+  margin-left: 32px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 39px;
+  margin-bottom: 23px;
+}
+.getINRContainerMob {
+  margin-right: 16px;
+  margin-left: 16px;
+  padding-left: 16px;
+  margin-bottom: 30px;
+}
+.getINRAmount {
+  font-family: "Metrophobic";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #99b2c6;
+  padding-bottom: 4px;
+}
+.getINRAmountValue {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 33px;
+  color: #ffffff;
+}
+.enterAmountOfUSDWishToSend {
+  padding: 4px 32px 19px 32px;
+  font-family: "Metrophobic";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+}
+.enterAmountOfUSDWishToSendMob {
+  padding: 9px 16px;
+  font-size: 22px;
+  line-height: 28px;
+}
+.proceedButton {
+  font-family: "Metrophobic";
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 26px;
+  color: #ffffff;
+  padding: 10px 38px;
+  border: 2px solid rgb(111, 111, 111, 0.3);
+  background: linear-gradient(180deg, #212c3d 0%, #101d2e 100%);
+  cursor: pointer;
+  border-radius: 4px;
+}
+.proceedButton:hover {
+  color: #02aab0;
+  stroke: #02aab0;
+}
+.proceedButtonMob {
+  width: 100%;
+  color: #02aab0;
+  stroke: #02aab0;
+}
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 25px;
+}
+.buttonContainerMob {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+.proceedIcon {
+  margin-left: 10px;
+}
+.newToAppContainer {
+  display: flex;
+  font-family: "Metrophobic";
+  justify-content: center;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  font-feature-settings: "pnum" on, "lnum" on;
+  margin-top: 31px;
+}
+.newToAppText {
+  color: #ffffff;
+}
+.XXXText {
+  color: #ffffff;
+  margin-left: 3px;
+}
+.learnMoreLink {
+  margin-left: 21px;
+  background: linear-gradient(47.47deg, #02aab0 5.98%, #00cdac 85.82%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+.questionMark {
+  font-family: "Metrophobic";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  font-feature-settings: "pnum" on, "lnum" on;
+  color: #ffffff;
+}
+.USD,
+.INR {
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 33px;
+  color: #ffffff;
+  margin-right: 15px;
+}
+.USDMob,
+.INRMob {
+  font-size: 22px;
+  line-height: 31px;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+  display: none;
+}
+input:focus {
+  outline: none;
+}
+.errorMessageForLogin {
+  color: #fd5252;
+  margin-left: 3px;
+  padding-bottom: 10px;
+  font-family: "Metrophobic";
+  font-weight: 400;
+  margin-top: -50px;
+  font-size: 21px;
+  @media screen and (max-width: 992px) {
+    margin-left: 17px;
+    font-size: 15px;
+    padding-right: 16px;
+  }
+}
+.transactionSuccesffullContainer {
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 70px;
+  margin-top: 147px;
+  width: 446px;
+  background: linear-gradient(180deg, #212c3d 0%, #101d2e 100%);
+  border-radius: 10px;
+}
+.transactionSuccesffullContainerMob {
+  width: 88%;
+}
+.USDConvertionRate {
+  font-family: "Metrophobic";
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 26px;
+  color: #ffffff;
+  display: flex;
+  margin-top: 17px;
+  margin-left: 76px;
+  margin-bottom: 30px;
+  @media screen and (max-width: 992px) {
+    font-size: 18px;
+    line-height: 22px;
+    margin-left: 32px;
+    margin-bottom: 22px;
+  }
+}
+.stripePaymentContainer {
+  margin-right: 40%;
+
+  @media screen and (max-width: 992px) {
+    margin-right: 15px;
+    margin-left: 15px;
+  }
+}
+.spinnerOverlay {
+  height: 4vh;
+  width: 11%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.spinnerContainer {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgb(148, 148, 189);
+  border-radius: 50%;
+  border-top-color: rgb(64, 64, 64);
+  animation: spin 1.5s ease-in-out infinite;
+  -webkit-animation: spin 1.5s ease-in-out infinite;
+  margin-bottom: 32px;
+  margin-top: 20px;
+
+  @keyframes spin {
+    to {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+
+  @-webkit-keyframes spin {
+    to {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+}
+.disabledButton {
+  cursor: not-allowed;
+  color: #fd5252;
+  stroke: #fd5252;
+}
+.disabledButton:hover {
+  color: #fd5252;
+  stroke: #fd5252;
+}
+.popupOverlay {
+  position: fixed;
+  inset: 0px;
+  background: rgba(196, 196, 196, 0.15);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000000000000;
+  color: white;
+}
+.popupContent {
+  background: #081527;
+  border-radius: 15px;
+  width: 506px;
+  height: auto;
+  overflow: auto;
+  @media screen and (max-width: 992px) {
+    width: 100%;
+    margin-left: 14px;
+    margin-right: 14px;
+  }
+}
+
+.commonOptionCardPayment {
+  font-size: 24px;
+  text-align: center;
+  padding: 6px 0px 6px 0px;
+  width: 50%;
+  border-bottom: 1px solid #fff;
+  border-top: 0.5px solid #fff;
+  border-right: 0.5px solid #fff;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  @media screen and (max-width: 992px) {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 24px;
+    padding: 6px 0px 6px 0px;
+    font-size: 16px;
+  }
+}
+
+.commonOptionBankTranfer {
+  font-size: 24px;
+  padding: 6px 0px 6px 0px;
+  width: 50%;
+  text-align: center;
+  border-bottom: 0.5px solid #fff;
+  border-top: 0.5px solid #fff;
+  border-left: 1px solid #fff;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  @media screen and (max-width: 992px) {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 24px;
+    padding: 6px 0px 6px 0px;
+    font-size: 16px;
+  }
+}
+
+.selectedOptionBankTranfer {
+  background: var(
+    --green-grad,
+    linear-gradient(47deg, #02aab0 0%, #00cdac 100%)
+  );
+  border: none;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  padding: 6px 0px 6px 0px;
+  width: 50%;
+  text-align: center;
+  @media screen and (max-width: 992px) {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 26px;
+    padding: 6px 0px 6px 0px;
+    font-size: 16px;
+  }
+}
+.selectedOptionCardPayment {
+  text-align: center;
+  padding: 6px 0px 6px 0px;
+  width: 50%;
+
+  background: var(
+    --green-grad,
+    linear-gradient(47deg, #02aab0 0%, #00cdac 100%)
+  );
+  border: none;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  @media screen and (max-width: 992px) {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 26px;
+    padding: 6px 0px 6px 0px;
+    font-size: 16px;
+  }
+}
+
+/* Hover effect for both options */
+.commonOptionBankTranfer:hover,
+.commonOptionCardPayment:hover,
+.selectedOptionBankTranfer:hover,
+.selectedOptionCardPayment:hover {
+  cursor: pointer;
+}
+.processPaymentVia {
+  color: #99b2c6;
+  font-family: "Metrophobic";
+  font-size: 13px;
+  font-weight: 400;
+  line-height: normal;
+  padding: 3px 35px;
+  @media screen and (max-width: 992px) {
+    padding: 9px 6px 0px 21px;
+  }
+}
+.sendINRLandingPageContainer {
+  display: flex;
+  padding-right: 112px;
+  justify-content: space-between;
+
+  @media screen and (max-width: 992px) {
+    flex-direction: column;
+    margin-top: 120px;
+    padding-right: 0px;
+  }
+}
+.routesContainer {
+  width: 50%;
+  @media screen and (max-width: 992px) {
+    width: auto;
+    margin-top: -45px;
+  }
+}
+.routesContainerStripePayment {
+  @media screen and (max-width: 992px) {
+    width: auto;
+  }
+}
+.payezyMarketingContainer {
+  width: 673px;
+
+  @media screen and (max-width: 992px) {
+    width: auto;
+  }
+}
+.backgroundLeftImage {
+  position: absolute;
+  margin-left: -516px;
+  margin-top: -200px;
+  animation: mymove 50s infinite;
+  //  animation: rotateAnimation 5s linear infinite;
+}
+.backgroundLeftImageInMobile {
+  position: absolute;
+  margin-left: -445px;
+  margin-top: -104px;
+}
+.backgroundLeftImageSimpleStyleSection {
+  position: absolute;
+  margin-left: -516px;
+  margin-top: -200px;
+  animation: mymove 50s infinite;
+}
+.backgroundLeftImageSimpleStyleSectionInMobile {
+  position: absolute;
+  margin-left: -516px;
+  margin-top: -245px;
+}
+.RighSideBackgroundSectionOne {
+  position: absolute;
+  right: -336px;
+  bottom: 23px;
+  //  animation: mymove 60s infinite;
+  // animation: rotateAnimation 5s linear infinite;
+}
+.RighSideBackgroundSectionOneInMobile {
+  position: absolute;
+  right: -336px;
+  bottom: 23px;
+}
+
+@keyframes mymove {
+  50% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotateAnimation {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(20%);
+  }
+}
+
+.RighSideBackgroundSectionOne {
+  margin-right: 0px;
+  margin-bottom: -100px;
+}
+
+@keyframes mymove {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(45deg);
+  }
+  0% {
+    transform: rotate(90deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

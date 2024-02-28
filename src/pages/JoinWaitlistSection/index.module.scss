@@ -1,0 +1,109 @@
+.withZeroFee {
+  color: #e6e6e6;
+  font-family: "Metrophobic";
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%;
+  /* 28.8px */
+  margin-bottom: 25px;
+}
+.withZeroFeeMob {
+  font-size: 15px;
+  margin-bottom: 37px;
+  text-align: center;
+}
+
+.joinWaitlistContainer {
+  display: flex;
+  padding-right: 112px;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 315px;
+  @media screen and (max-width: 992px) {
+    margin-top: 162px;
+    flex-direction: column;
+    padding-right: 0px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+.joinWaitlistButton {
+  padding: 11px 19px;
+  color: white;
+  border: 1px solid #fff;
+  background: none;
+  border-radius: 40px;
+  margin-bottom: 40px;
+
+  font-family: Michroma;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  transition: color 0.3s ease, background-clip 0.3s ease, border-color 0.3s ease; /* Add transition for smooth color, background, and border changes */
+  @media screen and (max-width: 992px) {
+    font-size: 24px;
+    background: var(
+      --blue-linear-membervouch,
+      linear-gradient(
+        106deg,
+        #05d2ff 38.97%,
+        rgba(37, 63, 224, 0.62) 107.51%,
+        rgba(6, 14, 208, 0.28) 151.44%
+      )
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border: 1px solid #05d2ff; /* Start with a transparent border */
+    //  box-shadow: 0 0 10px #05D2FF; /* Add box shadow on hover */
+    margin-bottom: 0;
+  }
+}
+
+.joinWaitlistButton:hover {
+  background: var(
+    --blue-linear-membervouch,
+    linear-gradient(
+      106deg,
+      #05d2ff 38.97%,
+      rgba(37, 63, 224, 0.62) 107.51%,
+      rgba(6, 14, 208, 0.28) 151.44%
+    )
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border: 1px solid #05d2ff; /* Start with a transparent border */
+  box-shadow: 0 0 10px #05d2ff; /* Add box shadow on hover */
+}
+.buttonContainer {
+  z-index: 2;
+}
+
+.popupOverlay {
+  position: fixed;
+  inset: 0px;
+  background: rgba(196, 196, 196, 0.15);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 200000;
+  color: white;
+}
+.popupContent {
+  background: #081527;
+  border-radius: 15px;
+  width: 506px;
+  padding: 36px 32px 26px 32px;
+  height: auto;
+  overflow: auto;
+  @media screen and (max-width: 992px) {
+    width: 100%;
+    margin-left: 14px;
+    margin-right: 14px;
+  }
+}

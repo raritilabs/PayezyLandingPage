@@ -1,0 +1,173 @@
+.gettingMoney {
+    font-family: 'Titillium Web';
+    font-size: 42px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 125%;
+    /* 52.5px */
+    letter-spacing: -0.84px;
+    background: var(--green-grad, linear-gradient(47deg, #02AAB0 0%, #00CDAC 100%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.gettingMoneyMob {
+    font-size: 26px;
+    text-align: center;
+}
+
+.sendMoneyToIndia {
+    color: #E6E6E6;
+    font-family: "Metrophobic";
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160%;
+    margin-bottom: 303px;
+    
+  
+}
+
+.sendMoneyToIndiaMob {
+color: #E6E6E6;
+
+text-align: center;
+font-family: Metrophobic;
+font-size: 12px;
+font-style: normal;
+font-weight: 400;
+line-height: 100%; 
+    margin-bottom: 64px;
+}
+
+.payezyMarketingContainer {
+    margin-top: 17px;
+    // background: url("../../assets/backGroundSectionOneLeft.svg");
+
+    @media screen and (max-width: 992px) {
+        margin-right: 20px;
+        margin-left: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.withZeroFee {
+    color: #E6E6E6;
+    font-family: "Metrophobic";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160%;
+    /* 28.8px */
+    margin-bottom: 61px;
+}
+
+.withZeroFeeMob {
+    font-size: 15px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.features {
+
+    display: flex;
+    justify-content: space-between;
+    @media screen and (max-width: 992px) {
+      
+       width:100%;
+       margin-left: 12px;
+       margin-right: 12px;
+    }
+   
+}
+
+.featuresText {
+    color: #E6E6E6;
+    text-align: center;
+    font-family: "Metrophobic";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 121.5%;
+    margin-top: 13px;
+   
+}
+@media (min-width: 993px) {
+    .featuresText {
+        font-size: 12px;
+    }
+}
+
+/* For screen size between 992px and 495px */
+@media (max-width: 992px) and (min-width: 556px) {
+    .featuresText {
+        font-size: 18px;
+    }
+}
+
+/* For screen size between 495px and 365px */
+@media (max-width: 556px) and (min-width: 366px) {
+    .featuresText {
+        font-size: 12px;
+    }
+}
+
+/* For screen size below 365px */
+@media (max-width: 365px) {
+    .featuresText {
+        font-size: 10px;
+    }
+}
+.exchangeRateImage,
+.fastImage,
+.fullyTransparentImage {
+    @media screen and (max-width: 992px) {
+        width: 63px;
+        height: 63px;
+    margin-top: 10px;
+    }
+    @media screen and (max-width: 492px) {
+        width: 43px;
+        height: 43px;
+    margin-top: 10px;
+    }
+}
+ @media screen and (min-width: 1550px) {
+    .gettingMoney {
+      font-size: 48px; 
+    }
+
+    .sendMoneyToIndia {
+      font-size: 20px; 
+    }
+
+    .withZeroFee {
+      font-size: 22px; 
+    }
+
+    .featuresText {
+      font-size: 16px; 
+    }
+  }
+   
+  .imagesContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .makingYourPayments{
+    font-family: "Michroma";
+font-weight: 400;
+font-size: 45px;
+line-height: 100%;
+color: white;
+margin-bottom: 40px;
+  }
+  .makingYourPaymentsMob{
+text-align: center;
+font-size: 22px;
+  }

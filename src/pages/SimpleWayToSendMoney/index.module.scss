@@ -1,0 +1,192 @@
+.simpleWayToSendMoneyMainContainer {
+  color: white;
+}
+.simpleWayToSendMoney {
+  color: var(--white, #fff);
+  font-family: Michroma;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  width: 557px;
+  @media screen and (max-width: 992px) {
+    width: auto;
+    color: var(--white, #fff);
+    text-align: center;
+    font-family: Michroma;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 28px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+.simpleWayToSendMoneyHeadings {
+  color: var(--white, #fff);
+  font-family: Exo;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  @media screen and (max-width: 992px) {
+    color: var(--white, #fff);
+    font-family: Exo;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+}
+.simpleWayToSendMoneyDef {
+  color: var(--Gray-font, #a5a2b8);
+  font-family: Exo;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  @media screen and (max-width: 992px) {
+    font-size: 12px;
+    margin-top: 7px;
+  }
+}
+.simpleWayToSendMoneySubContainer {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  @media screen and (max-width: 992px) {
+    padding: 11px 5px 19px 6px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 10px;
+    background: linear-gradient(180deg, #22242f 3.57%, #141622 103.57%);
+  }
+}
+.simpleWayToSendMoneyDefContainer {
+  // background: linear-gradient(180deg, #22242F 3.57%, #141622 103.57%);
+  border-radius: 10px;
+  padding: 15px 11px 39px 11px;
+  margin-top: 0;
+  width: 553px;
+  @media screen and (max-width: 992px) {
+    padding: 0;
+    width: auto;
+  }
+}
+.mainContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: -330px;
+  @media screen and (max-width: 992px) {
+    flex-direction: column;
+    margin-bottom: 0px;
+  }
+}
+.imageContainer {
+  @media screen and (max-width: 992px) {
+    display: none;
+  }
+}
+
+.imageContainer {
+  width: 40%;
+}
+.simpleWayToSendMoneyMainContainer {
+  cursor: pointer;
+  position: relative; /* Ensure the container is positioned relatively */
+  @media screen and (max-width: 992px) {
+    position: static;
+  }
+}
+
+.simpleWayToSendMoneyDefContainer {
+  transition: background 0.3s ease;
+}
+
+.simpleWayToSendMoneyDefContainer.active {
+  background: linear-gradient(180deg, #22242f 3.57%, #141622 103.57%);
+
+  @media screen and (max-width: 992px) {
+    background: none;
+    color: var(--white, #fff);
+    margin-top: 0;
+    font-family: Exo;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+}
+
+.simpleWayToSendMoneyDefContainer::before {
+  content: "";
+  //   position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  transition: background-color 0.3s ease; /* Add transition for smooth background color change */
+}
+
+.activePara {
+  color: #a1e6f6;
+  @media screen and (max-width: 992px) {
+    color: var(--white, #fff);
+    font-family: Exo;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+}
+.delayed-animation {
+  opacity: 0; /* Initially make the image transparent */
+  transition: opacity 6s ease; /* Define the transition */
+}
+
+.simpleWayToSendMoneyIconOverlay {
+  // margin-left: 257px;
+  // padding-right: 249px;
+  position: relative;
+  left: 94px;
+  bottom: 739px;
+  border-radius: 10px;
+  z-index: 2;
+  animation: fadeIn 2s ease-out forwards; /* Apply fadeIn animation with 1 second duration */
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0; /* Start from fully transparent */
+  }
+  to {
+    opacity: 1; /* End at fully opaque */
+  }
+}
+.oneImage,
+.twoImage,
+.threeImage,
+.fourImage {
+  @media screen and (max-width: 992px) {
+    width: 20.474px;
+    height: 20.474px;
+    margin-bottom: 33px;
+  }
+}
+.simpleWayToSendMoneyIconOverlayMobile {
+  width: 165px;
+  height: 352px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  margin-top: 28px;
+  margin-bottom: 48px;
+}

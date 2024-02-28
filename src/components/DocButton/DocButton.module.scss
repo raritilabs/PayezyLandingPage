@@ -1,0 +1,31 @@
+.docButton {
+  color: #ffffff;
+  background: linear-gradient(90deg, #212d3d 0%, #0e1a2c 100%);
+  border-radius: 5px;
+  font-family: "Metrophobic";
+  font-size: 16px;
+  font-weight: 400;
+  width: 50%;
+  height: 45px;
+  border: 1px solid #02aab0;
+  margin: auto auto 10px auto;
+  padding: 0 0;
+}
+.docButton:hover,
+.docButton:hover path,
+.docButton:hover rect {
+  color: #02aab0;
+  fill: #02aab0;
+}
+
+.docImage {
+  position: -webkit-sticky;
+  position: relative;
+  right: 6px;
+  border-radius: 0px;
+  top: 1px;
+}
+.docImageDiv {
+  position: -webkit-sticky;
+}
+

@@ -1,0 +1,202 @@
+.whyPayezyContainer {
+  display: flex;
+  align-items: center;
+  @media screen and (max-width: 992px) {
+    flex-direction: column;
+  }
+}
+.whyPayezy {
+  color: #e6e6e6;
+  font-family: Michroma;
+  font-size: 44px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%; /* 72px */
+  width: 447px;
+  @media screen and (max-width: 992px) {
+    width: auto;
+    color: #e6e6e6;
+
+    font-family: Michroma;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160%; /* 35.2px */
+    text-align: center;
+  }
+}
+.features {
+  font-family: Metrophobic;
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%; /* 33.6px */
+  background: var(
+    --blue-linear-membervouch,
+    linear-gradient(
+      106deg,
+      #05d2ff 38.97%,
+      rgba(37, 63, 224, 0.62) 107.51%,
+      rgba(6, 14, 208, 0.28) 151.44%
+    )
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-right: 123px;
+  margin-bottom: -14px;
+  border-bottom: 1px solid #0595b6;
+  @media screen and (max-width: 992px) {
+    display: none;
+  }
+}
+.lineContainer {
+  width: 56%;
+  border-bottom: 1px solid #0595b6;
+  margin-bottom: -48px;
+  @media screen and (max-width: 992px) {
+    display: none;
+  }
+}
+.feauturesContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 122px;
+  margin-top: 48px;
+  margin-bottom: 413px;
+  @media screen and (max-width: 992px) {
+    flex-direction: column;
+    margin-right: 20px;
+    align-items: center;
+    margin-left: 20px;
+    margin-top: 28px;
+    margin-bottom: 181px;
+    gap: 40px;
+  }
+}
+.featuresText {
+  color: #e6e6e6;
+  text-align: center;
+  font-family: Michroma;
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 400;
+  padding-top: 10px;
+  margin: 0;
+  line-height: 121.5%; /* 25.515px */
+  @media screen and (max-width: 992px) {
+    padding-top: 10px;
+    font-size: 15px;
+  }
+}
+.fullyTransparentIcon {
+  margin-left: 49px;
+  @media screen and (max-width: 992px) {
+    width: 21.627px;
+    height: 24.248px;
+    margin-left: 71px;
+  }
+}
+.fastAndEasyIcon {
+  margin-left: 93px;
+  @media screen and (max-width: 992px) {
+    width: 19.686px;
+    height: 22.836px;
+    margin-left: 104px;
+  }
+}
+.bestFXRateIcon {
+  margin-left: 30px;
+  @media screen and (max-width: 992px) {
+    width: 14.973px;
+    height: 23.641px;
+    margin-left: 60px;
+  }
+}
+.definition {
+  padding: 16px 30px 21px 29px;
+  color: var(--Gray-font, #a5a2b8);
+  font-family: Metrophobic;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 121.5%; /* 18.225px */
+  text-align: justify;
+  letter-spacing: -1px;
+  margin: 0;
+  @media screen and (max-width: 992px) {
+    width: 253px;
+    font-size: 13px;
+    padding: 25px 24px 26px 13px;
+  }
+}
+.feauturesSubContainer {
+  width: 368px;
+  height: 207px;
+  background: linear-gradient(180deg, #232532 3.57%, #131521 103.57%);
+  border-radius: 5px;
+  @media screen and (min-width: 1500px) {
+    width: 380px;
+    height: 152px;
+  }
+  @media screen and (min-width: 1550px) {
+    width: 400px;
+    height: 152px;
+  }
+  @media screen and (min-width: 1600px) {
+    width: 425px;
+    height: 152px;
+  }
+  @media screen and (max-width: 992px) {
+    width: 290px;
+    height: 132px;
+  }
+}
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(50px); /* Initially translate each div 50px down */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(
+      0
+    ); /* Translate each div back to its original position */
+  }
+}
+
+.feauturesSubContainer {
+  animation: slideIn 0.5s ease forwards; /* Apply the slideIn animation to each div */
+  opacity: 0; /* Set initial opacity to 0 to ensure the divs start invisible */
+}
+@keyframes slideIn {
+  from {
+    transform: translateX(
+      -100%
+    ); /* Start position outside the viewport on the left */
+    opacity: 0; /* Start with opacity 0 */
+  }
+  to {
+    transform: translateX(0); /* End position at the original position */
+    opacity: 1; /* End with opacity 1 */
+  }
+}
+
+.feauturesSubContainer {
+  @media screen and (max-width: 992px) {
+    animation: slideIn 0.8s ease forwards; /* Apply the slideIn animation to each div */
+    opacity: 0; /* Set initial opacity to 0 to ensure the divs start invisible */
+  }
+}
+
+.feauturesSubContainer:nth-child(1) {
+  animation-delay: 0.5s; /* Delay the animation for the first div by 0.1s */
+}
+
+.feauturesSubContainer:nth-child(2) {
+  animation-delay: 0.7s; /* Delay the animation for the second div by 0.2s */
+}
+
+.feauturesSubContainer:nth-child(3) {
+  animation-delay: 0.9s; /* Delay the animation for the third div by 0.3s */
+}

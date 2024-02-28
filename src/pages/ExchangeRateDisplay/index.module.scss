@@ -1,0 +1,560 @@
+.sendRUD {
+  border: 1px solid #a1e6f6;
+  border-radius: 10px;
+  padding-left: 20px;
+  padding-bottom: 11px;
+  margin-left: 22px;
+  margin-right: 22px;
+  margin-bottom: 20px;
+}
+.sendRUDMob {
+  margin-left: 16px;
+  margin-right: 16px;
+  padding-left: 16px;
+  margin-bottom: 18px;
+}
+.sendRUDMainContainer {
+  padding-top: 27px;
+}
+.sendRUDMainContainerMob {
+  padding-top: 0px;
+}
+.sendRUDDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.sendingRUD {
+  font-family: "Metrophobic";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #99b2c6;
+  padding-bottom: 4px;
+  padding-top: 9px;
+  @media screen and (max-width: 992px) {
+    font-size: 13px;
+  }
+}
+.treasuryBalance {
+  font-family: "Metrophobic";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #f9b959;
+  padding-bottom: 4px;
+}
+.sendingRUDValue {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.dollarSymbol,
+.INRSymbol {
+  font-family: "Metrophobic";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 33px;
+  color: white;
+}
+.dollarSymbolMob,
+.INRSymbolMob {
+  font-size: 22px;
+  line-height: 30px;
+}
+.inputAmount {
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 33px;
+  color: white;
+  width: 100%;
+  background: transparent;
+  border: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.inputAmountMob {
+  font-size: 16px;
+  line-height: 31px;
+}
+
+.inputAmount::placeholder {
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 33px;
+  color: #99b2c6;
+  @media screen and (max-width: 992px) {
+    font-size: 16px;
+    line-height: 30px;
+  }
+}
+.RUDSending {
+  font-family: "Metrophobic";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 33px;
+  color: #ffffff;
+  margin-right: 39px;
+}
+.getINRContainer {
+  border-radius: 10px;
+  border: 1px solid #a1e6f6;
+  margin-right: 22px;
+  margin-left: 22px;
+  padding-top: 9px;
+  padding-bottom: 11px;
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+.getINRContainerMob {
+  margin-right: 16px;
+  margin-left: 16px;
+  padding-left: 16px;
+  margin-bottom: 30px;
+}
+.getINRAmount {
+  font-family: "Metrophobic";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #99b2c6;
+  padding-bottom: 4px;
+  @media screen and (max-width: 992px) {
+    font-size: 13px;
+  }
+}
+.getINRAmountValue {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 33px;
+  color: #ffffff;
+}
+.enterAmountOfUSDWishToSend {
+  padding: 0px 32px 0 32px;
+  font-size: 28px;
+  font-family: Metrophobic;
+  font-weight: 400;
+  line-height: 100%;
+  margin-top: 31px;
+  color: #ffffff;
+  @media screen and (max-width: 992px) {
+    padding: 9px 16px;
+    font-size: 18px;
+    line-height: 28px;
+    color: #a1e6f6;
+    text-align: center;
+    margin-top: 12px;
+  }
+}
+
+.proceedButton {
+  font-family: "Metrophobic";
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 26px;
+  color: #ffffff;
+  padding: 7px 0px;
+  border: 0.3px solid #212c3d;
+  background: linear-gradient(186deg, #242421 30%, #1d1e29) 100%;
+  cursor: pointer;
+  border-radius: 4px;
+  width: 100%;
+  margin-right: 22px;
+  margin-left: 22px;
+}
+.proceedButton:hover {
+  color: #05d2ff;
+  stroke: #05d2ff;
+  fill: #05d2ff;
+}
+.proceedButtonMob {
+  width: 100%;
+  font-size: 17px;
+
+  margin: 0;
+}
+.sendNowText {
+  margin-right: 13px;
+}
+
+.proceedButton:hover path {
+  color: #05d2ff; /* Change color on hover */
+  fill: #05d2ff; /* Change fill color on hover */
+}
+.proceedButton .sendNowArrow {
+  display: inline-block; /* Ensure the span occupies only the necessary space */
+
+  transition: transform 0.5s ease-in-out; /* Add transition for smooth rotation */
+}
+
+.proceedButton:hover .sendNowArrow {
+  transform: rotate(45deg); /* Rotate the arrow to the right on hover */
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 25px;
+}
+.buttonContainerMob {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+.proceedIcon {
+  margin-left: 10px;
+}
+.newToAppContainer {
+  display: flex;
+  font-family: "Metrophobic";
+  justify-content: center;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  font-feature-settings: "pnum" on, "lnum" on;
+  margin-top: 31px;
+}
+.newToAppText {
+  color: #ffffff;
+}
+.XXXText {
+  color: #ffffff;
+  margin-left: 3px;
+}
+.learnMoreLink {
+  margin-left: 21px;
+  background: linear-gradient(47.47deg, #02aab0 5.98%, #00cdac 85.82%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+.questionMark {
+  font-family: "Metrophobic";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  font-feature-settings: "pnum" on, "lnum" on;
+  color: #ffffff;
+}
+.USD,
+.INR {
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 33px;
+  color: #ffffff;
+  margin-right: 11px;
+}
+.USDMob,
+.INRMob {
+  font-size: 16px;
+  line-height: 31px;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+  display: none;
+}
+input:focus {
+  outline: none;
+}
+.errorMessageForLogin {
+  color: #fd5252;
+  margin-left: 75px;
+  padding-bottom: 20px;
+  font-family: "Metrophobic";
+  font-weight: 400;
+  font-size: 21px;
+  @media screen and (max-width: 992px) {
+    margin-left: 17px;
+    font-size: 15px;
+    padding-right: 16px;
+  }
+}
+.transactionSuccesffullContainer {
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 70px;
+  margin-top: 147px;
+  width: 446px;
+  background: linear-gradient(180deg, #212c3d 0%, #101d2e 100%);
+  border-radius: 10px;
+}
+.transactionSuccesffullContainerMob {
+  width: 88%;
+}
+.USDConvertionRate {
+  font-family: "Metrophobic";
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 26px;
+  color: #ffffff;
+  display: flex;
+  margin-top: 17px;
+  margin-left: 58px;
+  margin-bottom: 17px;
+  @media screen and (max-width: 992px) {
+    font-size: 17px;
+    line-height: 22px;
+    margin-left: 32px;
+    margin-bottom: 22px;
+  }
+}
+.stripePaymentContainer {
+  margin-right: 40%;
+
+  @media screen and (max-width: 992px) {
+    margin-right: 15px;
+    margin-left: 15px;
+  }
+}
+.spinnerOverlay {
+  height: 4vh;
+  width: 11%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  @media screen and (max-width: 992px) {
+    height: 3vh;
+  }
+  @media screen and (max-height: 955px) {
+    height: 5vh;
+  }
+  @media screen and (max-height: 738px) {
+    height: 6vh;
+  }
+}
+
+.spinnerContainer {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgb(148, 148, 189);
+  border-radius: 50%;
+  border-top-color: rgb(64, 64, 64);
+  animation: spin 1.5s ease-in-out infinite;
+  -webkit-animation: spin 1.5s ease-in-out infinite;
+  margin-bottom: 32px;
+  margin-top: 20px;
+  @media screen and (max-width: 992px) {
+    width: 15px;
+    height: 15px;
+  }
+  @keyframes spin {
+    to {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+
+  @-webkit-keyframes spin {
+    to {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+}
+.disabledButton {
+  cursor: not-allowed;
+  color: #fd5252;
+  stroke: #fd5252;
+}
+.disabledButton:hover {
+  color: #fd5252;
+  stroke: #fd5252;
+}
+.popupOverlay {
+  position: fixed;
+  inset: 0px;
+  background: rgba(196, 196, 196, 0.15);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000000000000;
+  color: white;
+}
+.popupContent {
+  background: #081527;
+  border-radius: 15px;
+  width: 506px;
+  height: auto;
+  overflow: auto;
+  @media screen and (max-width: 992px) {
+    width: 100%;
+    margin-left: 14px;
+    margin-right: 14px;
+  }
+}
+.feeBreakDown,
+.feeBreakDownNetTransfer {
+  color: var(--gray-font, #a5a2b8);
+  font-family: "Metrophobic";
+  font-size: 17px;
+  font-weight: 400;
+  line-height: normal;
+  margin-left: 58px;
+  margin-right: 32px;
+  margin-bottom: 21px;
+  margin-top: 28px;
+  @media screen and (max-width: 992px) {
+    margin-left: 32px;
+    font-size: 16px;
+    margin-right: 28px;
+  }
+}
+.feeBreakDownNetTransfer {
+  margin-bottom: 7px;
+}
+.feeBreakDownContainer,
+.feeBreakDownContainerAmountPaid,
+.feeBreakDownContainerHighlighted {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 58px;
+  margin-top: -15px;
+  margin-bottom: 3px;
+  margin-right: 47px;
+  @media screen and (max-width: 992px) {
+    margin-left: 32px;
+    margin-right: 28px;
+  }
+}
+.feeBreakDownContainerAmountPaid {
+  margin-bottom: 17px;
+}
+.radeFeeContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 58px;
+  margin-bottom: 7px;
+  margin-right: 47px;
+  @media screen and (max-width: 992px) {
+    margin-left: 32px;
+    margin-right: 28px;
+  }
+}
+.radeFeeContainerInclucingTax {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 58px;
+  margin-bottom: 47px;
+  margin-right: 47px;
+  @media screen and (max-width: 992px) {
+    margin-left: 32px;
+    margin-right: 28px;
+  }
+}
+.cappedAt5Container {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 58px;
+  margin-bottom: 4px;
+  margin-right: 32px;
+  @media screen and (max-width: 992px) {
+    margin-left: 32px;
+  }
+}
+.bankTransferCharge,
+.bankTransferChargeTotal {
+  color: #fff;
+  font-family: "Metrophobic";
+  font-size: 17px;
+  font-weight: 400;
+  line-height: normal;
+  @media screen and (max-width: 992px) {
+    font-size: 14px;
+  }
+}
+.includingTaxes {
+  color: #fff;
+  font-family: "Metrophobic";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+  @media screen and (max-width: 992px) {
+    font-size: 12px;
+  }
+}
+.bankTransferChargeTotal {
+  font-size: 17px;
+  color: #f9b959;
+}
+.cappedAt5 {
+  font-family: "Metrophobic";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+  color: #ffffff;
+  margin-bottom: 12px;
+  @media screen and (max-width: 992px) {
+    font-size: 12px;
+  }
+}
+.bankTransferChargeHighlighted {
+  color: #f3e445;
+  font-family: "Metrophobic";
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+  height: 27px;
+  border-bottom: 1.5px solid #f3e445; /* Adjust the thickness and color as needed */
+  display: inline-block;
+}
+.bankTransferChargeValueHighlighted {
+  color: #f3e445;
+  font-family: "Metrophobic";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%;
+}
+.feeBreakDownContainerHighlighted {
+  margin-bottom: 21px;
+}
+.exchangeRateMainContainer {
+  //  background: linear-gradient(180deg, #212c3d 0%, #101d2e 100%);
+  background: linear-gradient(186deg, #232420 30%, #111320) 100%;
+  height: 356px;
+  z-index: 2;
+  border-radius: 5px;
+  @media screen and (max-width: 992px) {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+.sendNowIcon {
+  margin-left: 13px;
+}
+.RighSideBackgroundSectionOne {
+  position: absolute;
+  margin-right: -536px;
+  margin-top: -286px;
+  animation: mymove 9s infinite;
+  // animation: rotateAnimation 5s linear infinite;
+}
+@keyframes mymove {
+  50% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotateAnimation {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(20%);
+  }
+}
