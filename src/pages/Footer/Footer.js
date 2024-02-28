@@ -22,7 +22,15 @@ const Footer = () => {
           />
           <p className={styles.supportEmailStatement}>
             For general enquiries, just hit us up on
-            <span className={styles.supportEmail}>support@rariti.io</span>{" "}
+            {!isMobile && (
+              <span className={styles.supportEmail}>support@rariti.io</span>
+            )}
+            {isMobile && (
+              <span className={styles.supportEmail}>
+                <br />
+                support@rariti.io
+              </span>
+            )}
           </p>
         </div>
         <div>

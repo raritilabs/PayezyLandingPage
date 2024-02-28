@@ -169,7 +169,7 @@
   animation: slideIn 0.5s ease forwards; /* Apply the slideIn animation to each div */
   opacity: 0; /* Set initial opacity to 0 to ensure the divs start invisible */
 }
-@keyframes slideIn {
+@keyframes slideInMob {
   from {
     transform: translateX(
       -100%
@@ -184,7 +184,7 @@
 
 .feauturesSubContainer {
   @media screen and (max-width: 992px) {
-    animation: slideIn 0.8s ease forwards; /* Apply the slideIn animation to each div */
+    animation: slideInMob 0.8s ease forwards; /* Apply the slideIn animation to each div */
     opacity: 0; /* Set initial opacity to 0 to ensure the divs start invisible */
   }
 }
