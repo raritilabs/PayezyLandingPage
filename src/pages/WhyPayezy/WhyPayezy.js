@@ -4,6 +4,7 @@
 // import fullyTransparentIcon from "../../assets/fullyTransparentsvg.svg";
 // import fastAndEasyIcon from "../../assets/fastAndEasyIcon.svg";
 // import bestFXRateIcon from "../../assets/bestFXRate.svg";
+
 // const WhyPayezy = () => {
 //   return (
 //     <>
@@ -13,7 +14,9 @@
 //         <div className={styles.features}>{SEND_ENUM.features}</div>
 //       </div>
 //       <div className={styles.feauturesContainer}>
-//         <div className={styles.feauturesSubContainer}>
+//         <div
+//           className={`${styles.feauturesSubContainer} ${styles.subContainer1}`}
+//         >
 //           <p className={styles.featuresText}>
 //             {SEND_ENUM.fullyTransparentHeading}
 //             <img
@@ -26,7 +29,9 @@
 //             {SEND_ENUM.fullyTransparentDefinition}
 //           </p>
 //         </div>
-//         <div className={styles.feauturesSubContainer}>
+//         <div
+//           className={`${styles.feauturesSubContainer} ${styles.subContainer2}`}
+//         >
 //           {" "}
 //           <p className={styles.featuresText}>
 //             {SEND_ENUM.fastAndEasy}
@@ -38,7 +43,9 @@
 //           </p>
 //           <p className={styles.definition}>{SEND_ENUM.fastAndEasyDefinition}</p>
 //         </div>
-//         <div className={styles.feauturesSubContainer}>
+//         <div
+//           className={`${styles.feauturesSubContainer} ${styles.subContainer3}`}
+//         >
 //           {" "}
 //           <p className={styles.featuresText}>
 //             {SEND_ENUM.bestExchangeRate}
@@ -56,7 +63,7 @@
 // };
 
 // export default WhyPayezy;
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import styles from "./index.module.scss";
 import { SEND_ENUM } from "../../enums/sendEnum";
 import fullyTransparentIcon from "../../assets/fullyTransparentsvg.svg";
@@ -64,6 +71,48 @@ import fastAndEasyIcon from "../../assets/fastAndEasyIcon.svg";
 import bestFXRateIcon from "../../assets/bestFXRate.svg";
 
 const WhyPayezy = () => {
+  const featuresContainerRef = useRef(null);
+
+  useEffect(() => {
+    const featuresContainer = featuresContainerRef.current;
+    const feauturesSubContainers = featuresContainer.querySelectorAll(
+      `.${styles.feauturesSubContainer}`
+    );
+
+    const observerOptions = {
+      root: null, // use the viewport as the root
+      rootMargin: "0px", // no margin
+      threshold: 0.5, // trigger when 50% of the element is visible
+    };
+
+    const handleIntersection = (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          feauturesSubContainers.forEach((subContainer, index) => {
+            subContainer.style.animationDelay = `${0.5 + index * 0.2}s`;
+            subContainer.classList.add(styles.slideInAnimation);
+          });
+          observer.unobserve(entry.target); // stop observing once animation triggered
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(
+      handleIntersection,
+      observerOptions
+    );
+
+    if (featuresContainer) {
+      observer.observe(featuresContainer);
+    }
+
+    return () => {
+      if (featuresContainer) {
+        observer.unobserve(featuresContainer);
+      }
+    };
+  }, []);
+
   return (
     <>
       <div className={styles.whyPayezyContainer}>
@@ -71,7 +120,7 @@ const WhyPayezy = () => {
         <div className={styles.lineContainer}></div>
         <div className={styles.features}>{SEND_ENUM.features}</div>
       </div>
-      <div className={styles.feauturesContainer}>
+      <div ref={featuresContainerRef} className={styles.feauturesContainer}>
         <div
           className={`${styles.feauturesSubContainer} ${styles.subContainer1}`}
         >
