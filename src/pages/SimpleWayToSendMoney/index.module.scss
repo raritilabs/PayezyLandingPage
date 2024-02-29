@@ -82,12 +82,14 @@
   }
 }
 .mainContainer {
+  margin-left: 162px;
   display: flex;
   justify-content: space-between;
-  margin-bottom: -330px;
+  margin-bottom: -430px;
   @media screen and (max-width: 992px) {
     flex-direction: column;
     margin-bottom: 0px;
+    margin-left: 0;
   }
 }
 .imageContainer {
@@ -149,10 +151,10 @@
     line-height: normal;
   }
 }
-.delayed-animation {
-  opacity: 0; /* Initially make the image transparent */
-  transition: opacity 6s ease; /* Define the transition */
-}
+// .delayed-animation {
+//   opacity: 0; /* Initially make the image transparent */
+//   transition: opacity 6s ease; /* Define the transition */
+// }
 
 .simpleWayToSendMoneyIconOverlay {
   // margin-left: 257px;
@@ -162,7 +164,7 @@
   bottom: 739px;
   border-radius: 10px;
   z-index: 2;
-  animation: fadeIn 2s ease-out forwards; /* Apply fadeIn animation with 1 second duration */
+  animation: fadeIn 0.8s ease-out forwards; /* Apply fadeIn animation with 1 second duration */
 }
 @keyframes fadeIn {
   from {

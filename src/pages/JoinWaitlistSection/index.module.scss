@@ -16,17 +16,19 @@
 
 .joinWaitlistContainer {
   display: flex;
+  margin-left: 162px;
   padding-right: 112px;
   justify-content: space-between;
   align-items: center;
 
-  margin-bottom: 315px;
+  margin-bottom: 250px;
   @media screen and (max-width: 992px) {
     margin-top: 162px;
     flex-direction: column;
     padding-right: 0px;
     margin-left: 20px;
     margin-right: 20px;
+    margin-bottom: 150px;
   }
 }
 .joinWaitlistButton {

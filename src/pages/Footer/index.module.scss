@@ -55,6 +55,10 @@
     font-size: 11px;
   }
 }
+.privacyPolicy:hover,
+.termsOfUse:hover {
+  color: #a1e6f6;
+}
 .termsOfUse {
   // margin-left: 47px;
 }
@@ -84,7 +88,7 @@
   padding-bottom: 39px;
   padding-right: 29px;
   margin-bottom: 59px;
-  margin-left: -100px;
+  margin-left: 60px;
   margin-right: 60px;
   border-radius: 10px;
   margin-bottom: 130px;
@@ -134,8 +138,8 @@
 .linkedinIcon:hover {
   cursor: pointer;
   border-radius: 10px;
-  border: 1px solid #05d2ff;
-  box-shadow: 0 0 10px #05d2ff;
+  border: 1px solid #a1e6f6;
+  box-shadow: 0 0 10px #a1e6f6;
 }
 .logoContainer {
   @media screen and (max-width: 992px) {
