@@ -61,7 +61,7 @@ const WhyPayezy = () => {
       </div>
       {!isMobile && (
         <div ref={featuresContainerRef} className={styles.feauturesContainer}>
-          <AnimatedOnScroll animationIn="bounce">
+          <AnimatedOnScroll animationIn="bounce" delay={1000}>
             <div
               className={`${styles.feauturesSubContainer} ${styles.subContainer1}`}
             >
@@ -78,7 +78,7 @@ const WhyPayezy = () => {
               </p>
             </div>
           </AnimatedOnScroll>
-          <AnimatedOnScroll animationIn="bounce">
+          <AnimatedOnScroll animationIn="bounce" delay={1200}>
             <div
               className={`${styles.feauturesSubContainer} ${styles.subContainer2}`}
             >
@@ -96,7 +96,7 @@ const WhyPayezy = () => {
               </p>
             </div>
           </AnimatedOnScroll>
-          <AnimatedOnScroll animationIn="bounce">
+          <AnimatedOnScroll animationIn="bounce" delay={1400}>
             <div
               className={`${styles.feauturesSubContainer} ${styles.subContainer3}`}
             >
@@ -117,8 +117,8 @@ const WhyPayezy = () => {
         </div>
       )}
       {isMobile && (
-        <AnimatedOnScroll animationIn="bounceInRight">
-          <div ref={featuresContainerRef} className={styles.feauturesContainer}>
+        <div ref={featuresContainerRef} className={styles.feauturesContainer}>
+          <AnimatedOnScroll animationIn="bounceInRight" delay={1000}>
             <div
               className={`${styles.feauturesSubContainer} ${styles.subContainer1}`}
             >
@@ -134,6 +134,8 @@ const WhyPayezy = () => {
                 {SEND_ENUM.fullyTransparentDefinition}
               </p>
             </div>
+          </AnimatedOnScroll>
+          <AnimatedOnScroll animationIn="bounceInRight" delay={1200}>
             <div
               className={`${styles.feauturesSubContainer} ${styles.subContainer2}`}
             >
@@ -150,6 +152,8 @@ const WhyPayezy = () => {
                 {SEND_ENUM.fastAndEasyDefinition}
               </p>
             </div>
+          </AnimatedOnScroll>
+          <AnimatedOnScroll animationIn="bounceInRight" delay={1400}>
             <div
               className={`${styles.feauturesSubContainer} ${styles.subContainer3}`}
             >
@@ -166,8 +170,8 @@ const WhyPayezy = () => {
                 {SEND_ENUM.bestFXRateDefinition}
               </p>
             </div>
-          </div>
-        </AnimatedOnScroll>
+          </AnimatedOnScroll>
+        </div>
       )}
     </>
   );
