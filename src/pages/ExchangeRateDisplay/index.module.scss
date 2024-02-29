@@ -50,16 +50,19 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
 }
 .dollarSymbol,
 .INRSymbol {
   font-family: "Metrophobic";
   font-style: normal;
   font-weight: 400;
-  font-size: 28px;
+  font-size: 25px;
   line-height: 33px;
   color: white;
+}
+.dollarSymbol {
+  line-height: 32px;
+  font-size: 25px;
 }
 .dollarSymbolMob,
 .INRSymbolMob {
@@ -69,7 +72,7 @@
 .inputAmount {
   font-family: "Roboto";
   font-weight: 400;
-  font-size: 24px;
+  font-size: 25px;
   line-height: 33px;
   color: white;
   width: 100%;
@@ -86,7 +89,7 @@
 .inputAmount::placeholder {
   font-family: "Roboto";
   font-weight: 400;
-  font-size: 28px;
+  font-size: 25px;
   line-height: 33px;
   color: #99b2c6;
   @media screen and (max-width: 992px) {

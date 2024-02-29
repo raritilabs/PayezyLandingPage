@@ -1,8 +1,10 @@
 .whyPayezyContainer {
   display: flex;
+  margin-left: 162px;
   align-items: center;
   @media screen and (max-width: 992px) {
     flex-direction: column;
+    margin-left: 0;
   }
 }
 .whyPayezy {
@@ -59,11 +61,12 @@
   }
 }
 .feauturesContainer {
+  margin-left: 162px;
   display: flex;
   justify-content: space-between;
   margin-right: 122px;
   margin-top: 48px;
-  margin-bottom: 413px;
+  margin-bottom: 313px;
   @media screen and (max-width: 992px) {
     flex-direction: column;
     margin-right: 20px;
@@ -132,7 +135,7 @@
 }
 .feauturesSubContainer {
   width: 368px;
-  height: 207px;
+  height: 183px;
   background: linear-gradient(180deg, #232532 3.57%, #131521 103.57%);
   border-radius: 5px;
   @media screen and (min-width: 1500px) {
@@ -150,6 +153,14 @@
   @media screen and (max-width: 992px) {
     width: 290px;
     height: 132px;
+  }
+  @media screen and (min-width: 1420px) {
+    width: 363px;
+    height: 132px;
+  }
+  @media screen and (min-width: 1380px) {
+    width: 350px;
+    height: 190px;
   }
 }
 @keyframes slideIn {

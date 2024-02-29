@@ -33,6 +33,7 @@
   @media screen and (max-width: 992px) {
     font-size: 12px;
     width: auto;
+    margin-bottom: 150px;
   }
 }
 .description {
@@ -109,8 +110,8 @@
 // }
 .FAQSectionBackgroundContainer {
   position: absolute;
-  top: 2852px;
-  right: -17px;
+  top: 2px;
+  right: -57px;
   border-radius: 50%;
   @media screen and (max-width: 992px) {
     display: none;
@@ -128,9 +129,13 @@
   pointer-events: none; /* Disable pointer events when closed */
 }
 .FAQMainContainer {
-  margin-top: 187px;
+  position: relative;
+  margin-top: -87px;
   margin-left: 20px;
   margin-right: 20px;
+  @media screen and (max-width: 992px) {
+    margin-top: 100px;
+  }
 }
 .FAQDescription {
   opacity: 0;
