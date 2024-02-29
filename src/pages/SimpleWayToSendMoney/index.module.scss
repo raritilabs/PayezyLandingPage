@@ -103,7 +103,7 @@
   cursor: pointer;
   position: relative; /* Ensure the container is positioned relatively */
   @media screen and (max-width: 992px) {
-    position: static;
+    // position: static;
   }
 }
 
