@@ -60,8 +60,8 @@ const WhyPayezy = () => {
         <div className={styles.features}>{SEND_ENUM.features}</div>
       </div>
       {!isMobile && (
-        <AnimatedOnScroll animationIn="bounce" delay="1">
-          <div ref={featuresContainerRef} className={styles.feauturesContainer}>
+        <div ref={featuresContainerRef} className={styles.feauturesContainer}>
+          <AnimatedOnScroll animationIn="bounce">
             <div
               className={`${styles.feauturesSubContainer} ${styles.subContainer1}`}
             >
@@ -77,6 +77,8 @@ const WhyPayezy = () => {
                 {SEND_ENUM.fullyTransparentDefinition}
               </p>
             </div>
+          </AnimatedOnScroll>
+          <AnimatedOnScroll animationIn="bounce">
             <div
               className={`${styles.feauturesSubContainer} ${styles.subContainer2}`}
             >
@@ -93,6 +95,8 @@ const WhyPayezy = () => {
                 {SEND_ENUM.fastAndEasyDefinition}
               </p>
             </div>
+          </AnimatedOnScroll>
+          <AnimatedOnScroll animationIn="bounce">
             <div
               className={`${styles.feauturesSubContainer} ${styles.subContainer3}`}
             >
@@ -109,8 +113,8 @@ const WhyPayezy = () => {
                 {SEND_ENUM.bestFXRateDefinition}
               </p>
             </div>
-          </div>
-        </AnimatedOnScroll>
+          </AnimatedOnScroll>
+        </div>
       )}
       {isMobile && (
         <AnimatedOnScroll animationIn="bounceInRight">

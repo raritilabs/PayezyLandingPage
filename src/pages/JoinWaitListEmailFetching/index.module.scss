@@ -21,7 +21,7 @@
   border-radius: 10px;
   @media screen and (max-width: 992px) {
     font-size: 12px;
-    width: 87%;
+    width: 90%;
     padding: 10px;
   }
 }
@@ -79,6 +79,7 @@
   color: #a1e6f6;
 }
 .buttonContainer {
+  margin-top: 30px;
   display: flex;
   justify-content: center;
 }
@@ -107,6 +108,12 @@
   font-family: "Metrophobic";
   font-weight: 400;
   font-size: 21px;
+  @media screen and (max-width: 992px) {
+    margin-left: 2px;
+    font-size: 15px;
+    letter-spacing: -1px;
+    text-align: justify;
+  }
 }
 .notetext {
   color: #f9b959;

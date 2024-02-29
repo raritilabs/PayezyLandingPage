@@ -69,10 +69,7 @@ const JoinWaitListEmailFetching = ({ setModalIsOpen }) => {
         />
       </div>
       {errorForEmail && <p className={styles.error}>{errorForEmail}</p>}
-      <div className={styles.notetext}>
-        Note: Join the waitlist to get access and become early contributors to
-        avail special offers in the mainnet launch.
-      </div>
+
       <div className={styles.buttonContainer}>
         {/* {emailStoredSuccesfully && ( */}
         <ButtonRade
@@ -81,7 +78,7 @@ const JoinWaitListEmailFetching = ({ setModalIsOpen }) => {
             [styles.cancelButtonMob]: isMobile,
           })}
         >
-          Close
+          {!emailStoredSuccesfully ? <>Cancel</> : <>Close</>}
         </ButtonRade>
         {/* )} */}
         {!emailStoredSuccesfully && (
@@ -91,7 +88,7 @@ const JoinWaitListEmailFetching = ({ setModalIsOpen }) => {
               [styles.confirmButtonMob]: isMobile,
             })}
           >
-            {SEND_ENUM.confirm}
+            Submit
           </ButtonRade>
         )}
       </div>
