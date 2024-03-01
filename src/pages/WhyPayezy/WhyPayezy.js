@@ -6,12 +6,20 @@ import fullyTransparentIcon from "../../assets/fullyTransparentsvg.svg";
 import fastAndEasyIcon from "../../assets/fastAndEasyIcon.svg";
 import bestFXRateIcon from "../../assets/bestFXRate.svg";
 import { AppContext } from "../../context";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 const WhyPayezy = () => {
   const { isMobile } = useContext(AppContext);
 
   const featuresContainerRef = useRef(null);
-
+  useEffect(() => {
+    AOS.init({
+      // offset: 200,
+      // duration: 400,
+      // easing: "ease-in",
+      // delay: 60,
+    });
+  }, []);
   useEffect(() => {
     const featuresContainer = featuresContainerRef.current;
     const feauturesSubContainers = featuresContainer.querySelectorAll(
@@ -61,116 +69,140 @@ const WhyPayezy = () => {
       </div>
       {!isMobile && (
         <div ref={featuresContainerRef} className={styles.feauturesContainer}>
-          <AnimatedOnScroll animationIn="bounce" delay={1000}>
-            <div
-              className={`${styles.feauturesSubContainer} ${styles.subContainer1}`}
-            >
-              <p className={styles.featuresText}>
-                {SEND_ENUM.fullyTransparentHeading}
-                <img
-                  src={fullyTransparentIcon}
-                  alt="fullyTransparent"
-                  className={styles.fullyTransparentIcon}
-                />
-              </p>
-              <p className={styles.definition}>
-                {SEND_ENUM.fullyTransparentDefinition}
-              </p>
-            </div>
-          </AnimatedOnScroll>
-          <AnimatedOnScroll animationIn="bounce" delay={1200}>
-            <div
-              className={`${styles.feauturesSubContainer} ${styles.subContainer2}`}
-            >
-              {" "}
-              <p className={styles.featuresText}>
-                {SEND_ENUM.fastAndEasy}
-                <img
-                  src={fastAndEasyIcon}
-                  alt="fastAndEasyIcon"
-                  className={styles.fastAndEasyIcon}
-                />
-              </p>
-              <p className={styles.definition}>
-                {SEND_ENUM.fastAndEasyDefinition}
-              </p>
-            </div>
-          </AnimatedOnScroll>
-          <AnimatedOnScroll animationIn="bounce" delay={1400}>
-            <div
-              className={`${styles.feauturesSubContainer} ${styles.subContainer3}`}
-            >
-              {" "}
-              <p className={styles.featuresText}>
-                {SEND_ENUM.bestExchangeRate}
-                <img
-                  src={bestFXRateIcon}
-                  alt="bestFXRateIcon"
-                  className={styles.bestFXRateIcon}
-                />
-              </p>
-              <p className={styles.definition}>
-                {SEND_ENUM.bestFXRateDefinition}
-              </p>
-            </div>
-          </AnimatedOnScroll>
+          {/* <AnimatedOnScroll animationIn="bounce" delay={1000}> */}
+          <div
+            className={`${styles.feauturesSubContainer} ${styles.subContainer1}`}
+            data-aos="slide-up"
+            data-aos-offset="200"
+            data-aos-duration="400"
+            data-aos-easing="ease-in"
+            data-aos-delay="50"
+          >
+            <p className={styles.featuresText}>
+              {SEND_ENUM.fullyTransparentHeading}
+              <img
+                src={fullyTransparentIcon}
+                alt="fullyTransparent"
+                className={styles.fullyTransparentIcon}
+              />
+            </p>
+            <p className={styles.definition}>
+              {SEND_ENUM.fullyTransparentDefinition}
+            </p>
+          </div>
+          {/* </AnimatedOnScroll> */}
+          {/* <AnimatedOnScroll animationIn="bounce" delay={1200}> */}
+          <div
+            data-aos="slide-up"
+            data-aos-offset="200"
+            data-aos-duration="400"
+            data-aos-easing="ease-in"
+            data-aos-delay="100"
+            className={`${styles.feauturesSubContainer} ${styles.subContainer2}`}
+          >
+            {" "}
+            <p className={styles.featuresText}>
+              {SEND_ENUM.fastAndEasy}
+              <img
+                src={fastAndEasyIcon}
+                alt="fastAndEasyIcon"
+                className={styles.fastAndEasyIcon}
+              />
+            </p>
+            <p className={styles.definition}>
+              {SEND_ENUM.fastAndEasyDefinition}
+            </p>
+          </div>
+          {/* </AnimatedOnScroll> */}
+          {/* <AnimatedOnScroll animationIn="bounce" delay={1400}> */}
+          <div
+            data-aos="slide-up"
+            data-aos-offset="200"
+            data-aos-duration="400"
+            data-aos-easing="ease-in"
+            data-aos-delay="150"
+            className={`${styles.feauturesSubContainer} ${styles.subContainer3}`}
+          >
+            {" "}
+            <p className={styles.featuresText}>
+              {SEND_ENUM.bestExchangeRate}
+              <img
+                src={bestFXRateIcon}
+                alt="bestFXRateIcon"
+                className={styles.bestFXRateIcon}
+              />
+            </p>
+            <p className={styles.definition}>
+              {SEND_ENUM.bestFXRateDefinition}
+            </p>
+          </div>
+          {/* </AnimatedOnScroll> */}
         </div>
       )}
       {isMobile && (
         <div ref={featuresContainerRef} className={styles.feauturesContainer}>
-          <AnimatedOnScroll animationIn="bounceInRight" delay={1000}>
-            <div
-              className={`${styles.feauturesSubContainer} ${styles.subContainer1}`}
-            >
-              <p className={styles.featuresText}>
-                {SEND_ENUM.fullyTransparentHeading}
-                <img
-                  src={fullyTransparentIcon}
-                  alt="fullyTransparent"
-                  className={styles.fullyTransparentIcon}
-                />
-              </p>
-              <p className={styles.definition}>
-                {SEND_ENUM.fullyTransparentDefinition}
-              </p>
-            </div>
-          </AnimatedOnScroll>
-          <AnimatedOnScroll animationIn="bounceInRight" delay={1200}>
-            <div
-              className={`${styles.feauturesSubContainer} ${styles.subContainer2}`}
-            >
-              {" "}
-              <p className={styles.featuresText}>
-                {SEND_ENUM.fastAndEasy}
-                <img
-                  src={fastAndEasyIcon}
-                  alt="fastAndEasyIcon"
-                  className={styles.fastAndEasyIcon}
-                />
-              </p>
-              <p className={styles.definition}>
-                {SEND_ENUM.fastAndEasyDefinition}
-              </p>
-            </div>
-          </AnimatedOnScroll>
-          <AnimatedOnScroll animationIn="bounceInRight" delay={1400}>
-            <div
-              className={`${styles.feauturesSubContainer} ${styles.subContainer3}`}
-            >
-              {" "}
-              <p className={styles.featuresText}>
-                {SEND_ENUM.bestExchangeRate}
-                <img
-                  src={bestFXRateIcon}
-                  alt="bestFXRateIcon"
-                  className={styles.bestFXRateIcon}
-                />
-              </p>
-              <p className={styles.definition}>
-                {SEND_ENUM.bestFXRateDefinition}
-              </p>
-            </div>
-          </AnimatedOnScroll>
+          <div
+            className={`${styles.feauturesSubContainer} ${styles.subContainer1}`}
+            data-aos="slide-left"
+            data-aos-offset="200"
+            data-aos-duration="400"
+            data-aos-easing="ease-in"
+            data-aos-delay="50"
+          >
+            <p className={styles.featuresText}>
+              {SEND_ENUM.fullyTransparentHeading}
+              <img
+                src={fullyTransparentIcon}
+                alt="fullyTransparent"
+                className={styles.fullyTransparentIcon}
+              />
+            </p>
+            <p className={styles.definition}>
+              {SEND_ENUM.fullyTransparentDefinition}
+            </p>
+          </div>
+          <div
+            className={`${styles.feauturesSubContainer} ${styles.subContainer2}`}
+            data-aos="slide-left"
+            data-aos-offset="200"
+            data-aos-duration="400"
+            data-aos-easing="ease-in"
+            data-aos-delay="100"
+          >
+            {" "}
+            <p className={styles.featuresText}>
+              {SEND_ENUM.fastAndEasy}
+              <img
+                src={fastAndEasyIcon}
+                alt="fastAndEasyIcon"
+                className={styles.fastAndEasyIcon}
+              />
+            </p>
+            <p className={styles.definition}>
+              {SEND_ENUM.fastAndEasyDefinition}
+            </p>
+          </div>
+          <div
+            className={`${styles.feauturesSubContainer} ${styles.subContainer3}`}
+            data-aos="slide-left"
+            data-aos-offset="200"
+            data-aos-duration="400"
+            data-aos-easing="ease-in"
+            data-aos-delay="150"
+          >
+            {" "}
+            <p className={styles.featuresText}>
+              {SEND_ENUM.bestExchangeRate}
+              <img
+                src={bestFXRateIcon}
+                alt="bestFXRateIcon"
+                className={styles.bestFXRateIcon}
+              />
+            </p>
+            <p className={styles.definition}>
+              {SEND_ENUM.bestFXRateDefinition}
+            </p>
+          </div>
         </div>
       )}
     </>
