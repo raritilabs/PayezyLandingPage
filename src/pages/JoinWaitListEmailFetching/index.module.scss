@@ -21,7 +21,7 @@
   border-radius: 10px;
   @media screen and (max-width: 992px) {
     font-size: 12px;
-    width: 90%;
+    width: 96%;
     padding: 10px;
   }
 }
@@ -48,30 +48,28 @@
   font-size: 21px;
   line-height: 26px;
   color: #ffffff;
-  padding: 7px 60px;
+  padding: 7px 0px;
   border: 0.3px solid #212c3d;
   background: linear-gradient(180deg, #212c3d 0%, #101d2e 100%);
   cursor: pointer;
   border-radius: 4px;
-
-  margin-right: 22px;
-  margin-left: 22px;
+  width: 50%;
 }
 .confirmButton {
   @media screen and (max-width: 992px) {
     font-size: 18px;
     padding: 7px 0px;
-    width: 40%;
+    width: 50%;
     margin-right: 0px;
     margin-left: 0px;
   }
 }
 .cancelButton {
-  padding: 7px 70px;
+  padding: 7px 0px;
   @media screen and (max-width: 992px) {
     font-size: 18px;
     padding: 7px 0px;
-    width: 40%;
+    width: 50%;
     margin-left: 0px;
   }
 }
@@ -82,6 +80,7 @@
   margin-top: 30px;
   display: flex;
   justify-content: center;
+  gap: 18px;
 }
 .cancelButton:hover {
   color: #fd5252;
@@ -125,4 +124,13 @@
   @media screen and (max-width: 992px) {
     font-size: 15px;
   }
+}
+.joinWaitlistText {
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 33px;
+  color: white;
+  padding-bottom: 20px;
+  text-align: center;
 }

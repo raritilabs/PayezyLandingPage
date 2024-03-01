@@ -56,11 +56,11 @@ const JoinWaitListEmailFetching = ({ setModalIsOpen }) => {
   return (
     <div>
       <div>
-        {" "}
+        <div className={styles.joinWaitlistText}>Join Waitlist</div>{" "}
         <input
           onChange={handleChangeEmail}
           type="text"
-          placeholder="Enter the Email"
+          placeholder="Enter your email"
           value={email}
           //   autoComplete="off"
           className={cx(styles.inputAmount, {
