@@ -199,12 +199,12 @@
   }
 }
 
-.feauturesSubContainer {
-  @media screen and (max-width: 992px) {
-    animation: slideInMob 0.8s ease forwards; /* Apply the slideIn animation to each div */
-    opacity: 0; /* Set initial opacity to 0 to ensure the divs start invisible */
-  }
-}
+// .feauturesSubContainer {
+//   @media screen and (max-width: 992px) {
+//     animation: slideInMob 0.8s ease forwards; /* Apply the slideIn animation to each div */
+//     opacity: 0; /* Set initial opacity to 0 to ensure the divs start invisible */
+//   }
+// }
 
 .feauturesSubContainer:nth-child(1) {
   animation-delay: 0.5s; /* Delay the animation for the first div by 0.1s */
@@ -221,11 +221,12 @@
 /* Styles for viewport width up to 992px */
 @media screen and (max-width: 992px) {
   .feauturesSubContainer {
-    width: 230px;
+    width: 100%;
     height: 189px;
   }
   .featuresText {
     font-size: 12px;
+    padding: 16px 24px 0px 13px;
   }
 }
 
