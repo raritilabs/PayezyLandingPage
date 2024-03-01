@@ -86,12 +86,14 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: -430px;
+
   @media screen and (max-width: 992px) {
     flex-direction: column;
     margin-bottom: 0px;
     margin-left: 0;
     position: relative;
     z-index: 9;
+    background: #0a0c19;
   }
 }
 .imageContainer {
@@ -107,6 +109,7 @@
   cursor: pointer;
   position: relative; /* Ensure the container is positioned relatively */
   @media screen and (max-width: 992px) {
+    cursor: none;
     // position: static;
   }
 }

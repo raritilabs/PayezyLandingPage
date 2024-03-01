@@ -122,6 +122,9 @@
   cursor: pointer;
   transition: opacity 0.6s ease; /* Add a transition for opacity */
   opacity: 1; /* Initially set opacity to 1 */
+  @media screen and (max-width: 992px) {
+    cursor: none;
+  }
 }
 
 .FAQHeading.closed {
