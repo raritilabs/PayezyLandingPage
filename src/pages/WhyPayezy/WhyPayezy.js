@@ -98,7 +98,7 @@ const WhyPayezy = () => {
         <div className={styles.feauturesContainer}>
           <div
             className={`${styles.feauturesSubContainer} ${styles.subContainer1}`}
-            data-aos="slide-left"
+            data-aos="fade-left"
             // data-aos-offset="200"
             data-aos-duration="200"
             data-aos-easing="ease-in"
@@ -118,7 +118,7 @@ const WhyPayezy = () => {
           </div>
           <div
             className={`${styles.feauturesSubContainer} ${styles.subContainer2}`}
-            data-aos="slide-left"
+            data-aos="fade-left"
             // data-aos-offset="200"
             data-aos-duration="400"
             data-aos-easing="ease-in"
@@ -139,7 +139,7 @@ const WhyPayezy = () => {
           </div>
           <div
             className={`${styles.feauturesSubContainer} ${styles.subContainer3}`}
-            data-aos="slide-left"
+            data-aos="fade-left"
             // data-aos-offset="200"
             data-aos-duration="600"
             data-aos-easing="ease-in"

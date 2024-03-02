@@ -31,7 +31,7 @@
   margin-right: auto;
   margin-left: auto;
   @media screen and (max-width: 992px) {
-    font-size: 12px;
+    font-size: 16px;
     width: auto;
     margin-bottom: 150px;
   }
@@ -43,6 +43,8 @@
   padding: 19px 20px;
   margin-top: 13px;
   margin-bottom: 14px;
+  font-size: 18px;
+  line-height: 32px;
   animation: fadeIn 2s ease-out forwards; /* Apply fadeIn animation with 1 second duration */
   border-radius: 5px;
   @media screen and (max-width: 992px) {
@@ -58,6 +60,11 @@
   }
 }
 .FAQHeading {
+  font-family: Metrophobic;
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px;
   display: flex;
   justify-content: space-between;
   z-index: 4;
