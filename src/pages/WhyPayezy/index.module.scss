@@ -15,6 +15,14 @@
   font-weight: 400;
   line-height: 160%; /* 72px */
   width: 447px;
+  // @media screen and (min-width: 1440px) {
+  //   width: 400px;
+  //   font-size: 43px;
+  // }
+  @media screen and (min-width: 6170px) {
+    width: 400px;
+    font-size: 43px;
+  }
   @media screen and (max-width: 992px) {
     width: auto;
     color: #e6e6e6;
@@ -53,7 +61,7 @@
   }
 }
 .lineContainer {
-  width: 56%;
+  width: 62%;
   border-bottom: 1px solid #0595b6;
   margin-bottom: -48px;
   @media screen and (max-width: 992px) {
@@ -290,6 +298,12 @@
   .feauturesSubContainer {
     width: 400px;
     height: 152px;
+  }
+}
+@media screen and (min-width: 1670px) and (max-width: 1440px) {
+  .whyPayezy {
+    width: 400px;
+    font-size: 43px;
   }
 }
 

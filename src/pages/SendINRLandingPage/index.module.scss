@@ -504,9 +504,9 @@ input:focus {
 }
 .backgroundLeftImageSimpleStyleSection {
   position: absolute;
-  margin-left: -516px;
+  margin-left: -408px;
   margin-top: -200px;
-  animation: mymove 102s infinite;
+  animation: mymove 200s infinite;
 }
 .backgroundLeftImageSimpleStyleSectionInMobile {
   display: none;
@@ -554,8 +554,11 @@ input:focus {
   25% {
     transform: rotate(45deg);
   }
-  0% {
+  50% {
     transform: rotate(90deg);
+  }
+  75% {
+    transform: rotate(180deg);
   }
   100% {
     transform: rotate(360deg);

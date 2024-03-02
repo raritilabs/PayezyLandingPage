@@ -31,7 +31,7 @@ const WhyPayezy = () => {
             data-aos-offset="200"
             data-aos-duration="400"
             data-aos-easing="ease-in"
-            data-aos-delay="50"
+            data-aos-delay="200"
           >
             <p className={styles.featuresText}>
               {SEND_ENUM.fullyTransparentHeading}
@@ -48,11 +48,11 @@ const WhyPayezy = () => {
           {/* </AnimatedOnScroll> */}
           {/* <AnimatedOnScroll animationIn="bounce" delay={1200}> */}
           <div
-            data-aos="slide-up"
+            data-aos="fade-up"
             data-aos-offset="200"
             data-aos-duration="400"
             data-aos-easing="ease-in"
-            data-aos-delay="100"
+            data-aos-delay="600"
             className={`${styles.feauturesSubContainer} ${styles.subContainer2}`}
           >
             {" "}
@@ -71,11 +71,11 @@ const WhyPayezy = () => {
           {/* </AnimatedOnScroll> */}
           {/* <AnimatedOnScroll animationIn="bounce" delay={1400}> */}
           <div
-            data-aos="slide-up"
+            data-aos="fade-up"
             data-aos-offset="200"
             data-aos-duration="400"
             data-aos-easing="ease-in"
-            data-aos-delay="150"
+            data-aos-delay="1000"
             className={`${styles.feauturesSubContainer} ${styles.subContainer3}`}
           >
             {" "}
