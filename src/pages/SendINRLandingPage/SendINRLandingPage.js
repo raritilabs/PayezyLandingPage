@@ -252,13 +252,13 @@ const SendINRLandingPage = ({
         />
       )} */}
       <JoinWaitlistSection />
-      {isMobile && (
+      {/* {isMobile && (
         <img
           src={backgroundRightSectionOneMob}
           className={styles.backgroundLeftImageSimpleStyleSectionInMobile}
           alt="backgroundLeftImage"
         />
-      )}
+      )} */}
       <WhyPayezy />
       {!isMobile && (
         <img
@@ -269,13 +269,13 @@ const SendINRLandingPage = ({
       )}
 
       <SimpleWayToSendMoney />
-      {!isMobile && (
+      {/* {!isMobile && (
         <img
           src={backgroundLeftImage}
           className={styles.backgroundLeftImageSimpleStyleSectionInMobile}
           alt="backgroundLeftImage"
         />
-      )}
+      )} */}
       <FAQSection />
       <Footer />
     </div>
