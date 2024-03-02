@@ -74,7 +74,7 @@
   }
 }
 .confirmButton:hover {
-  color: #a1e6f6;
+  color: #05d2ff;
 }
 .buttonContainer {
   margin-top: 30px;
@@ -87,7 +87,6 @@
 }
 .error {
   color: #fd5252;
-  margin-left: 75px;
   padding-bottom: 20px;
   font-family: "Metrophobic";
   font-weight: 400;
@@ -95,23 +94,24 @@
   margin-top: 10;
   margin-bottom: 0;
   @media screen and (max-width: 992px) {
-    margin-left: 17px;
+    // margin-left: 17px;
     font-size: 15px;
     // padding-right: 16px;
   }
 }
 .succesfullMessage {
   color: #a1e6f6;
-  margin-left: 75px;
   padding-bottom: 20px;
   font-family: "Metrophobic";
+  text-align: center;
   font-weight: 400;
   font-size: 21px;
+  margin-left: 20px;
+  margin-right: 20px;
   @media screen and (max-width: 992px) {
     margin-left: 2px;
     font-size: 15px;
-    letter-spacing: -1px;
-    text-align: justify;
+    text-align: center;
   }
 }
 .notetext {
@@ -133,4 +133,8 @@
   color: white;
   padding-bottom: 20px;
   text-align: center;
+}
+.imageConatiner {
+  display: flex;
+  justify-content: center;
 }

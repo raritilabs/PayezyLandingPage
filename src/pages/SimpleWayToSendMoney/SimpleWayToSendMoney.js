@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import styles from "./index.module.scss";
 import oneImage from "../../assets/OneImage.svg";
 import twoImage from "../../assets/TwoImage.svg";
@@ -10,19 +10,31 @@ import simpleWayToSendMoneyIconOne from "../../assets/hand phone group.svg";
 import simpleWayToSendMoneyIconOverlayTwo from "../../assets/imageTwoForSimpleWayToSend.svg";
 import simpleWayToSendMoneyIconOverlayThree from "../../assets/imageThreeForSimpleWayToSend.svg";
 import simpleWayToSendMoneyIconOverlayFour from "../../assets/imageFourForSimpleWayToSend.svg";
-import backgroundForMobile from "../../assets/backgroundForMobile.svg";
 import { AppContext } from "../../context";
+import AOS from "aos";
+import "aos/dist/aos.css";
 const SimpleWayToSendMoney = () => {
   const { isMobile } = useContext(AppContext);
   const [hoveredIndex, setHoveredIndex] = useState(0);
-
+  useEffect(() => {
+    AOS.init({
+      once: true,
+    });
+  }, []);
   return (
     <div className={styles.mainContainer}>
       <div className={styles.simpleWayToSendMoneyMainContainer}>
         <p className={styles.simpleWayToSendMoney}>
           {SEND_ENUM.simpleWayToSendMoney}
         </p>
-        <div className={styles.simpleWayToSendMoneySubContainer}>
+        <div
+          className={styles.simpleWayToSendMoneySubContainer}
+          data-aos="fade-right"
+          data-aos-offset="200"
+          data-aos-duration="400"
+          data-aos-easing="ease-in"
+          data-aos-delay="100"
+        >
           <div>
             <img src={oneImage} alt="oneImage" className={styles.oneImage} />
           </div>
@@ -55,7 +67,14 @@ const SimpleWayToSendMoney = () => {
             alt="simpleWayToSendMoney"
           />
         )}
-        <div className={styles.simpleWayToSendMoneySubContainer}>
+        <div
+          className={styles.simpleWayToSendMoneySubContainer}
+          data-aos="fade-right"
+          data-aos-offset="200"
+          data-aos-duration="400"
+          data-aos-easing="ease-in"
+          data-aos-delay="200"
+        >
           <div>
             <img src={twoImage} alt="twoImage" className={styles.twoImage} />
           </div>
@@ -85,7 +104,14 @@ const SimpleWayToSendMoney = () => {
             alt="simpleWayToSendMoney"
           />
         )}
-        <div className={styles.simpleWayToSendMoneySubContainer}>
+        <div
+          className={styles.simpleWayToSendMoneySubContainer}
+          data-aos="fade-right"
+          data-aos-offset="200"
+          data-aos-duration="400"
+          data-aos-easing="ease-in"
+          data-aos-delay="300"
+        >
           <div>
             <img
               src={threeImage}
@@ -119,7 +145,14 @@ const SimpleWayToSendMoney = () => {
             alt="simpleWayToSendMoney"
           />
         )}
-        <div className={styles.simpleWayToSendMoneySubContainer}>
+        <div
+          className={styles.simpleWayToSendMoneySubContainer}
+          data-aos="fade-right"
+          data-aos-offset="200"
+          data-aos-duration="400"
+          data-aos-easing="ease-in"
+          data-aos-delay="400"
+        >
           <div>
             <img src={fourImage} alt="fourImage" className={styles.fourImage} />
           </div>
