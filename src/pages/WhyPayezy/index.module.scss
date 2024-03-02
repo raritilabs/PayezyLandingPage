@@ -19,9 +19,26 @@
   //   width: 400px;
   //   font-size: 43px;
   // }
-  @media screen and (min-width: 6170px) {
+
+  @media screen and (min-width: 992px) and (max-width: 1519px) {
     width: 400px;
-    font-size: 43px;
+    font-size: 40px;
+  }
+  @media screen and (min-width: 1300px) and (max-width: 1465px) {
+    width: 370px;
+    font-size: 36px;
+  }
+  @media screen and (min-width: 1250px) and (max-width: 1341px) {
+    width: 350px;
+    font-size: 34px;
+  }
+  @media screen and (min-width: 1150px) and (max-width: 1296px) {
+    width: 280px;
+    font-size: 26px;
+  }
+  @media screen and (min-width: 992px) and (max-width: 1151px) {
+    width: 260px;
+    font-size: 21px;
   }
   @media screen and (max-width: 992px) {
     width: auto;
@@ -102,8 +119,8 @@
     padding-top: 10px;
     font-size: 15px;
   }
-  @media screen and (min-width: 1420px) {
-    font-size: 19px;
+  @media screen and (min-width: 994px) and (max-width: 1420px) {
+    font-size: 17px;
   }
 }
 .fullyTransparentIcon {
@@ -152,30 +169,6 @@
   height: 183px;
   background: linear-gradient(180deg, #232532 3.57%, #131521 103.57%);
   border-radius: 5px;
-  @media screen and (min-width: 1500px) {
-    width: 380px;
-    height: 152px;
-  }
-  @media screen and (min-width: 1550px) {
-    width: 400px;
-    height: 152px;
-  }
-  @media screen and (min-width: 1600px) {
-    width: 425px;
-    height: 152px;
-  }
-  @media screen and (max-width: 992px) {
-    width: 290px;
-    height: 153px;
-  }
-  @media screen and (min-width: 1420px) {
-    width: 363px;
-    height: 132px;
-  }
-  @media screen and (min-width: 1380px) {
-    width: 350px;
-    height: 190px;
-  }
 }
 @keyframes slideIn {
   0% {
@@ -239,13 +232,55 @@
 }
 
 /* Styles for viewport width from 992px to 1200px */
-@media screen and (min-width: 993px) and (max-width: 1200px) {
+@media screen and (min-width: 1151px) and (max-width: 1200px) {
   .feauturesSubContainer {
-    width: 250px;
-    height: 166px;
+    width: 281px;
+    height: 172px;
   }
   .featuresText {
     font-size: 14px;
+  }
+}
+@media screen and (min-width: 1084px) and (max-width: 1150px) {
+  .feauturesSubContainer {
+    width: 261px;
+    height: 176px;
+  }
+  .featuresText {
+    font-size: 14px;
+  }
+}
+@media screen and (min-width: 1022px) and (max-width: 1083px) {
+  .feauturesSubContainer {
+    width: 241px;
+    height: 176px;
+  }
+  .featuresText {
+    font-size: 12px;
+  }
+}
+@media screen and (min-width: 1201px) and (max-width: 1400px) {
+  .feauturesSubContainer {
+    width: 320px;
+    height: 172px;
+  }
+  .featuresText {
+    font-size: 14px;
+  }
+}
+@media screen and (min-width: 1401px) and (max-width: 1700px) {
+  .feauturesSubContainer {
+    width: 371px;
+    height: 172px;
+  }
+}
+@media screen and (min-width: 993px) and (max-width: 1021px) {
+  .feauturesSubContainer {
+    width: 231px;
+    height: 193px;
+  }
+  .featuresText {
+    font-size: 12px;
   }
 }
 
@@ -274,14 +309,6 @@
   .feauturesSubContainer {
     width: 350px;
     height: 190px;
-  }
-}
-
-/* Styles for viewport width 1420px and wider */
-@media screen and (min-width: 1420px) {
-  .feauturesSubContainer {
-    width: 363px;
-    height: 156px;
   }
 }
 

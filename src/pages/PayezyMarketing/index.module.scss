@@ -163,6 +163,9 @@
   line-height: 100%;
   color: white;
   margin-bottom: 40px;
+  @media screen and (min-width: 994px) and (max-width: 1420px) {
+    font-size: 40px;
+  }
 }
 .makingYourPaymentsMob {
   text-align: center;
