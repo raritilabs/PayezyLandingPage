@@ -7,7 +7,7 @@ import ButtonRade from "../../components/RadeButtons";
 import { SEND_ENUM } from "../../enums/sendEnum";
 import Modal from "react-modal";
 import JoinWaitListEmailFetching from "../JoinWaitListEmailFetching/JoinWaitListEmailFetching";
-
+import joinWaitlistButtonArrow from "../../assets/joinWaitlistButtonArrowNew.svg";
 const JoinWaitlistSection = () => {
   const { isMobile } = useContext(AppContext);
   // State to set the Modal open or close
@@ -35,6 +35,11 @@ const JoinWaitlistSection = () => {
           onClick={handleClickJoinWaitlistButton}
         >
           {SEND_ENUM.joinWaitlist}
+          <img
+            src={joinWaitlistButtonArrow}
+            alt="joinWaitlistButtonArrow"
+            className={styles.joinWaitlistButtonArrow}
+          />
         </ButtonRade>
       </div>
       <Modal
