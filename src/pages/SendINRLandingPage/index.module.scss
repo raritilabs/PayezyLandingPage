@@ -464,6 +464,10 @@ input:focus {
   display: flex;
   padding-right: 112px;
   justify-content: space-between;
+  @media screen and (min-width: 992px) and (max-width: 1280px) {
+    flex-direction: column;
+    justify-content: center;
+  }
 
   @media screen and (max-width: 992px) {
     flex-direction: column;
@@ -486,7 +490,9 @@ input:focus {
 }
 .payezyMarketingContainer {
   width: 673px;
-
+  @media screen and (min-width: 992px) and (max-width: 1380px) {
+    width: auto;
+  }
   @media screen and (max-width: 992px) {
     width: auto;
   }

@@ -533,6 +533,10 @@ input:focus {
   height: 356px;
   z-index: 2;
   border-radius: 5px;
+  @media screen and (min-width: 992px) and (max-width: 1380px) {
+    height: 384px;
+  }
+
   @media screen and (max-width: 992px) {
     margin-left: 20px;
     margin-right: 20px;
