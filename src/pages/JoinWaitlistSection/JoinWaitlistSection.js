@@ -20,15 +20,30 @@ const JoinWaitlistSection = () => {
   return (
     <div className={styles.joinWaitlistContainer}>
       {" "}
-      <div
-        className={cx(styles.withZeroFee, {
-          [styles.withZeroFeeMob]: isMobile,
-        })}
-      >
-        With <span style={{ color: "#F3E445" }}>$0</span> platform fees,{" "}
-        <span style={{ color: "#05D2FF" }}>Payezy</span> is the cheapest money
-        transfer platform in USA.
-      </div>
+      {!isMobile && (
+        <div
+          className={cx(styles.withZeroFee, {
+            [styles.withZeroFeeMob]: isMobile,
+          })}
+        >
+          With <span className={styles.zeroText}>zero</span>
+          fees <br />
+          <span>Payezy</span> is the cheapest money transfer platform in USA.
+        </div>
+      )}
+      {isMobile && (
+        <div
+          className={cx(styles.withZeroFee, {
+            [styles.withZeroFeeMob]: isMobile,
+          })}
+        >
+          With <span className={styles.zeroText}>zero</span>
+          fees <br />
+          <span>Payezy</span> is the cheapest money transfer
+          <br />
+          platform in USA.
+        </div>
+      )}
       <div className={styles.buttonContainer}>
         <ButtonRade
           customStyling={styles.joinWaitlistButton}

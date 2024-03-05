@@ -10,6 +10,10 @@ import simpleWayToSendMoneyIconOne from "../../assets/hand phone group.svg";
 import simpleWayToSendMoneyIconOverlayTwo from "../../assets/imageTwoForSimpleWayToSend.svg";
 import simpleWayToSendMoneyIconOverlayThree from "../../assets/imageThreeForSimpleWayToSend.svg";
 import simpleWayToSendMoneyIconOverlayFour from "../../assets/imageFourForSimpleWayToSend.svg";
+import simpleWaytoSendmoneyImageOne from "../../assets/simpleWaytoSendmoneyImageOne.svg";
+import simpleWaytoSendmoneyImageTwo from "../../assets/simpleWaytoSendmoneyImageTwo.svg";
+import simpleWaytoSendmoneyImageThree from "../../assets/simpleWaytoSendmoneyImageThree.svg";
+import simpleWaytoSendmoneyImageFour from "../../assets/simpleWaytoSendmoneyImageFour.svg";
 import { AppContext } from "../../context";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -280,12 +284,19 @@ const SimpleWayToSendMoney = () => {
               </div>
             </div>
             {isMobile && (
-              <img
-                src={simpleWayToSendMoneyIconOverlayOne}
-                // className={styles.simpleWayToSendMoneyIconOverlay}
-                className={styles.simpleWayToSendMoneyIconOverlayMobile}
-                alt="simpleWayToSendMoney"
-              />
+              <div
+                className={
+                  styles.simpleWayToSendMoneyIconOverlayMobileOneContainer
+                }
+              >
+                {" "}
+                <img
+                  src={simpleWaytoSendmoneyImageOne}
+                  // className={styles.simpleWayToSendMoneyIconOverlay}
+                  className={styles.simpleWayToSendMoneyIconOverlayMobileOne}
+                  alt="simpleWayToSendMoney"
+                />
+              </div>
             )}
             <div className={styles.simpleWayToSendMoneySubContainer}>
               <div>
@@ -315,7 +326,7 @@ const SimpleWayToSendMoney = () => {
             </div>
             {isMobile && (
               <img
-                src={simpleWayToSendMoneyIconOverlayTwo}
+                src={simpleWaytoSendmoneyImageTwo}
                 // className={styles.simpleWayToSendMoneyIconOverlay}
                 className={styles.simpleWayToSendMoneyIconOverlayMobile}
                 alt="simpleWayToSendMoney"
@@ -349,7 +360,7 @@ const SimpleWayToSendMoney = () => {
             </div>
             {isMobile && (
               <img
-                src={simpleWayToSendMoneyIconOverlayThree}
+                src={simpleWaytoSendmoneyImageThree}
                 // className={styles.simpleWayToSendMoneyIconOverlay}
                 className={styles.simpleWayToSendMoneyIconOverlayMobile}
                 alt="simpleWayToSendMoney"
@@ -384,7 +395,7 @@ const SimpleWayToSendMoney = () => {
           </div>
           {isMobile && (
             <img
-              src={simpleWayToSendMoneyIconOverlayFour}
+              src={simpleWaytoSendmoneyImageFour}
               // className={styles.simpleWayToSendMoneyIconOverlay}
               className={styles.simpleWayToSendMoneyIconOverlayMobile}
               alt="simpleWayToSendMoney"
