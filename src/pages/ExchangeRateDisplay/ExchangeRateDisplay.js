@@ -201,7 +201,7 @@ const ExchangeRateDisplay = ({
 
               <input
                 type="number"
-                placeholder="00.00"
+                placeholder="0.00"
                 value={amountInINR || ""}
                 min="0"
                 autoComplete="off"
