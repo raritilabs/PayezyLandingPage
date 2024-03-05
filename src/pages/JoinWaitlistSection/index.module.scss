@@ -5,6 +5,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: 160%;
+  text-align: center;
   /* 28.8px */
   margin-bottom: 25px;
   @media screen and (min-width: 1100px) and (max-width: 1449px) {
@@ -19,7 +20,14 @@
   margin-bottom: 37px;
   text-align: center;
 }
-
+.zeroText {
+  color: #83baca;
+  font-size: 50px;
+  margin-right: 3px;
+  @media screen and (max-width: 992px) {
+    font-size: 40px;
+  }
+}
 .joinWaitlistContainer {
   display: flex;
   flex-direction: column;
@@ -29,7 +37,7 @@
   align-items: center;
   background: url("../../assets/joinWaitlistBackground.svg");
   background-repeat: no-repeat;
-  background-position-y: 8px;
+  background-position-y: 66px;
   background-position-x: center;
   @media screen and (max-width: 992px) {
     margin-top: 0px;
@@ -41,9 +49,8 @@
 
     background: url("../../assets/joinwaitlistBackgroundMob.svg");
     background-repeat: no-repeat;
-    background-position-y: 8px;
+    background-position-y: 55px;
     background-position-x: center;
-    background-position-y: 15px;
   }
 }
 .joinWaitlistButton {

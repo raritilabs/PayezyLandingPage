@@ -192,11 +192,18 @@
   }
 }
 .simpleWayToSendMoneyIconOverlayMobile {
-  width: 165px;
-  height: 352px;
   margin-left: auto;
   margin-right: auto;
   display: flex;
   margin-top: 28px;
   margin-bottom: 48px;
+}
+.simpleWayToSendMoneyIconOverlayMobileOne {
+  display: flex;
+  margin-top: 28px;
+  margin-bottom: 48px;
+}
+.simpleWayToSendMoneyIconOverlayMobileOneContainer {
+  display: flex;
+  justify-content: end;
 }
