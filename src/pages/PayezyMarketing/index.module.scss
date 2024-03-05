@@ -28,6 +28,9 @@
   font-weight: 400;
   line-height: 160%;
   margin-bottom: 262px;
+  @media screen and (min-width: 992px) and (max-width: 1380px) {
+    text-align: center;
+  }
 }
 
 .sendMoneyToIndiaMob {
@@ -163,6 +166,9 @@
   line-height: 100%;
   color: white;
   margin-bottom: 40px;
+  @media screen and (min-width: 992px) and (max-width: 1380px) {
+    text-align: center;
+  }
   @media screen and (min-width: 994px) and (max-width: 1420px) {
     font-size: 40px;
   }
