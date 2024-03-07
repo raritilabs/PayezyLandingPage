@@ -5,11 +5,9 @@ import { useContext, useEffect } from "react";
 import { AppContext } from "../../context";
 import { SEND_ENUM } from "../../enums/sendEnum";
 import RadeButton from "../../components/RadeButtons";
-import NextIcon from "../../assets/NextIcon";
-import sendNowArrow from "../../assets/sendNowArrow.js";
 import SendNowArrow from "../../assets/sendNowArrow.js";
-import RighSideBackgroundSectionOne from "../../assets/RighSideBackgroundSectionOne.svg";
-import backgroundLeftImage from "../../assets/backGroundSectionOneLeft.svg";
+import Modal from "react-modal";
+import JoinWaitListEmailFetching from "../JoinWaitListEmailFetching/JoinWaitListEmailFetching.js";
 
 const ExchangeRateDisplay = ({
   amountInUSD,
@@ -17,19 +15,26 @@ const ExchangeRateDisplay = ({
   setAmountInINR,
   usdToInrExRate,
   treasuryBalance,
-  fetchingPrice,
-  errorForLogin,
-  handleClickProceedButton,
   handleChageAmountInUSD,
   paymentType,
   setFetchingPrice,
+  setErrorForLogin,
+  errorForLogin,
 }) => {
   const { isMobile, profileEmail } = useContext(AppContext);
   const MAX_DECIMAL_PLACE = 2; //varibale that defines maximum decimal place after integer
   const [processingCharge, setProcessingCharge] = useState(null); //state that store processing charge
   const MAX_BANK_PROCESSING_CHARGE = 5; //varibale that store maximum bank tranfer processing charge
   const MAX_ALLOWED_TRANSFER = 2000; //varibale that store maximum allowed tranfer
-
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const handleClickSendNow = () => {
+    if (!amountInUSD) {
+      setErrorForLogin("Please enter an amount to continue!");
+    } else {
+      setModalIsOpen(true);
+      console.log("modalIsOpen", modalIsOpen);
+    }
+  };
   useEffect(() => {
     // Function to convert the currency
     const convert = () => {
@@ -221,15 +226,18 @@ const ExchangeRateDisplay = ({
             </div>
           </div>
         </div>
-
+        {errorForLogin ? (
+          <div className={styles.errorMessageForLogin}>{errorForLogin} </div>
+        ) : (
+          "-"
+        )}
         <div
           className={cx(styles.buttonContainer, {
             [styles.buttonContainerMob]: isMobile,
           })}
         >
           <RadeButton
-            onClick={handleClickProceedButton}
-            disabled={fetchingPrice}
+            onClick={handleClickSendNow}
             customStyling={cx(styles.proceedButton, {
               [styles.proceedButtonMob]: isMobile,
             })}
@@ -243,11 +251,15 @@ const ExchangeRateDisplay = ({
           </RadeButton>
         </div>
       </div>
-      {/* <img
-        src={backgroundLeftImage}
-        className={styles.RighSideBackgroundSectionOne}
-        alt="backgroundLeftImage"
-      /> */}
+      <Modal
+        isOpen={modalIsOpen}
+        overlayClassName={styles.popupOverlay}
+        className={styles.popupContent}
+        shouldCloseOnOverlayClick={false}
+        ariaHideApp={false}
+      >
+        <JoinWaitListEmailFetching setModalIsOpen={setModalIsOpen} />
+      </Modal>
     </div>
   );
 };
