@@ -224,6 +224,7 @@ const SendINRLandingPage = ({
               handleChageAmountInUSD={handleChageAmountInUSD}
               fetchingPrice={fetchingPrice}
               errorForLogin={errorForLogin}
+              setErrorForLogin={setErrorForLogin}
               handleClickProceedButton={handleClickProceedButton}
               amountInINR={amountInINR}
               usdToInrExRate={usdToInrExRate}

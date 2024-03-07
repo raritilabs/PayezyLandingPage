@@ -50,11 +50,13 @@ const JoinWaitlistSection = () => {
           onClick={handleClickJoinWaitlistButton}
         >
           {SEND_ENUM.joinWaitlist}
-          <img
-            src={joinWaitlistButtonArrow}
-            alt="joinWaitlistButtonArrow"
-            className={styles.joinWaitlistButtonArrow}
-          />
+          <div className={styles.joinWaitlistButtonArrowContainer}>
+            <img
+              src={joinWaitlistButtonArrow}
+              alt="joinWaitlistButtonArrow"
+              className={styles.joinWaitlistButtonArrow}
+            />
+          </div>
         </ButtonRade>
       </div>
       <Modal
