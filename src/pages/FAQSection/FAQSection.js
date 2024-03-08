@@ -57,13 +57,13 @@ function FAQSection() {
           </div>
         ))}
       </div>
-      <div className={styles.FAQSectionBackgroundContainer}>
+      {/* <div className={styles.FAQSectionBackgroundContainer}>
         <img
           src={FAQSectionBackground}
           alt="FAQSectionBackground"
           className={styles.FAQSectionBackground}
         />
-      </div>
+      </div> */}
     </div>
   );
 }

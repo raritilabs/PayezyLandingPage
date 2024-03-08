@@ -171,7 +171,9 @@ html {
   left: 0;
   width: 100%;
   z-index: 9999;
-  background: #0a0c19;
+  @media only screen and (min-width: 1901px) {
+    max-width: 1566px;
+  }
 }
 .headerContainerMob {
   position: static;
