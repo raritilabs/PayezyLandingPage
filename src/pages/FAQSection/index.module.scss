@@ -147,11 +147,17 @@
 }
 .FAQMainContainer {
   position: relative;
-  margin-top: 716px;
-  margin-left: 20px;
-  margin-right: 20px;
+  padding-top: 716px;
+
+  background: url("../../assets/FAQSectionBackground.svg");
+  background-position: right;
+  background-repeat: no-repeat;
+  background-position-y: 600px;
   @media screen and (max-width: 992px) {
     margin-top: 100px;
+  }
+  @media only screen and (min-width: 1901px) {
+    background: none;
   }
 }
 .FAQDescription {
