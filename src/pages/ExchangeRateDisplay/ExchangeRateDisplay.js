@@ -5,11 +5,9 @@ import { useContext, useEffect } from "react";
 import { AppContext } from "../../context";
 import { SEND_ENUM } from "../../enums/sendEnum";
 import RadeButton from "../../components/RadeButtons";
-import NextIcon from "../../assets/NextIcon";
-import sendNowArrow from "../../assets/sendNowArrow.js";
 import SendNowArrow from "../../assets/sendNowArrow.js";
-import RighSideBackgroundSectionOne from "../../assets/RighSideBackgroundSectionOne.svg";
-import backgroundLeftImage from "../../assets/backGroundSectionOneLeft.svg";
+import Modal from "react-modal";
+import JoinWaitListEmailFetching from "../JoinWaitListEmailFetching/JoinWaitListEmailFetching.js";
 
 const ExchangeRateDisplay = ({
   amountInUSD,
@@ -17,19 +15,26 @@ const ExchangeRateDisplay = ({
   setAmountInINR,
   usdToInrExRate,
   treasuryBalance,
-  fetchingPrice,
-  errorForLogin,
-  handleClickProceedButton,
   handleChageAmountInUSD,
   paymentType,
   setFetchingPrice,
+  setErrorForLogin,
+  errorForLogin,
 }) => {
   const { isMobile, profileEmail } = useContext(AppContext);
   const MAX_DECIMAL_PLACE = 2; //varibale that defines maximum decimal place after integer
   const [processingCharge, setProcessingCharge] = useState(null); //state that store processing charge
   const MAX_BANK_PROCESSING_CHARGE = 5; //varibale that store maximum bank tranfer processing charge
   const MAX_ALLOWED_TRANSFER = 2000; //varibale that store maximum allowed tranfer
-
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const handleClickSendNow = () => {
+    if (!amountInUSD) {
+      setErrorForLogin("Please enter an amount to continue!");
+    } else {
+      setModalIsOpen(true);
+      console.log("modalIsOpen", modalIsOpen);
+    }
+  };
   useEffect(() => {
     // Function to convert the currency
     const convert = () => {
@@ -201,7 +206,7 @@ const ExchangeRateDisplay = ({
 
               <input
                 type="number"
-                placeholder="00.00"
+                placeholder="0.00"
                 value={amountInINR || ""}
                 min="0"
                 autoComplete="off"
@@ -221,160 +226,21 @@ const ExchangeRateDisplay = ({
             </div>
           </div>
         </div>
-        {/* {fetchingPrice && !usdToInrExRate && amountInUSD > 0 && (
-          <div className={styles.USDConvertionRate}>
-            Fetching USD to INR conversion rate
-            <div className={styles.spinnerOverlay}>
-              <div className={styles.spinnerContainer} />
-            </div>
-          </div>
-        )} */}
-
-        {/* {amountInUSD > 0 && (
-          <div className={styles.feeBreakDown}>Charges Breakdown</div>
-        )} */}
-        {/* {paymentType === SEND_ENUM.bankTransfer && amountInUSD > 0 && (
-          <div className={styles.feeBreakDownContainer}>
-            {" "}
-            <div className={styles.bankTransferCharge}>
-              {SEND_ENUM.bankTransferCharges}
-            </div>
-            <div className={styles.bankTransferCharge}>
-              {paymentType === SEND_ENUM.bankTransfer && processingCharge && (
-                <>
-                  ${" "}
-                  {processingCharge > MAX_BANK_PROCESSING_CHARGE
-                    ? MAX_BANK_PROCESSING_CHARGE
-                    : processingCharge.toFixed(MAX_DECIMAL_PLACE)}
-                </>
-              )}
-            </div>
-          </div>
+        {errorForLogin ? (
+          <div className={styles.errorMessageForLogin}>{errorForLogin} </div>
+        ) : (
+          "-"
         )}
-        {paymentType === SEND_ENUM.cardPayment && amountInUSD > 0 && (
-          <div className={styles.feeBreakDownContainer}>
-            {" "}
-            <div className={styles.bankTransferCharge}>
-              {SEND_ENUM.cardProcessingCharge}
-            </div>
-            <div className={styles.bankTransferCharge}>
-              {paymentType === SEND_ENUM.cardPayment && processingCharge && (
-                <>$ {processingCharge.toFixed(MAX_DECIMAL_PLACE)}</>
-              )}
-            </div>
-          </div>
-        )}
-        {paymentType === SEND_ENUM.bankTransfer && amountInUSD > 0 && (
-          <div className={styles.cappedAt5Container}>
-            {" "}
-            <div className={styles.cappedAt5}>(Capped at $5.00)</div>
-          </div>
-        )}
-        {amountInUSD > 0 && (
-          <div className={styles.radeFeeContainer}>
-            {" "}
-            <div className={styles.bankTransferCharge}>
-              Payezy Platform Fees
-            </div>
-            <div className={styles.bankTransferCharge}>
-              <>$0.00</>
-            </div>
-          </div>
-        )} */}
-        {/* {amountInUSD > 0 &&
-          processingCharge &&
-          paymentType === SEND_ENUM.bankTransfer && (
-            <div className={styles.radeFeeContainer}>
-              {" "}
-              <div className={styles.bankTransferChargeTotal}>
-                Total Charges
-              </div>
-              <div className={styles.bankTransferChargeTotal}>
-                <>
-                  ${" "}
-                  {processingCharge > MAX_BANK_PROCESSING_CHARGE
-                    ? MAX_BANK_PROCESSING_CHARGE
-                    : processingCharge.toFixed(MAX_DECIMAL_PLACE)}
-                </>
-              </div>
-            </div>
-          )}
-
-        {amountInUSD > 0 && (
-          <div className={styles.feeBreakDown}>{SEND_ENUM.feeBreakDown}</div>
-        )} */}
-        {/* {amountInUSD > 0 && (
-          <div className={styles.feeBreakDownContainerAmountPaid}>
-            {" "}
-            <div className={styles.bankTransferCharge}>Amount Paid (Due)</div>
-            <div className={styles.bankTransferCharge}>
-              <>$ {amountInUSD}</>
-            </div>
-          </div>
-        )}
-        {amountInUSD > 0 && (
-          <div className={styles.feeBreakDownContainerAmountPaid}>
-            {" "}
-            <div className={styles.bankTransferCharge}>Amount Exchanged</div>
-            <div className={styles.bankTransferCharge}>
-              <>
-                ${" "}
-                {processingCharge < 5
-                  ? (amountInUSD - processingCharge).toFixed(MAX_DECIMAL_PLACE)
-                  : (amountInUSD - 5).toFixed(MAX_DECIMAL_PLACE)}
-              </>
-            </div>
-          </div>
-        )}
-        {amountInUSD > 0 && (
-          <div className={styles.feeBreakDownNetTransfer}>Net Transfer</div>
-        )}
-        {amountInINR && amountInUSD > 0 && processingCharge && (
-          <div className={styles.radeFeeContainer}>
-            {" "}
-            <div className={styles.bankTransferChargeTotal}>
-              Total INR Transferred
-            </div>
-            <div className={styles.bankTransferChargeTotal}>
-              <>₹{amountInINR}</>
-            </div>
-          </div>
-        )}
-        {amountInINR > 0 && processingCharge && (
-          <div className={styles.radeFeeContainerInclucingTax}>
-            {" "}
-            <div className={styles.bankTransferChargeTotal}>
-              Effective mid-market rate
-              <div className={styles.includingTaxes}>
-                {" "}
-                (inc. taxes and charges)
-              </div>
-            </div>
-            <div className={styles.bankTransferChargeTotal}>
-              <>₹{(amountInINR / amountInUSD).toFixed(MAX_DECIMAL_PLACE)}</>
-            </div>
-          </div>
-        )} */}
-        {/* {errorForLogin && (
-          <div className={styles.errorMessageForLogin}>{errorForLogin}</div>
-        )} */}
         <div
           className={cx(styles.buttonContainer, {
             [styles.buttonContainerMob]: isMobile,
           })}
         >
           <RadeButton
-            onClick={handleClickProceedButton}
-            disabled={fetchingPrice}
-            customStyling={cx(
-              styles.proceedButton,
-              {
-                [styles.proceedButtonMob]: isMobile,
-              },
-              {
-                [styles.disabledButton]: fetchingPrice, // Apply the disabledButton class when fetchingPrice is true
-              }
-            )}
+            onClick={handleClickSendNow}
+            customStyling={cx(styles.proceedButton, {
+              [styles.proceedButtonMob]: isMobile,
+            })}
           >
             <span className={styles.sendNowText}> {SEND_ENUM.sendNow}</span>
             <span className={styles.sendNowArrow}>
@@ -385,11 +251,15 @@ const ExchangeRateDisplay = ({
           </RadeButton>
         </div>
       </div>
-      {/* <img
-        src={backgroundLeftImage}
-        className={styles.RighSideBackgroundSectionOne}
-        alt="backgroundLeftImage"
-      /> */}
+      <Modal
+        isOpen={modalIsOpen}
+        overlayClassName={styles.popupOverlay}
+        className={styles.popupContent}
+        shouldCloseOnOverlayClick={false}
+        ariaHideApp={false}
+      >
+        <JoinWaitListEmailFetching setModalIsOpen={setModalIsOpen} />
+      </Modal>
     </div>
   );
 };

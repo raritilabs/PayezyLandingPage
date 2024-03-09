@@ -3,8 +3,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 76px;
-  padding-bottom: 198px;
+  padding-top: 56px;
+  padding-bottom: 130px;
   padding-left: 162px;
   padding-right: 112px;
   z-index: 2;
@@ -31,6 +31,10 @@
 .logoContainer {
   display: flex;
   gap: 3px;
+  cursor: pointer;
+  @media screen and (max-width: 992px) {
+    cursor: none;
+  }
 }
 
 .docsButton {
@@ -46,7 +50,7 @@
 }
 .docsButtonMob {
   font-size: 18px;
-  padding-right: 10px;
+  padding-right: 19px;
 }
 .ifLogin {
   @media screen and (max-width: 992px) {
@@ -182,6 +186,31 @@
   background: #081527;
   border-radius: 15px;
   width: 506px;
+  height: auto;
+  overflow: auto;
+  @media screen and (max-width: 992px) {
+    width: 100%;
+    margin-left: 14px;
+    margin-right: 14px;
+  }
+}
+.popupOverlay {
+  position: fixed;
+  inset: 0px;
+  background: rgba(196, 196, 196, 0.15);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 200000;
+  color: white;
+}
+.popupContent {
+  background: linear-gradient(180deg, #212c3d 0%, #101d2e 100%);
+
+  border-radius: 15px;
+  width: 506px;
+  padding: 36px 36px 26px 36px;
   height: auto;
   overflow: auto;
   @media screen and (max-width: 992px) {

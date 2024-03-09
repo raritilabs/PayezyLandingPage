@@ -11,6 +11,7 @@
   margin-top: 0px;
   margin-bottom: 0px;
   width: 557px;
+  margin-bottom: 38px;
   @media screen and (max-width: 992px) {
     width: auto;
     color: var(--white, #fff);
@@ -81,12 +82,20 @@
   }
 }
 .mainContainer {
+  overflow: hidden;
+  margin-left: 162px;
   display: flex;
   justify-content: space-between;
-  margin-bottom: -330px;
+  margin-bottom: -430px;
+  height: 665px;
   @media screen and (max-width: 992px) {
     flex-direction: column;
     margin-bottom: 0px;
+    margin-left: 0;
+    position: relative;
+    z-index: 9;
+    background: #0a0c19;
+    height: auto;
   }
 }
 .imageContainer {
@@ -96,13 +105,14 @@
 }
 
 .imageContainer {
-  width: 40%;
+  width: 37%;
 }
 .simpleWayToSendMoneyMainContainer {
   cursor: pointer;
   position: relative; /* Ensure the container is positioned relatively */
   @media screen and (max-width: 992px) {
-    position: static;
+    cursor: none;
+    // position: static;
   }
 }
 
@@ -148,10 +158,10 @@
     line-height: normal;
   }
 }
-.delayed-animation {
-  opacity: 0; /* Initially make the image transparent */
-  transition: opacity 6s ease; /* Define the transition */
-}
+// .delayed-animation {
+//   opacity: 0; /* Initially make the image transparent */
+//   transition: opacity 6s ease; /* Define the transition */
+// }
 
 .simpleWayToSendMoneyIconOverlay {
   // margin-left: 257px;
@@ -161,7 +171,7 @@
   bottom: 739px;
   border-radius: 10px;
   z-index: 2;
-  animation: fadeIn 2s ease-out forwards; /* Apply fadeIn animation with 1 second duration */
+  animation: fadeIn 0.8s ease-out forwards; /* Apply fadeIn animation with 1 second duration */
 }
 @keyframes fadeIn {
   from {
@@ -182,11 +192,18 @@
   }
 }
 .simpleWayToSendMoneyIconOverlayMobile {
-  width: 165px;
-  height: 352px;
   margin-left: auto;
   margin-right: auto;
   display: flex;
   margin-top: 28px;
   margin-bottom: 48px;
+}
+.simpleWayToSendMoneyIconOverlayMobileOne {
+  display: flex;
+  margin-top: 28px;
+  margin-bottom: 48px;
+}
+.simpleWayToSendMoneyIconOverlayMobileOneContainer {
+  display: flex;
+  justify-content: end;
 }

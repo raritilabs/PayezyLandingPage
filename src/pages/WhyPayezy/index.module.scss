@@ -1,8 +1,10 @@
 .whyPayezyContainer {
   display: flex;
+  margin-left: 162px;
   align-items: center;
   @media screen and (max-width: 992px) {
     flex-direction: column;
+    margin-left: 0;
   }
 }
 .whyPayezy {
@@ -13,6 +15,31 @@
   font-weight: 400;
   line-height: 160%; /* 72px */
   width: 447px;
+  // @media screen and (min-width: 1440px) {
+  //   width: 400px;
+  //   font-size: 43px;
+  // }
+
+  @media screen and (min-width: 992px) and (max-width: 1519px) {
+    width: 400px;
+    font-size: 40px;
+  }
+  @media screen and (min-width: 1300px) and (max-width: 1465px) {
+    width: 370px;
+    font-size: 36px;
+  }
+  @media screen and (min-width: 1250px) and (max-width: 1341px) {
+    width: 350px;
+    font-size: 34px;
+  }
+  @media screen and (min-width: 1150px) and (max-width: 1296px) {
+    width: 280px;
+    font-size: 26px;
+  }
+  @media screen and (min-width: 992px) and (max-width: 1151px) {
+    width: 260px;
+    font-size: 21px;
+  }
   @media screen and (max-width: 992px) {
     width: auto;
     color: #e6e6e6;
@@ -51,7 +78,7 @@
   }
 }
 .lineContainer {
-  width: 56%;
+  width: 62%;
   border-bottom: 1px solid #0595b6;
   margin-bottom: -48px;
   @media screen and (max-width: 992px) {
@@ -59,11 +86,12 @@
   }
 }
 .feauturesContainer {
+  margin-left: 162px;
   display: flex;
   justify-content: space-between;
   margin-right: 122px;
   margin-top: 48px;
-  margin-bottom: 413px;
+  margin-bottom: 313px;
   @media screen and (max-width: 992px) {
     flex-direction: column;
     margin-right: 20px;
@@ -75,6 +103,9 @@
   }
 }
 .featuresText {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 30px 0px 30px;
   color: #e6e6e6;
   text-align: center;
   font-family: Michroma;
@@ -88,13 +119,16 @@
     padding-top: 10px;
     font-size: 15px;
   }
+  @media screen and (min-width: 994px) and (max-width: 1420px) {
+    font-size: 17px;
+  }
 }
 .fullyTransparentIcon {
   margin-left: 49px;
   @media screen and (max-width: 992px) {
     width: 21.627px;
     height: 24.248px;
-    margin-left: 71px;
+    margin-left: 52px;
   }
 }
 .fastAndEasyIcon {
@@ -102,7 +136,7 @@
   @media screen and (max-width: 992px) {
     width: 19.686px;
     height: 22.836px;
-    margin-left: 104px;
+    margin-left: 87px;
   }
 }
 .bestFXRateIcon {
@@ -110,7 +144,7 @@
   @media screen and (max-width: 992px) {
     width: 14.973px;
     height: 23.641px;
-    margin-left: 60px;
+    margin-left: 35px;
   }
 }
 .definition {
@@ -132,25 +166,9 @@
 }
 .feauturesSubContainer {
   width: 368px;
-  height: 207px;
+  height: 183px;
   background: linear-gradient(180deg, #232532 3.57%, #131521 103.57%);
   border-radius: 5px;
-  @media screen and (min-width: 1500px) {
-    width: 380px;
-    height: 152px;
-  }
-  @media screen and (min-width: 1550px) {
-    width: 400px;
-    height: 152px;
-  }
-  @media screen and (min-width: 1600px) {
-    width: 425px;
-    height: 152px;
-  }
-  @media screen and (max-width: 992px) {
-    width: 290px;
-    height: 132px;
-  }
 }
 @keyframes slideIn {
   0% {
@@ -166,10 +184,10 @@
 }
 
 .feauturesSubContainer {
-  animation: slideIn 0.5s ease forwards; /* Apply the slideIn animation to each div */
-  opacity: 0; /* Set initial opacity to 0 to ensure the divs start invisible */
+  // animation: slideIn 0.5s ease forwards; /* Apply the slideIn animation to each div */
+  // opacity: 0; /* Set initial opacity to 0 to ensure the divs start invisible */
 }
-@keyframes slideIn {
+@keyframes slideInMob {
   from {
     transform: translateX(
       -100%
@@ -182,12 +200,12 @@
   }
 }
 
-.feauturesSubContainer {
-  @media screen and (max-width: 992px) {
-    animation: slideIn 0.8s ease forwards; /* Apply the slideIn animation to each div */
-    opacity: 0; /* Set initial opacity to 0 to ensure the divs start invisible */
-  }
-}
+// .feauturesSubContainer {
+//   @media screen and (max-width: 992px) {
+//     animation: slideInMob 0.8s ease forwards; /* Apply the slideIn animation to each div */
+//     opacity: 0; /* Set initial opacity to 0 to ensure the divs start invisible */
+//   }
+// }
 
 .feauturesSubContainer:nth-child(1) {
   animation-delay: 0.5s; /* Delay the animation for the first div by 0.1s */
@@ -199,4 +217,130 @@
 
 .feauturesSubContainer:nth-child(3) {
   animation-delay: 0.9s; /* Delay the animation for the third div by 0.3s */
+}
+
+/* Styles for viewport width up to 992px */
+@media screen and (max-width: 992px) {
+  .feauturesSubContainer {
+    width: 100%;
+    height: 189px;
+  }
+  .featuresText {
+    font-size: 16px;
+    padding: 16px 24px 0px 13px;
+  }
+}
+
+/* Styles for viewport width from 992px to 1200px */
+@media screen and (min-width: 1151px) and (max-width: 1200px) {
+  .feauturesSubContainer {
+    width: 281px;
+    height: 172px;
+  }
+  .featuresText {
+    font-size: 14px;
+  }
+}
+@media screen and (min-width: 1084px) and (max-width: 1150px) {
+  .feauturesSubContainer {
+    width: 261px;
+    height: 176px;
+  }
+  .featuresText {
+    font-size: 14px;
+  }
+}
+@media screen and (min-width: 1022px) and (max-width: 1083px) {
+  .feauturesSubContainer {
+    width: 241px;
+    height: 176px;
+  }
+  .featuresText {
+    font-size: 12px;
+  }
+}
+@media screen and (min-width: 1201px) and (max-width: 1400px) {
+  .feauturesSubContainer {
+    width: 320px;
+    height: 172px;
+  }
+  .featuresText {
+    font-size: 14px;
+  }
+}
+@media screen and (min-width: 1401px) and (max-width: 1700px) {
+  .feauturesSubContainer {
+    width: 371px;
+    height: 172px;
+  }
+  .featuresText {
+    font-size: 14px;
+  }
+}
+@media screen and (min-width: 993px) and (max-width: 1021px) {
+  .feauturesSubContainer {
+    width: 231px;
+    height: 193px;
+  }
+  .featuresText {
+    font-size: 12px;
+  }
+}
+
+/* Styles for viewport width from 1201px to 1300px */
+@media screen and (min-width: 1201px) and (max-width: 1300px) {
+  .feauturesSubContainer {
+    width: 300px;
+    height: 166px;
+  }
+  .featuresText {
+    font-size: 14px;
+  }
+}
+
+/* Add more media queries for other screen sizes as needed */
+/* Styles for viewport width up to 992px */
+@media screen and (max-width: 992px) {
+  .feauturesSubContainer {
+    width: 290px;
+    height: 153px;
+  }
+}
+
+/* Styles for viewport width from 1380px to 1419px */
+@media screen and (min-width: 1380px) and (max-width: 1419px) {
+  .feauturesSubContainer {
+    width: 350px;
+    height: 190px;
+  }
+}
+
+/* Styles for viewport width from 1500px to 1549px */
+@media screen and (min-width: 1500px) and (max-width: 1549px) {
+  .feauturesSubContainer {
+    width: 380px;
+    height: 152px;
+  }
+}
+
+/* Styles for viewport width from 1550px to 1599px */
+@media screen and (min-width: 1550px) and (max-width: 1599px) {
+  .feauturesSubContainer {
+    width: 400px;
+    height: 152px;
+  }
+}
+@media screen and (min-width: 1670px) and (max-width: 1440px) {
+  .whyPayezy {
+    width: 400px;
+    font-size: 43px;
+  }
+}
+
+/* Styles for viewport width 1600px and wider */
+@media screen and (min-width: 1600px) {
+  .feauturesSubContainer {
+    width: 425px;
+    height: 152px;
+  }
 }

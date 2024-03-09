@@ -3,138 +3,67 @@ import FAQArrow from "../../assets/FAQArrow.svg";
 import styles from "./index.module.scss";
 import { SEND_ENUM } from "../../enums/sendEnum";
 import FAQSectionBackground from "../../assets/FAQSectionBackground.svg";
+
 function FAQSection() {
   const [FAQexpanded, setFAQExpanded] = useState(Array(7).fill(false));
 
   const toggleFAQ = (index) => {
-    const newExpandedState = [...FAQexpanded];
-    newExpandedState[index] = !newExpandedState[index];
-    setFAQExpanded(newExpandedState);
+    setFAQExpanded((prevState) => {
+      const newExpandedState = [...prevState];
+      newExpandedState[index] = !newExpandedState[index];
+      return newExpandedState;
+    });
   };
+  const faqQuestions = [
+    SEND_ENUM.whatIsTransferFee,
+    SEND_ENUM.whichCountriesAre,
+    SEND_ENUM.howToSendMoneyToIndia,
+    SEND_ENUM.doesReciepientNeedToSignup,
+    SEND_ENUM.howMuchTimeItTakes,
+    SEND_ENUM.whyIsKYCRequired,
+    SEND_ENUM.areTransactionDoneOne,
+  ];
 
+  const faqAnswers = [
+    "Absolutely Zero. Yes, you read it right. Nada. Zilch. Zero!",
+    "Currently we only support remittances to India from USA.",
+    "Its simple. By using our app you will be able to make transfer request by giving us the details of the recipient’s bank account and process the payment via ACH or Credit Card. ",
+    "No. Not at all. The amount will be credited to the recipients bank account directly.",
+    "In few minutes.",
+    "To comply with regulatory requirements, you need to verify your identity (or KYC) for sending money.",
+    "Account security is important to us and we've taken several steps to protect your payezy account-related information. Rariti, Inc. offers  electronic financial payment services by collaborating with partners in both USA and India, which are fully licensed and compliant with their respective authorities. ",
+  ];
   return (
     <div className={styles.FAQMainContainer}>
       <p className={styles.FAQText}>{SEND_ENUM.FAQ}</p>
       <div className={styles.FAQSection}>
-        <div onClick={() => toggleFAQ(0)} className={styles.FAQHeading}>
-          {SEND_ENUM.whatIsTransferFee}{" "}
-          <img
-            src={FAQArrow}
-            alt="FAQ"
-            className={styles.FAQArrowSix}
-            style={{
-              transform: FAQexpanded[0] ? "rotate(90deg)" : "none",
-              transition: "transform 1s ease",
-            }}
-          />
-          {FAQexpanded[0] && (
-            <span className={styles.description}>
-              {" "}
-              Absolutely Zero. Yes, you read it right. Nada. Zilch. Zero!
-            </span>
-          )}
-        </div>
-        <div onClick={() => toggleFAQ(1)} className={styles.FAQHeading}>
-          {SEND_ENUM.whichCountriesAre}{" "}
-          <img
-            src={FAQArrow}
-            alt="FAQ"
-            className={styles.FAQArrowSeven}
-            style={{
-              transform: FAQexpanded[1] ? "rotate(90deg)" : "none",
-              transition: "transform 1s ease",
-            }}
-          />
-          {FAQexpanded[1] && (
-            <span className={styles.description}>
-              {" "}
-              Absolutely Zero. Yes, you read it right. Nada. Zilch. Zero!
-            </span>
-          )}
-        </div>
-        <div onClick={() => toggleFAQ(2)} className={styles.FAQHeading}>
-          {SEND_ENUM.howToSendMoneyToIndia}{" "}
-          <img
-            src={FAQArrow}
-            alt="FAQ"
-            className={styles.FAQArrowOne}
-            style={{
-              transform: FAQexpanded[2] ? "rotate(90deg)" : "none",
-              transition: "transform 1s ease",
-            }}
-          />
-          {FAQexpanded[2] && (
-            <span className={styles.description}>
-              {" "}
-              Absolutely Zero. Yes, you read it right. Nada. Zilch. Zero!
-            </span>
-          )}
-        </div>
-
-        <div onClick={() => toggleFAQ(3)} className={styles.FAQHeading}>
-          {SEND_ENUM.doesReciepientNeedToSignup}{" "}
-          <img
-            src={FAQArrow}
-            alt="FAQ"
-            className={styles.FAQArrowTwo}
-            style={{
-              transform: FAQexpanded[3] ? "rotate(90deg)" : "none",
-              transition: "transform 1s ease",
-            }}
-          />
-          {FAQexpanded[3] && (
-            <span className={styles.description}>
-              {" "}
-              Absolutely Zero. Yes, you read it right. Nada. Zilch. Zero!
-            </span>
-          )}
-        </div>
-
-        <div onClick={() => toggleFAQ(5)} className={styles.FAQHeading}>
-          {SEND_ENUM.whyIsKYCRequired}{" "}
-          <img
-            src={FAQArrow}
-            alt="FAQ"
-            className={styles.FAQArrowFour}
-            style={{
-              transform: FAQexpanded[5] ? "rotate(90deg)" : "none",
-              transition: "transform 1s ease",
-            }}
-          />
-          {FAQexpanded[5] && (
-            <span className={styles.description}>
-              {" "}
-              Absolutely Zero. Yes, you read it right. Nada. Zilch. Zero!
-            </span>
-          )}
-        </div>
-
-        <div onClick={() => toggleFAQ(6)} className={styles.FAQHeading}>
-          {SEND_ENUM.areTransactionDoneOne}{" "}
-          <img
-            src={FAQArrow}
-            alt="FAQ"
-            className={styles.FAQArrowFive}
-            style={{
-              transform: FAQexpanded[6] ? "rotate(90deg)" : "none",
-              transition: "transform 1s ease",
-            }}
-          />
-          {FAQexpanded[6] && (
-            <span className={styles.description}>
-              {" "}
-              Absolutely Zero. Yes, you read it right. Nada. Zilch. Zero!
-            </span>
-          )}
-        </div>
+        {faqQuestions.map((question, index) => (
+          <div key={index}>
+            <div onClick={() => toggleFAQ(index)} className={styles.FAQHeading}>
+              {question}
+              <img
+                src={FAQArrow}
+                alt="FAQ"
+                className={styles[`FAQArrow${index}`]}
+                style={{
+                  transform: FAQexpanded[index] ? "rotate(90deg)" : "none",
+                  transition: "transform 0.6s ease",
+                }}
+              />
+            </div>
+            {FAQexpanded[index] && (
+              <span className={styles.description}>{faqAnswers[index]}</span>
+            )}
+          </div>
+        ))}
       </div>
-      <div className={styles.FAQSectionBackgroundContainer}>
+      {/* <div className={styles.FAQSectionBackgroundContainer}>
         <img
           src={FAQSectionBackground}
           alt="FAQSectionBackground"
           className={styles.FAQSectionBackground}
         />
-      </div>
+      </div> */}
     </div>
   );
 }

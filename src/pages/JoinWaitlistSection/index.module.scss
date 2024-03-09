@@ -1,50 +1,85 @@
 .withZeroFee {
   color: #e6e6e6;
   font-family: "Metrophobic";
-  font-size: 22px;
+  font-size: 26px;
   font-style: normal;
   font-weight: 400;
   line-height: 160%;
+  text-align: center;
   /* 28.8px */
   margin-bottom: 25px;
+  @media screen and (min-width: 1275px) and (max-width: 1449px) {
+    font-size: 21px;
+  }
+  @media screen and (min-width: 990px) and (max-width: 1274px) {
+    font-size: 18px;
+  }
 }
 .withZeroFeeMob {
-  font-size: 15px;
+  font-size: 17px;
   margin-bottom: 37px;
   text-align: center;
 }
-
+.zeroText {
+  color: #83baca;
+  font-size: 50px;
+  margin-right: 3px;
+  @media screen and (max-width: 992px) {
+    font-size: 40px;
+  }
+}
 .joinWaitlistContainer {
   display: flex;
-  padding-right: 112px;
-  justify-content: space-between;
+  flex-direction: column;
+  padding-top: 318px;
+  padding-bottom: 356px;
+  justify-content: center;
   align-items: center;
-
-  margin-bottom: 315px;
+  background: url("../../assets/joinWaitlistBackground.svg");
+  background-repeat: no-repeat;
+  background-position-y: 60px;
+  background-position-x: center;
+  @media screen and (min-width: 1275px) and (max-width: 1449px) {
+    background-position-y: 50px;
+  }
+  @media screen and (min-width: 990px) and (max-width: 1274px) {
+    background-position-y: 40px;
+  }
   @media screen and (max-width: 992px) {
-    margin-top: 162px;
+    margin-top: 0px;
     flex-direction: column;
     padding-right: 0px;
     margin-left: 20px;
     margin-right: 20px;
+    margin-bottom: 0px;
+
+    background: url("../../assets/joinwaitlistBackgroundMob.svg");
+    background-repeat: no-repeat;
+    background-position-y: 55px;
+    background-position-x: center;
   }
 }
 .joinWaitlistButton {
-  padding: 11px 19px;
+  cursor: pointer;
+  padding-left: 18px;
+  padding-right: 9px;
   color: white;
   border: 1px solid #fff;
   background: none;
-  border-radius: 40px;
+  border-radius: 32px;
   margin-bottom: 40px;
-
+  width: 219px;
+  height: 55px;
   font-family: Michroma;
-  font-size: 24px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   transition: color 0.3s ease, background-clip 0.3s ease, border-color 0.3s ease; /* Add transition for smooth color, background, and border changes */
   @media screen and (max-width: 992px) {
-    font-size: 24px;
+    font-size: 18px;
     background: var(
       --blue-linear-membervouch,
       linear-gradient(
@@ -60,6 +95,10 @@
     border: 1px solid #05d2ff; /* Start with a transparent border */
     //  box-shadow: 0 0 10px #05D2FF; /* Add box shadow on hover */
     margin-bottom: 0;
+  }
+  @media screen and (min-width: 992px) and (max-width: 1159px) {
+    font-size: 19px;
+    padding: 11px 16px;
   }
 }
 
@@ -95,10 +134,11 @@
   color: white;
 }
 .popupContent {
-  background: #081527;
+  background: linear-gradient(180deg, #212c3d 0%, #101d2e 100%);
+
   border-radius: 15px;
   width: 506px;
-  padding: 36px 32px 26px 32px;
+  padding: 36px 36px 26px 36px;
   height: auto;
   overflow: auto;
   @media screen and (max-width: 992px) {
@@ -106,4 +146,42 @@
     margin-left: 14px;
     margin-right: 14px;
   }
+}
+.joinWaitlistButtonArrow {
+  margin-left: -42px;
+}
+.joinWaitlistButtonArrowContainer {
+  cursor: pointer;
+  margin-left: 19px;
+  padding: 15px;
+  border-radius: 50px;
+  background: var(
+    --blue-linear-membervouch,
+    linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%),
+    linear-gradient(
+      106deg,
+      #05d2ff 38.97%,
+      rgba(37, 63, 224, 0.62) 107.51%,
+      rgba(6, 14, 208, 0.28) 151.44%
+    )
+  );
+}
+.joinWaitlistButton {
+  /* Your existing styles */
+  position: relative; /* Ensure positioning for the button content */
+}
+
+.joinWaitlistButtonArrow {
+  /* Your existing styles for the arrow icon */
+  position: absolute; /* Position it relative to the button */
+  top: 50%; /* Position it in the middle vertically */
+  left: calc(100% + 5px); /* Position it to the right of the button */
+  transform: translateY(-50%); /* Center it vertically */
+  transition: transform 0.4s ease-in-out; /* Smooth transition for rotation */
+  transition-delay: 0.2s; /* Add a delay of 0.2 seconds */
+}
+
+.joinWaitlistButton:hover .joinWaitlistButtonArrow {
+  /* Rotate the arrow icon to 45 degrees */
+  transform: translateY(-50%) rotate(45deg);
 }

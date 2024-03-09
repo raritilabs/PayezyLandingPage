@@ -17,6 +17,7 @@ import SimpleWayToSendMoney from "../SimpleWayToSendMoney/SimpleWayToSendMoney";
 import FAQSection from "../FAQSection/FAQSection";
 import Footer from "../Footer/Footer";
 import backgroundLeftImage from "../../assets/backGroundSectionOneLeft.svg";
+import backgroundRightSectionOneMob from "../../assets/backgroundRightSectionOneMob.svg";
 const SendINRLandingPage = ({
   profileEmail,
   setAmountInUSD,
@@ -205,7 +206,7 @@ const SendINRLandingPage = ({
             )}
             {isMobile && (
               <img
-                src={backgroundLeftImage}
+                src={backgroundRightSectionOneMob}
                 className={styles.backgroundLeftImageInMobile}
                 alt="backgroundLeftImage"
               />
@@ -223,6 +224,7 @@ const SendINRLandingPage = ({
               handleChageAmountInUSD={handleChageAmountInUSD}
               fetchingPrice={fetchingPrice}
               errorForLogin={errorForLogin}
+              setErrorForLogin={setErrorForLogin}
               handleClickProceedButton={handleClickProceedButton}
               amountInINR={amountInINR}
               usdToInrExRate={usdToInrExRate}
@@ -251,13 +253,13 @@ const SendINRLandingPage = ({
         />
       )} */}
       <JoinWaitlistSection />
-      {isMobile && (
+      {/* {isMobile && (
         <img
-          src={backgroundLeftImage}
+          src={backgroundRightSectionOneMob}
           className={styles.backgroundLeftImageSimpleStyleSectionInMobile}
           alt="backgroundLeftImage"
         />
-      )}
+      )} */}
       <WhyPayezy />
       {!isMobile && (
         <img
@@ -268,13 +270,13 @@ const SendINRLandingPage = ({
       )}
 
       <SimpleWayToSendMoney />
-      {!isMobile && (
+      {/* {!isMobile && (
         <img
           src={backgroundLeftImage}
           className={styles.backgroundLeftImageSimpleStyleSectionInMobile}
           alt="backgroundLeftImage"
         />
-      )}
+      )} */}
       <FAQSection />
       <Footer />
     </div>

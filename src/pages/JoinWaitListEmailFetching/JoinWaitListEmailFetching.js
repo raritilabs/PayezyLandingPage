@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import ButtonRade from "../../components/RadeButtons";
 import { SEND_ENUM } from "../../enums/sendEnum";
 import cx from "classnames";
@@ -6,12 +6,17 @@ import { AppContext } from "../../context";
 import styles from "./index.module.scss";
 import { collection, doc, setDoc, getDoc } from "firebase/firestore";
 import { db } from "../../firebase";
-
+import thumbsUp from "../../assets/thumbsUp.png";
+import AOS from "aos";
+import "aos/dist/aos.css";
 const JoinWaitListEmailFetching = ({ setModalIsOpen }) => {
   const { isMobile } = useContext(AppContext);
   const [email, setEmail] = useState(null);
   const [errorForEmail, setErrorForEmail] = useState(null);
   const [emailStoredSuccesfully, setEmailStoredSuccesfully] = useState(null);
+  useEffect(() => {
+    AOS.init({});
+  }, []);
   const handleClickCloseButton = () => {
     setModalIsOpen(false);
   };
@@ -55,24 +60,43 @@ const JoinWaitListEmailFetching = ({ setModalIsOpen }) => {
   };
   return (
     <div>
-      <div>
-        {" "}
-        <input
-          onChange={handleChangeEmail}
-          type="text"
-          placeholder="Enter the Email"
-          value={email}
-          //   autoComplete="off"
-          className={cx(styles.inputAmount, {
-            [styles.inputAmountMob]: isMobile,
-          })}
-        />
-      </div>
+      {emailStoredSuccesfully && (
+        <div className={styles.imageConatiner}>
+          {" "}
+          <img
+            src={thumbsUp}
+            className={styles.thumbsUpIcon}
+            alt="thums up"
+            data-aos="zoom-in"
+            data-aos-offset="200"
+            data-aos-duration="400"
+            data-aos-easing="ease-in"
+            data-aos-delay="200"
+          />
+        </div>
+      )}
+      {!emailStoredSuccesfully && (
+        <div>
+          <div className={styles.joinWaitlistText}>Join Waitlist</div>{" "}
+          <input
+            onChange={handleChangeEmail}
+            type="text"
+            placeholder="Enter your email"
+            value={email}
+            //   autoComplete="off"
+            className={cx(styles.inputAmount, {
+              [styles.inputAmountMob]: isMobile,
+            })}
+          />
+        </div>
+      )}
       {errorForEmail && <p className={styles.error}>{errorForEmail}</p>}
-      <div className={styles.notetext}>
-        Note: Join the waitlist to get access and become early contributors to
-        avail special offers in the mainnet launch.
-      </div>
+      {emailStoredSuccesfully && (
+        <p className={styles.succesfullMessage}>
+          We have added you to our waiting list! We will let you know when it is
+          ready.
+        </p>
+      )}
       <div className={styles.buttonContainer}>
         {/* {emailStoredSuccesfully && ( */}
         <ButtonRade
@@ -81,7 +105,7 @@ const JoinWaitListEmailFetching = ({ setModalIsOpen }) => {
             [styles.cancelButtonMob]: isMobile,
           })}
         >
-          Close
+          {!emailStoredSuccesfully ? <>Cancel</> : <>Close</>}
         </ButtonRade>
         {/* )} */}
         {!emailStoredSuccesfully && (
@@ -91,17 +115,10 @@ const JoinWaitListEmailFetching = ({ setModalIsOpen }) => {
               [styles.confirmButtonMob]: isMobile,
             })}
           >
-            {SEND_ENUM.confirm}
+            Submit
           </ButtonRade>
         )}
       </div>
-
-      {emailStoredSuccesfully && (
-        <p className={styles.succesfullMessage}>
-          We have added you to our waiting list! We will let you know when it is
-          ready.
-        </p>
-      )}
     </div>
   );
 };

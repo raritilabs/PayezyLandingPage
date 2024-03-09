@@ -128,7 +128,7 @@ export const SEND_ENUM = {
   howToSendMoneyToIndia: "How to send money to India?",
   doesReciepientNeedToSignup: "Does the recipient need to sign up on payezy?",
   howMuchTimeItTakes: "How much time does it take?",
-  whyIsKYCRequired: "How much time does it take?",
+  whyIsKYCRequired: "Why is KYC required?",
   areTransactionDoneOne:
     "Are transaction done on payezy fully safe and compliant?",
   privacyPolicy: "Privacy Policy",

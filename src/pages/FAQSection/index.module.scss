@@ -1,53 +1,57 @@
-.FAQText{
-    color: var(--white, #FFF);
-font-family: Michroma;
-font-size: 45px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-text-align: center;
-margin-left: -162px;
-margin-bottom: 63px;
- @media screen and (max-width: 992px) {
-       font-size: 22px;
-       margin: 0;
-    }
-}
-.FAQSectionBackground{
-   position: relative;
-    z-index: 3;   
-}
-.FAQSection{
-    position: relative;
-    z-index: 3;
-color: #FFF;
-font-family: Metrophobic;
-font-size: 21px;
-font-style: normal;
-font-weight: 400;
-line-height: 100%; /* 21px */
-width: 769px;
-margin-bottom: 300px;
-margin-right: auto;
-    margin-left: auto;
-    @media screen and (max-width: 992px) {
-       font-size: 12px;
-        width:auto;
-    }
-}
-.description{
-display: block;
- width: 730px;
-background: linear-gradient(180deg, #22242F 3.57%, #141622 103.57%);
-padding: 19px 20px;
-margin-top: 13px;
-margin-bottom: 14px;
-animation: fadeIn 2s ease-out forwards; /* Apply fadeIn animation with 1 second duration */
-border-radius: 5px;
+.FAQText {
+  color: var(--white, #fff);
+  font-family: Michroma;
+  font-size: 45px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-align: center;
+  margin-bottom: 63px;
   @media screen and (max-width: 992px) {
-       
-        width:auto;
-    }
+    font-size: 22px;
+    margin: 0;
+  }
+}
+.FAQSectionBackground {
+  position: relative;
+  z-index: 3;
+}
+.FAQSection {
+  position: relative;
+  z-index: 3;
+  color: #fff;
+  font-family: Metrophobic;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%; /* 21px */
+  width: 769px;
+  margin-bottom: 300px;
+  margin-right: auto;
+  margin-left: auto;
+  @media screen and (max-width: 992px) {
+    font-size: 16px;
+    width: auto;
+    margin-bottom: 150px;
+  }
+}
+.description {
+  display: block;
+  width: 730px;
+  background: linear-gradient(180deg, #22242f 3.57%, #141622 103.57%);
+  padding: 19px 20px;
+  margin-top: 13px;
+  margin-bottom: 14px;
+  font-size: 18px;
+  line-height: 32px;
+  animation: fadeIn 2s ease-out forwards; /* Apply fadeIn animation with 1 second duration */
+  border-radius: 5px;
+  @media screen and (max-width: 992px) {
+    width: auto;
+    text-align: justify;
+
+    font-size: 16px;
+  }
 }
 @keyframes fadeIn {
   from {
@@ -57,79 +61,124 @@ border-radius: 5px;
     opacity: 1; /* End at fully opaque */
   }
 }
-.FAQHeading{
-    z-index: 4;
-    padding-top: 27px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid #434343;;
+.FAQHeading {
+  font-family: Metrophobic;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 4;
+  padding-top: 27px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #434343;
+  @media screen and (max-width: 992px) {
+    font-size: 21px;
+  }
 }
 
-.FAQArrowOne{
-    margin-left: 435px;
-    @media screen and (max-width: 992px) {
-     margin-left: 138px;
-    }
-}
-.FAQArrowTwo{
-    margin-left: 279px;
-    @media screen and (max-width: 992px) {
-     margin-left: 49px;
-    }
-}
-.FAQArrowThree{
-margin-left: 440px;
-@media screen and (max-width: 992px) {
-     margin-left: 10px;
-    }
-}
-.FAQArrowFour{
-    margin-left: 441px;
-    @media screen and (max-width: 992px) {
-     margin-left: 140px;
-    }
-
-}
-.FAQArrowFive{
-margin-left: 174px;
-@media screen and (max-width: 992px) {
-     margin-left: -12px;
-    }
-}
-.FAQArrowSeven{
-margin-left: 283px;
-@media screen and (max-width: 992px) {
-     margin-left: 48px;
-    }
-}
-.FAQArrowSix{
-margin-left: 491px;
- @media screen and (max-width: 992px) {
-     margin-left: 168px;
-    }
-}
-.FAQSectionBackgroundContainer{
-    position: absolute;
-    top: 2852px;
-    right: -17px;
-    border-radius: 50%;
-    @media screen and (max-width: 992px) {
+// .FAQArrowOne {
+//   margin-left: 435px;
+//   @media screen and (max-width: 992px) {
+//     margin-left: 138px;
+//   }
+// }
+// .FAQArrowTwo {
+//   margin-left: 279px;
+//   @media screen and (max-width: 992px) {
+//     margin-left: 49px;
+//   }
+// }
+// .FAQArrowThree {
+//   margin-left: 440px;
+//   @media screen and (max-width: 992px) {
+//     margin-left: 10px;
+//   }
+// }
+// .FAQArrowFour {
+//   margin-left: 441px;
+//   @media screen and (max-width: 992px) {
+//     margin-left: 140px;
+//   }
+// }
+// .FAQArrowFive {
+//   margin-left: 174px;
+//   @media screen and (max-width: 992px) {
+//     margin-left: -12px;
+//   }
+// }
+// .FAQArrowSeven {
+//   margin-left: 283px;
+//   @media screen and (max-width: 992px) {
+//     margin-left: 48px;
+//   }
+// }
+// .FAQArrowSix {
+//   margin-left: 491px;
+//   @media screen and (max-width: 992px) {
+//     margin-left: 168px;
+//   }
+// }
+.FAQSectionBackgroundContainer {
+  position: absolute;
+  top: 2px;
+  right: -57px;
+  border-radius: 50%;
+  @media screen and (max-width: 992px) {
     display: none;
-    }
+  }
 }
-
 
 .FAQHeading {
-    cursor: pointer;
-  transition: opacity 0.3s ease; /* Add a transition for opacity */
+  cursor: pointer;
+  font-size: 24px;
+  transition: opacity 0.6s ease; /* Add a transition for opacity */
   opacity: 1; /* Initially set opacity to 1 */
+  @media screen and (max-width: 992px) {
+    cursor: none;
+    font-size: 19px;
+  }
 }
 
 .FAQHeading.closed {
-  opacity: 0; /* Set opacity to 0 when closed */
+  opacity: 0.8; /* Set opacity to 0 when closed */
   pointer-events: none; /* Disable pointer events when closed */
 }
-.FAQMainContainer{
-    margin-top: 187px;
-    margin-left: 20px;
-    margin-right: 20px;
+.FAQMainContainer {
+  position: relative;
+  padding-top: 716px;
+
+  background: url("../../assets/FAQSectionBackground.svg");
+  background-position: right;
+  background-repeat: no-repeat;
+  background-position-y: 600px;
+  @media screen and (max-width: 992px) {
+    margin-top: 100px;
+  }
+  @media only screen and (min-width: 1901px) {
+    background: none;
+  }
+}
+.FAQDescription {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.6s ease, max-height 0.6s ease;
+}
+
+.FAQDescription.open {
+  opacity: 1;
+  max-height: 1000px; /* Adjust this value to fit your content */
+}
+.FAQDescription {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.6s ease, max-height 1s ease; /* Adjust transition duration */
+}
+
+.FAQDescription.open {
+  opacity: 1;
+  max-height: 1000px; /* Adjust this value to fit your content */
 }

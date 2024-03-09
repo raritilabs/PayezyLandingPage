@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import cx from "classnames";
-import payezyText from "../../assets/payezyText.svg";
 import { AppContext } from "../../context";
 import { useContext } from "react";
 import { HEADER_ENUM } from "../../enums/headerEnum";
 import payezyLogo from "../../assets/payezyLogo.svg";
 import logoutIcon from "../../assets/LogoutIcon.svg";
 import styles from "./header.module.scss";
+
 // import GoogleLogout from "../GoogleLogout/GoogleLogout";
 import Modal from "react-modal";
 import { useNavigate } from "react-router-dom";
+import JoinWaitListEmailFetching from "../../pages/JoinWaitListEmailFetching/JoinWaitListEmailFetching";
 
 const Header = ({
   setGoogleLoginPageNumber,
@@ -24,8 +25,7 @@ const Header = ({
   const { isMobile } = useContext(AppContext);
 
   const handleClickLogin = () => {
-    setGoogleLoginPageNumber(0);
-    setOnClickLoginButton(true);
+    setModalIsOpen(true);
   };
   let navigate = useNavigate();
   const handleOnClickLogoContainer = () => {
@@ -132,14 +132,7 @@ const Header = ({
         shouldCloseOnOverlayClick={false}
         ariaHideApp={false}
       >
-        {/* <GoogleLogout
-          setModalIsOpen={setModalIsOpen}
-          setProfile={setProfile}
-          setProfileEmail={setProfileEmail}
-          setAmountInINR={setAmountInINR}
-          setAmountInUSD={setAmountInUSD}
-          setSendFlowPageNumber={setSendFlowPageNumber}
-        /> */}
+        <JoinWaitListEmailFetching setModalIsOpen={setModalIsOpen} />
       </Modal>
     </>
   );
