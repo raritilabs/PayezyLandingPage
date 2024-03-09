@@ -236,35 +236,13 @@ const ExchangeRateDisplay = ({
             [styles.buttonContainerMob]: isMobile,
           })}
         >
-          {/* <RadeButton
-            onClick={handleClickSendNow}
-            customStyling={cx(styles.proceedButton, {
-              [styles.proceedButtonMob]: isMobile,
-            })}
-            style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }} // Adjust the last value (0.5) for opacity
-          >
-            <span className={styles.sendNowText}> {SEND_ENUM.sendNow}</span>
-            <span className={styles.sendNowArrow}>
-              <SendNowArrow />
-            </span>
-          </RadeButton> */}
           <RadeButton
             onClick={handleClickSendNow}
             customStyling={cx(styles.proceedButton, {
               [styles.proceedButtonMob]: isMobile,
             })}
-            style={{
-              borderRadius: "4px",
-              border: "1px solid #FFF",
-              background:
-                "linear-gradient(180deg, #FFF 0%, rgba(255, 255, 255, 0.30) 100%)",
-              opacity: "0.1",
-            }} // Adjust the opacity and other styles as needed
           >
-            <span className={styles.sendNowText} style={{ opacity: "1" }}>
-              {" "}
-              {SEND_ENUM.sendNow}
-            </span>
+            <span className={styles.sendNowText}> {SEND_ENUM.sendNow}</span>
             <span className={styles.sendNowArrow}>
               <SendNowArrow />
             </span>
