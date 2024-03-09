@@ -246,8 +246,6 @@ const ExchangeRateDisplay = ({
             <span className={styles.sendNowArrow}>
               <SendNowArrow />
             </span>
-
-            {/* <NextIcon /> */}
           </RadeButton>
         </div>
       </div>
