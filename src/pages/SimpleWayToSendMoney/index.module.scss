@@ -82,6 +82,8 @@
   }
 }
 .mainContainer {
+  position: relative;
+  z-index: 2;
   overflow: hidden;
   margin-left: 162px;
   display: flex;
