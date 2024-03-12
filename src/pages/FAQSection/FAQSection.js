@@ -31,7 +31,7 @@ function FAQSection() {
     "No. Not at all. The amount will be credited to the recipients bank account directly.",
     "In few minutes.",
     "To comply with regulatory requirements, you need to verify your identity (or KYC) for sending money.",
-    "Account security is important to us and we've taken several steps to protect your payezy account-related information. Rariti, Inc. offers  electronic financial payment services by collaborating with partners in both USA and India, which are fully licensed and compliant with their respective authorities. ",
+    "Account security is important to us and we've taken several steps to protect your payezy account-related information. Rariti, Inc. offers  electronic financial payment services by collaborating with partners in both USA and India, which are fully licensed and compliant with local authorities. ",
   ];
   return (
     <div className={styles.FAQMainContainer}>
