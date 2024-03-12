@@ -27,12 +27,12 @@ const ExchangeRateDisplay = ({
   const MAX_BANK_PROCESSING_CHARGE = 5; //varibale that store maximum bank tranfer processing charge
   const MAX_ALLOWED_TRANSFER = 2000; //varibale that store maximum allowed tranfer
   const [modalIsOpen, setModalIsOpen] = useState(false);
+
   const handleClickSendNow = () => {
     if (!amountInUSD) {
       setErrorForLogin("Please enter an amount to continue!");
     } else {
-      setModalIsOpen(true);
-      console.log("modalIsOpen", modalIsOpen);
+      window.open("https://app.payezy.io", "_blank");
     }
   };
   useEffect(() => {

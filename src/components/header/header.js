@@ -12,21 +12,9 @@ import Modal from "react-modal";
 import { useNavigate } from "react-router-dom";
 import JoinWaitListEmailFetching from "../../pages/JoinWaitListEmailFetching/JoinWaitListEmailFetching";
 
-const Header = ({
-  setGoogleLoginPageNumber,
-  setProfile,
-  setProfileEmail,
-  profileEmail,
-  setOnClickLoginButton,
-  setAmountInINR,
-  setAmountInUSD,
-  setSendFlowPageNumber,
-}) => {
+const Header = ({ profileEmail }) => {
   const { isMobile } = useContext(AppContext);
 
-  const handleClickLogin = () => {
-    setModalIsOpen(true);
-  };
   let navigate = useNavigate();
   const handleOnClickLogoContainer = () => {
     navigate("/buy"); //return back to homescreen
@@ -81,14 +69,16 @@ const Header = ({
             </button>
           </a>
           {!profileEmail && (
-            <button
+            <a
               className={cx(styles.loginButton, {
                 [styles.loginButtonMob]: isMobile,
               })}
-              onClick={handleClickLogin}
+              href="https://app.payezy.io"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               {HEADER_ENUM.loginButton}
-            </button>
+            </a>
           )}
 
           <div className={styles.flex}>
@@ -125,15 +115,6 @@ const Header = ({
           </div>
         </div>
       </div>
-      <Modal
-        isOpen={modalIsOpen}
-        overlayClassName={styles.popupOverlay}
-        className={styles.popupContent}
-        shouldCloseOnOverlayClick={false}
-        ariaHideApp={false}
-      >
-        <JoinWaitListEmailFetching setModalIsOpen={setModalIsOpen} />
-      </Modal>
     </>
   );
 };

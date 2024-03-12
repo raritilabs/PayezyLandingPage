@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect, useRef } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import styles from "./index.module.scss";
 import oneImage from "../../assets/OneImage.svg";
 import twoImage from "../../assets/TwoImage.svg";
@@ -18,60 +18,19 @@ import { AppContext } from "../../context";
 import AOS from "aos";
 import "aos/dist/aos.css";
 const SimpleWayToSendMoney = () => {
-  const mainContainerRef = useRef(null);
-
   const { isMobile } = useContext(AppContext);
   const [hoveredIndex, setHoveredIndex] = useState(0);
-  const [scrollDirection, setScrollDirection] = useState(null);
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const [activeIndex, setActiveIndex] = useState(0);
-
   useEffect(() => {
     AOS.init({
       once: true,
+      // disable: "mobile",
     });
-
-    // const handleScroll = () => {
-    //   const currentPosition = window.pageYOffset;
-    //   setScrollDirection(currentPosition > scrollPosition ? "down" : "up");
-    //   setScrollPosition(currentPosition);
-    // };
-
-    // window.addEventListener("scroll", handleScroll);
-
-    // return () => {
-    //   window.removeEventListener("scroll", handleScroll);
-    // };
-  }, [scrollPosition]);
-
-  // useEffect(() => {
-  //   // Calculate the active index based on scroll position or direction
-  //   const containerHeight =
-  //     document.getElementById("mainContainer").clientHeight;
-  //   const numberOfSections = 4; // Assuming 4 sections for simplicity
-
-  //   let newIndex;
-
-  //   if (scrollDirection === "down") {
-  //     newIndex = Math.min(
-  //       Math.floor(scrollPosition / containerHeight),
-  //       numberOfSections - 1
-  //     );
-  //   } else {
-  //     newIndex = Math.max(Math.ceil(scrollPosition / containerHeight) - 1, 0);
-  //   }
-
-  //   setActiveIndex(newIndex);
-  // }, [scrollPosition, scrollDirection]);
+  }, []);
   return (
     <>
       {" "}
       {!isMobile ? (
-        <div
-          className={styles.mainContainer}
-          ref={mainContainerRef}
-          id="mainContainer"
-        >
+        <div className={styles.mainContainer}>
           <div className={styles.simpleWayToSendMoneyMainContainer}>
             <p className={styles.simpleWayToSendMoney}>
               {SEND_ENUM.simpleWayToSendMoney}
@@ -93,16 +52,16 @@ const SimpleWayToSendMoney = () => {
               </div>
               <div
                 className={`${styles.simpleWayToSendMoneyDefContainer} ${
-                  activeIndex === 0 ? styles.active : ""
+                  hoveredIndex === 0 ? styles.active : ""
                 }`}
                 onMouseEnter={() => {
                   console.log("Clicked on item 0");
-                  setActiveIndex(0);
+                  setHoveredIndex(0);
                 }}
               >
                 <p
                   className={`${styles.simpleWayToSendMoneyHeadings} ${
-                    activeIndex === 0 ? styles.activePara : ""
+                    hoveredIndex === 0 ? styles.activePara : ""
                   }`}
                 >
                   {SEND_ENUM.chooseATransferAmount}
@@ -137,13 +96,13 @@ const SimpleWayToSendMoney = () => {
               </div>
               <div
                 className={`${styles.simpleWayToSendMoneyDefContainer} ${
-                  activeIndex === 1 ? styles.active : ""
+                  hoveredIndex === 1 ? styles.active : ""
                 }`}
-                onMouseEnter={() => setActiveIndex(1)}
+                onMouseEnter={() => setHoveredIndex(1)}
               >
                 <p
                   className={`${styles.simpleWayToSendMoneyHeadings} ${
-                    activeIndex === 1 ? styles.activePara : ""
+                    hoveredIndex === 1 ? styles.activePara : ""
                   }`}
                 >
                   {SEND_ENUM.signUp}
@@ -178,13 +137,13 @@ const SimpleWayToSendMoney = () => {
               </div>
               <div
                 className={`${styles.simpleWayToSendMoneyDefContainer} ${
-                  activeIndex === 2 ? styles.active : ""
+                  hoveredIndex === 2 ? styles.active : ""
                 }`}
-                onMouseEnter={() => setActiveIndex(2)}
+                onMouseEnter={() => setHoveredIndex(2)}
               >
                 <p
                   className={`${styles.simpleWayToSendMoneyHeadings} ${
-                    activeIndex === 2 ? styles.activePara : ""
+                    hoveredIndex === 2 ? styles.activePara : ""
                   }`}
                 >
                   {SEND_ENUM.addTransferDetails}
@@ -219,13 +178,13 @@ const SimpleWayToSendMoney = () => {
               </div>
               <div
                 className={`${styles.simpleWayToSendMoneyDefContainer} ${
-                  activeIndex === 3 ? styles.active : ""
+                  hoveredIndex === 3 ? styles.active : ""
                 }`}
-                onMouseEnter={() => setActiveIndex(3)}
+                onMouseEnter={() => setHoveredIndex(3)}
               >
                 <p
                   className={`${styles.simpleWayToSendMoneyHeadings} ${
-                    activeIndex === 3 ? styles.activePara : ""
+                    hoveredIndex === 3 ? styles.activePara : ""
                   }`}
                 >
                   {SEND_ENUM.deliveryOfFunds}
@@ -250,7 +209,7 @@ const SimpleWayToSendMoney = () => {
               className={styles.simpleWayToSendMoneyIcon}
               alt="simpleWayToSendMoney"
             />
-            {activeIndex === 0 && !isMobile && (
+            {hoveredIndex === 0 && !isMobile && (
               <img
                 src={simpleWayToSendMoneyIconOverlayOne}
                 // className={styles.simpleWayToSendMoneyIconOverlay}
@@ -258,7 +217,7 @@ const SimpleWayToSendMoney = () => {
                 alt="simpleWayToSendMoney"
               />
             )}
-            {activeIndex === 1 && !isMobile && (
+            {hoveredIndex === 1 && !isMobile && (
               <img
                 src={simpleWayToSendMoneyIconOverlayTwo}
                 // className={styles.simpleWayToSendMoneyIconOverlay}
@@ -266,7 +225,7 @@ const SimpleWayToSendMoney = () => {
                 alt="simpleWayToSendMoney"
               />
             )}
-            {activeIndex === 2 && !isMobile && (
+            {hoveredIndex === 2 && !isMobile && (
               <img
                 src={simpleWayToSendMoneyIconOverlayThree}
                 // className={styles.simpleWayToSendMoneyIconOverlay}
@@ -274,7 +233,7 @@ const SimpleWayToSendMoney = () => {
                 alt="simpleWayToSendMoney"
               />
             )}
-            {activeIndex === 3 && !isMobile && (
+            {hoveredIndex === 3 && !isMobile && (
               <img
                 src={simpleWayToSendMoneyIconOverlayFour}
                 // className={styles.simpleWayToSendMoneyIconOverlay}
@@ -283,11 +242,6 @@ const SimpleWayToSendMoney = () => {
               />
             )}
           </div>
-          {/* <img
-        src={backgroundForMobile}
-        className={styles.simpleWayToSendMoneyIconOverlayImage}
-        alt="backgroundForMobile"
-      /> */}
         </div>
       ) : (
         <div className={styles.mainContainer}>
@@ -481,11 +435,6 @@ const SimpleWayToSendMoney = () => {
               />
             )}
           </div>
-          {/* <img
-        src={backgroundForMobile}
-        className={styles.simpleWayToSendMoneyIconOverlayImage}
-        alt="backgroundForMobile"
-      /> */}
         </div>
       )}
     </>
