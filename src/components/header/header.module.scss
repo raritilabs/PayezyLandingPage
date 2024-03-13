@@ -1,4 +1,7 @@
 @import "~@openfonts/museomoderno_vietnamese/index.css";
+.fairexLogo {
+  width: 150px;
+}
 .headerMainContainer {
   display: flex;
   justify-content: space-between;
@@ -76,6 +79,7 @@
   padding-right: 15px;
 }
 .loginButton {
+  text-decoration: none;
   border-radius: 20px;
   background: transparent;
   margin-left: 47px;
@@ -206,8 +210,7 @@
   color: white;
 }
 .popupContent {
-  background: linear-gradient(180deg, #212c3d 0%, #101d2e 100%);
-
+  background: #081527;
   border-radius: 15px;
   width: 506px;
   padding: 36px 36px 26px 36px;

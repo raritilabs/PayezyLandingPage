@@ -82,6 +82,8 @@
   }
 }
 .mainContainer {
+  position: relative;
+  z-index: 2;
   overflow: hidden;
   margin-left: 162px;
   display: flex;
@@ -206,4 +208,42 @@
 .simpleWayToSendMoneyIconOverlayMobileOneContainer {
   display: flex;
   justify-content: end;
+}
+// index.module.scss
+
+.simpleWayToSendMoneySubContainer {
+  // Your existing styles for the container
+
+  // Define initial styles for the background animation
+  &.animateUp {
+    animation: animateUpBackground 0.5s ease forwards;
+  }
+
+  &.animateDown {
+    animation: animateDownBackground 0.5s ease forwards;
+  }
+
+  // Define keyframes for scrolling up animation
+  @keyframes animateUpBackground {
+    0% {
+      // Initial background styles when scrolling up
+      background-color: transparent; // Change as per your design
+    }
+    100% {
+      // Final background styles when scrolling up
+      background-color: #a1e6f6; // Change as per your design
+    }
+  }
+
+  // Define keyframes for scrolling down animation
+  @keyframes animateDownBackground {
+    0% {
+      // Initial background styles when scrolling down
+      background-color: #a1e6f6; // Change as per your design
+    }
+    100% {
+      // Final background styles when scrolling down
+      background-color: transparent; // Change as per your design
+    }
+  }
 }

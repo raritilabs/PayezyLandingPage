@@ -242,11 +242,6 @@ const SimpleWayToSendMoney = () => {
               />
             )}
           </div>
-          {/* <img
-        src={backgroundForMobile}
-        className={styles.simpleWayToSendMoneyIconOverlayImage}
-        alt="backgroundForMobile"
-      /> */}
         </div>
       ) : (
         <div className={styles.mainContainer}>
@@ -440,11 +435,6 @@ const SimpleWayToSendMoney = () => {
               />
             )}
           </div>
-          {/* <img
-        src={backgroundForMobile}
-        className={styles.simpleWayToSendMoneyIconOverlayImage}
-        alt="backgroundForMobile"
-      /> */}
         </div>
       )}
     </>
