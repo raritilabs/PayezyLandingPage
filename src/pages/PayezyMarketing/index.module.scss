@@ -177,3 +177,20 @@
   text-align: center;
   font-size: 26px;
 }
+
+@keyframes fadeInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.makingYourPayments,
+.sendMoneyToIndia {
+  opacity: 0;
+  animation: fadeInFromBottom 0.8s ease forwards;
+}
