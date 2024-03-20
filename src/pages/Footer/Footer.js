@@ -67,16 +67,28 @@ const Footer = () => {
       </div>
       <div className={styles.privacyPolicyContainer}>
         <div className={styles.privacyPolicyContainer}>
-          <p className={styles.privacyPolicy}>{SEND_ENUM.privacyPolicy}</p>
-          <p className={styles.termsOfUse}>{SEND_ENUM.termsOfUse}</p>
+          <a
+            className={styles.privacyPolicy}
+            href="https://docs.payezy.io/platform/privacy-policy"
+            target="_blank"
+            rel="noreferrer"
+          >
+            {SEND_ENUM.privacyPolicy}
+          </a>
+          <a
+            className={styles.termsOfUse}
+            href="https://docs.payezy.io/platform/terms-of-use"
+            target="_blank"
+            rel="noreferrer"
+          >
+            {SEND_ENUM.termsOfUse}
+          </a>
         </div>
         {!isMobile && (
           <div className={styles.copyRight}>{SEND_ENUM.copyRight}</div>
         )}
       </div>
-      {isMobile && (
-        <div className={styles.copyRightMobile}>{SEND_ENUM.copyRight}</div>
-      )}
+      {isMobile && <div>{SEND_ENUM.copyRight}</div>}
     </div>
   );
 };
