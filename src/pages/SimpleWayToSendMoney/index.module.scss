@@ -89,7 +89,7 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: -430px;
-  height: 665px;
+  height: 1350px;
   @media screen and (max-width: 992px) {
     flex-direction: column;
     margin-bottom: 0px;
@@ -108,12 +108,30 @@
 
 .imageContainer {
   width: 37%;
+  @media screen and (min-width: 1450px) and (max-width: 1500px) {
+    width: 38%;
+  }
+  @media screen and (min-width: 1400px) and (max-width: 1450px) {
+    width: 40%;
+  }
+  @media screen and (min-width: 1350px) and (max-width: 1400px) {
+    width: 41%;
+  }
+  @media screen and (min-width: 1300px) and (max-width: 1350px) {
+    width: 42%;
+  }
+  @media screen and (min-width: 992px) and (max-width: 1300px) {
+    width: 43%;
+  }
 }
 .simpleWayToSendMoneyMainContainer {
   cursor: pointer;
+  height: 600px;
   position: relative; /* Ensure the container is positioned relatively */
   @media screen and (max-width: 992px) {
     cursor: none;
+    height: auto;
+
     // position: static;
   }
 }
