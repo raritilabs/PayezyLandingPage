@@ -83,6 +83,14 @@ const Footer = () => {
           >
             {SEND_ENUM.termsOfUse}
           </a>
+          <a
+            className={styles.termsOfUse}
+            href="https://docs.payezy.io/platform/aml-kyc-policy-india"
+            target="_blank"
+            rel="noreferrer"
+          >
+            AML/KYC
+          </a>
         </div>
         {!isMobile && (
           <div className={styles.copyRight}>{SEND_ENUM.copyRight}</div>
