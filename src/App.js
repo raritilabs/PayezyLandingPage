@@ -5,7 +5,10 @@ import SendINR from "./pages/SendINRLandingPage/SendINRLandingPage";
 import { AppContext } from "./context";
 import Header from "./components/header/header";
 import styles from "./styles/app.module.scss";
-
+import mixpanel from "mixpanel-browser";
+mixpanel.init(process.env.REACT_APP_MIXPANEL_API, {
+  debug: true,
+});
 function App() {
   // Stripe Integration
   const [usdToInrExRate, setUsdToInrExRate] = useState(null); // Stripe Promise from stripe server
@@ -24,7 +27,24 @@ function App() {
   // State for setting the kyc flow page number
   const [KYCPageNumber, setKYCPageNumber] = useState(false);
   const isMobile = useMediaQuery({ query: "(max-width: 992px)" }); //Variable for mobile view
+  useEffect(() => {
+    const startTime = Date.now();
 
+    // Track user entrance event
+    mixpanel.track("Site Visit", { time: startTime });
+
+    // Track user exit event (could be in a cleanup function when component unmounts)
+    return () => {
+      const endTime = Date.now();
+      mixpanel.track("Site Leave", { time: endTime });
+
+      // Calculate time spent
+      const timeSpent = (endTime - startTime) / (1000 * 60); // Convert milliseconds to minutes
+
+      // Send time spent to Mixpanel as a property of the "Site Visit" event
+      mixpanel.track("Site Visit", { time: startTime, time_spent: timeSpent });
+    };
+  }, []);
   //Fetch USD to INR exchange rate
   useEffect(() => {
     const getUSDINRRate = async () => {
