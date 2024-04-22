@@ -27,6 +27,7 @@ function App() {
   // State for setting the kyc flow page number
   const [KYCPageNumber, setKYCPageNumber] = useState(false);
   const isMobile = useMediaQuery({ query: "(max-width: 992px)" }); //Variable for mobile view
+
   useEffect(() => {
     const startTime = Date.now();
 
@@ -34,16 +35,6 @@ function App() {
     mixpanel.track("Site Visit", { time: startTime });
 
     // Track user exit event (could be in a cleanup function when component unmounts)
-    return () => {
-      const endTime = Date.now();
-      mixpanel.track("Site Leave", { time: endTime });
-
-      // Calculate time spent
-      const timeSpent = (endTime - startTime) / (1000 * 60); // Convert milliseconds to minutes
-
-      // Send time spent to Mixpanel as a property of the "Site Visit" event
-      mixpanel.track("Site Visit", { time: startTime, time_spent: timeSpent });
-    };
   }, []);
   //Fetch USD to INR exchange rate
   useEffect(() => {
