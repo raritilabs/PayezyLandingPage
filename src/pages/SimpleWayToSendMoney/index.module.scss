@@ -60,7 +60,7 @@
 }
 .simpleWayToSendMoneySubContainer {
   display: flex;
-  align-items: center;
+  // align-items: center;
   gap: 17px;
   @media screen and (max-width: 992px) {
     padding: 11px 5px 19px 6px;
@@ -205,10 +205,12 @@
 .twoImage,
 .threeImage,
 .fourImage {
+  margin-top: 18px;
   @media screen and (max-width: 992px) {
     width: 20.474px;
     height: 20.474px;
-    margin-bottom: 33px;
+    margin-top: 3px;
+    // margin-bottom: 33px;
   }
 }
 .simpleWayToSendMoneyIconOverlayMobile {
