@@ -96,7 +96,9 @@ const Footer = () => {
           <div className={styles.copyRight}>{SEND_ENUM.copyRight}</div>
         )}
       </div>
-      {isMobile && <div>{SEND_ENUM.copyRight}</div>}
+      {isMobile && (
+        <div className={styles.copyRightMobile}>{SEND_ENUM.copyRight}</div>
+      )}
     </div>
   );
 };

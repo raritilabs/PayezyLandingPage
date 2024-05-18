@@ -7,6 +7,10 @@ import { collection, doc, setDoc, getDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import mixpanel from "mixpanel-browser";
+mixpanel.init(process.env.REACT_APP_MIXPANEL_API, {
+  debug: true,
+});
 const JoinWaitListEmailFetching = ({ setModalIsOpen }) => {
   const { isMobile } = useContext(AppContext);
   const [email, setEmail] = useState(null);
@@ -38,11 +42,13 @@ const JoinWaitListEmailFetching = ({ setModalIsOpen }) => {
       const waitlistRef = collection(db, "joinWaitlistPayezy");
       const emailDocRef = doc(waitlistRef, email);
       const emailDocSnapshot = await getDoc(emailDocRef);
-
+      mixpanel.track("User clicked on Join Waitlist buttton!");
       if (emailDocSnapshot.exists()) {
         // If email already exists, set it to the email error state
-        setErrorForEmail("Email already exists");
+        setErrorForEmail("Email already exists!");
       } else {
+        mixpanel.track("User email stored in firebase!");
+
         // If email doesn't exist, store it in Firestore
         await setDoc(emailDocRef, {
           email: email,

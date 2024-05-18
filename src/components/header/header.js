@@ -6,12 +6,14 @@ import { HEADER_ENUM } from "../../enums/headerEnum";
 import payezyLogo from "../../assets/payezyLogo.svg";
 import logoutIcon from "../../assets/LogoutIcon.svg";
 import styles from "./header.module.scss";
-
-// import GoogleLogout from "../GoogleLogout/GoogleLogout";
 import Modal from "react-modal";
 import { useNavigate } from "react-router-dom";
-import JoinWaitListEmailFetching from "../../pages/JoinWaitListEmailFetching/JoinWaitListEmailFetching";
+import mixpanel from "mixpanel-browser";
 
+import JoinWaitListEmailFetching from "../../pages/JoinWaitListEmailFetching/JoinWaitListEmailFetching";
+mixpanel.init(process.env.REACT_APP_MIXPANEL_API, {
+  debug: true,
+});
 const Header = ({ profileEmail }) => {
   const { isMobile } = useContext(AppContext);
 
@@ -25,7 +27,10 @@ const Header = ({ profileEmail }) => {
   const logOut = () => {
     setModalIsOpen(true);
   };
-
+  const handleClickLogin = () => {
+    mixpanel.track("User clicked on login buttton!");
+    setModalIsOpen(true);
+  };
   return (
     <>
       <div
@@ -69,16 +74,14 @@ const Header = ({ profileEmail }) => {
             </button>
           </a>
           {!profileEmail && (
-            <a
+            <button
               className={cx(styles.loginButton, {
                 [styles.loginButtonMob]: isMobile,
               })}
-              href="https://app.payezy.io"
-              target="_blank"
-              rel="noopener noreferrer"
+              onClick={handleClickLogin}
             >
               {HEADER_ENUM.loginButton}
-            </a>
+            </button>
           )}
 
           <div className={styles.flex}>
@@ -115,6 +118,15 @@ const Header = ({ profileEmail }) => {
           </div>
         </div>
       </div>
+      <Modal
+        isOpen={modalIsOpen}
+        overlayClassName={styles.popupOverlay}
+        className={styles.popupContent}
+        shouldCloseOnOverlayClick={false}
+        ariaHideApp={false}
+      >
+        <JoinWaitListEmailFetching setModalIsOpen={setModalIsOpen} />
+      </Modal>
     </>
   );
 };
