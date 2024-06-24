@@ -6,6 +6,7 @@ import { AppContext } from "./context";
 import Header from "./components/header/header";
 import styles from "./styles/app.module.scss";
 import mixpanel from "mixpanel-browser";
+import { Helmet } from "react-helmet";
 mixpanel.init(process.env.REACT_APP_MIXPANEL_API, {
   debug: true,
 });
@@ -65,6 +66,19 @@ function App() {
 
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#000000" />
+        <meta
+          name="description"
+          content="Payezy - The easiest, cheapest, and safest way to support your friends and family back home."
+        />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        {/* You can add more meta tags or change existing ones as needed */}
+        <title>Payezy</title>
+      </Helmet>
       <AppContext.Provider
         value={{
           isMobile,
