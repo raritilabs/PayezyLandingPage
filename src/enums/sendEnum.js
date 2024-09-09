@@ -65,7 +65,7 @@ export const SEND_ENUM = {
   yourOrderCompleted: "Your transfer order has been delivered successfully at",
   youHaveCancelledThisOrder:
     "You have cancelled this transfer order. Please be patient while we process your refund. ",
-  transactionInProgress: "Transaction in progress..",
+  transactionInProgress: "Storage in progress..",
   paymentRecievedButton: "Awaiting settlement",
   addNewReceiverDetails: "Add New Recipient",
   backButton: "Back",

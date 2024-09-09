@@ -28,7 +28,6 @@ const SendINRLandingPage = ({
 }) => {
   const [errorForLogin, setErrorForLogin] = useState(false); //state for storing login error
   const [fetchingPrice, setFetchingPrice] = useState(null); //state for fetching USD price
-  const [treasuryBalance, setTreasuryBalance] = useState(null); //state for storing treasury balance
   const [modalIsOpen, setModalIsOpen] = useState(false); // state for opening the modal
 
   const [paymentType, setPaymentType] = useState(SEND_ENUM.bankTransfer); //state that stored payment type
@@ -41,41 +40,6 @@ const SendINRLandingPage = ({
     setGoogleLoginPageNumber,
     setOnClickLoginButton,
   } = useContext(AppContext);
-  //Fetch the treasury balance in INR
-  useEffect(() => {
-    const getTreasuryBalance = async () => {
-      try {
-        // Obtain ID token
-        const idToken = await auth.currentUser.getIdToken(
-          /* forceRefresh */ true
-        );
-        var requestOptions = {
-          method: "GET",
-          redirect: "follow",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${idToken}`, // Include the ID token in the headers
-          },
-        };
-
-        const response = await fetch(
-          process.env.REACT_APP_PAYEZY_SERVER_URI + `/get-inr-treasury-balance`,
-          requestOptions
-        );
-
-        const result = await response.json();
-        setTreasuryBalance(result.balanceAmount / 10 ** result.balanceDecimals);
-      } catch (error) {
-        console.log("Error fetching treasury balance:", error);
-      }
-    };
-
-    if (auth.currentUser) {
-      getTreasuryBalance();
-    } else {
-      console.log("No authenticated user");
-    }
-  }, [auth.currentUser]);
 
   // Handles the click on the Proceed button
   const handleClickProceedButton = async () => {
@@ -91,9 +55,6 @@ const SendINRLandingPage = ({
     } else if (amountInUSD < MIN_ALLOWED_TRANSFER) {
       // Show an error message if the amount is less than the minimum required ($100)
       setErrorForLogin("Only orders with a minimum of $10 will be processed.");
-    } else if (amountInINR > treasuryBalance) {
-      // Show an error message if the server is under maintenance or not available
-      setErrorForLogin("Error: Server in maintenance. Please try again later.");
     } else if (amountInUSD > MAX_ALLOWED_TRANSFER) {
       // Show an error message if the amount exceeds the maximum allowed transfer ($1000)
       setErrorForLogin("Maximum allowed transfer is 1000 USD");
@@ -177,7 +138,6 @@ const SendINRLandingPage = ({
     <>
       {" "}
       <SendINR
-        treasuryBalance={treasuryBalance}
         handleChageAmountInUSD={handleChageAmountInUSD}
         fetchingPrice={fetchingPrice}
         errorForLogin={errorForLogin}
@@ -220,7 +180,6 @@ const SendINRLandingPage = ({
           <>
             {" "}
             <ExchangeRateDisplay
-              treasuryBalance={treasuryBalance}
               handleChageAmountInUSD={handleChageAmountInUSD}
               fetchingPrice={fetchingPrice}
               errorForLogin={errorForLogin}
