@@ -134,4 +134,12 @@ export const SEND_ENUM = {
   privacyPolicy: "Privacy Policy",
   termsOfUse: "Terms of Use",
   copyRight: "© 2024 Rariti, Inc.  All rights reserved.",
+  bestInMarket: "Best in Market",
+  comparison: "Comparison",
+  provider: "Provider",
+  exchangeRate: "Exchange Rate",
+  USDToINR: "[1 USD → INR]",
+  transferFee: "Transfer Fee",
+  recipientGets: "Recipient gets",
+  sendingThousand: "Sending 1000 USD",
 };

@@ -39,40 +39,7 @@ const ExchangeRateDisplay = ({
     // Function to convert the currency
     const convert = () => {
       if (usdToInrExRate > 0) {
-        // if payment type is card
-        if (paymentType === SEND_ENUM.cardPayment) {
-          setProcessingCharge(amountInUSD * 0.04);
-          // Limit the processing charge to 4 for card
-
-          setAmountInINR(
-            ((amountInUSD - processingCharge) * usdToInrExRate).toFixed(
-              MAX_DECIMAL_PLACE
-            )
-          );
-
-          // if payment type is bank transfer
-        } else if (paymentType === SEND_ENUM.bankTransfer) {
-          setProcessingCharge(amountInUSD * 0.008);
-          // Limit the processing charge to 1 for bank tranfer
-          if (processingCharge < MAX_BANK_PROCESSING_CHARGE) {
-            setAmountInINR(
-              ((amountInUSD - processingCharge) * usdToInrExRate).toFixed(
-                MAX_DECIMAL_PLACE
-              )
-            );
-          } else {
-            setAmountInINR(
-              (
-                (amountInUSD - MAX_BANK_PROCESSING_CHARGE) *
-                usdToInrExRate
-              ).toFixed(MAX_DECIMAL_PLACE)
-            );
-          }
-        }
-
-        setFetchingPrice(false);
-      } else {
-        setFetchingPrice(true);
+        setAmountInINR((usdToInrExRate * amountInUSD).toFixed(2));
       }
     };
 
@@ -85,8 +52,14 @@ const ExchangeRateDisplay = ({
     processingCharge,
     setFetchingPrice,
   ]);
+  const containerClass =
+    amountInUSD > 0
+      ? styles.exchangeRateValues
+      : styles.exchangeRateMainContainer;
+  console.log("containerClass", containerClass);
+
   return (
-    <div className={styles.exchangeRateMainContainer}>
+    <div className={containerClass}>
       <div className={styles.enterAmountOfUSDWishToSend}>
         {SEND_ENUM.instantTransferAt}
       </div>{" "}
@@ -113,18 +86,7 @@ const ExchangeRateDisplay = ({
               {SEND_ENUM.youSend}
             </div>
           </div>
-          {profileEmail && (
-            <div
-              className={cx(styles.treasuryBalance, {
-                [styles.treasuryBalanceMob]: isMobile,
-              })}
-            >
-              Maximum allowed: $
-              {treasuryBalance / usdToInrExRate < MAX_ALLOWED_TRANSFER
-                ? (treasuryBalance / usdToInrExRate).toFixed(MAX_DECIMAL_PLACE)
-                : MAX_ALLOWED_TRANSFER}
-            </div>
-          )}
+
           <div
             className={cx(styles.sendingRUDValue, {
               [styles.sendingRUDValueMob]: isMobile,
@@ -226,6 +188,38 @@ const ExchangeRateDisplay = ({
             </div>
           </div>
         </div>
+        {amountInUSD > 0 && (
+          <div className={styles.feeBreakDown}>Charges Breakdown</div>
+        )}
+        {amountInUSD > 0 && (
+          <div className={styles.radeFeeContainer}>
+            {" "}
+            <div className={styles.bankTransferCharge}>
+              Payezy Platform Fees
+            </div>
+            <div className={styles.bankTransferCharge}>
+              <>$0.00</>
+            </div>
+          </div>
+        )}
+        {amountInUSD > 0 && (
+          <div className={styles.feeBreakDownContainerAmountPaid}>
+            {" "}
+            <div className={styles.bankTransferCharge}>Amount Paid (Due)</div>
+            <div className={styles.bankTransferCharge}>
+              <>$ {amountInUSD}</>
+            </div>
+          </div>
+        )}
+        {amountInUSD > 0 && (
+          <div className={styles.feeBreakDownContainerAmountPaid}>
+            {" "}
+            <div className={styles.bankTransferCharge}>Amount Exchanged</div>
+            <div className={styles.bankTransferCharge}>
+              <>$ {amountInUSD}</>
+            </div>
+          </div>
+        )}
         {errorForLogin ? (
           <div className={styles.errorMessageForLogin}>{errorForLogin} </div>
         ) : (

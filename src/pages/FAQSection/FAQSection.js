@@ -30,7 +30,7 @@ function FAQSection() {
     "Its simple. By using our app you will be able to make transfer request by giving us the details of the recipient’s bank account and process the payment via ACH or Credit Card. ",
     "No. Not at all. The amount will be credited to the recipients bank account directly.",
     "In few minutes.",
-    "To comply with regulatory requirements, you need to verify your identity (or KYC) for sending money.",
+    "To comply with regulatory requirements, you need to verify your identity for sending money.",
     "Account security is important to us and we've taken several steps to protect your payezy account-related information. Rariti, Inc. offers  electronic financial payment services by collaborating with partners in both USA and India, which are fully licensed and compliant with local authorities. ",
   ];
   return (
