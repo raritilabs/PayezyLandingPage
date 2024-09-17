@@ -18,6 +18,7 @@ import FAQSection from "../FAQSection/FAQSection";
 import Footer from "../Footer/Footer";
 import backgroundLeftImage from "../../assets/backGroundSectionOneLeft.svg";
 import backgroundRightSectionOneMob from "../../assets/backgroundRightSectionOneMob.svg";
+import BestInMarket from "../BestInMarket/BestInMarket";
 const SendINRLandingPage = ({
   profileEmail,
   setAmountInUSD,
@@ -220,6 +221,7 @@ const SendINRLandingPage = ({
         />
       )} */}
       <WhyPayezy />
+      <BestInMarket usdToInrExRate={usdToInrExRate} />
       {!isMobile && (
         <img
           src={backgroundLeftImage}

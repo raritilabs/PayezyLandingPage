@@ -81,7 +81,6 @@ const JoinWaitListEmailFetching = ({ setModalIsOpen }) => {
               Join the waitlist for Early Access
             </div>{" "}
             <div className={styles.emailContainer}>
-              <p className={styles.emailText}>Email</p>
               <input
                 onChange={handleChangeEmail}
                 type="text"
