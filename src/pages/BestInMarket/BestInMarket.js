@@ -75,10 +75,7 @@ const BestInMarket = ({ usdToInrExRate }) => {
   );
   //Function to calculate recipient gets
   function calculateRecipientGetsValue(exchangeRateData, transferFeeData) {
-    console.log("exchangeRateData", exchangeRateData);
-    console.log("transferFeeData", transferFeeData);
     const result = exchangeRateData * (THOUSAND - transferFeeData);
-    console.log("result", result);
     return result.toFixed(TWO_FIXED_TWO);
   }
   //Function to calculate trur value

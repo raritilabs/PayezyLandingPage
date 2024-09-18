@@ -55,7 +55,6 @@ const SimpleWayToSendMoney = () => {
                   hoveredIndex === 0 ? styles.active : ""
                 }`}
                 onMouseEnter={() => {
-                  console.log("Clicked on item 0");
                   setHoveredIndex(0);
                 }}
               >
@@ -262,7 +261,6 @@ const SimpleWayToSendMoney = () => {
                   hoveredIndex === 0 ? styles.active : ""
                 }`}
                 onMouseEnter={() => {
-                  console.log("Clicked on item 0");
                   setHoveredIndex(0);
                 }}
               >

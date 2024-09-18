@@ -55,7 +55,6 @@ const JoinWaitListEmailFetching = ({ setModalIsOpen }) => {
         setErrorForEmail("Email already exists!");
       } else {
         mixpanel.track("User email stored in firebase!");
-        console.log("email in else", email);
         // If email doesn't exist, store it in Firestore
         await setDoc(emailDocRef, {
           email: email,
