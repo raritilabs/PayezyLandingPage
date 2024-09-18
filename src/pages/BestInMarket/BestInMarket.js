@@ -264,12 +264,12 @@ const BestInMarket = ({ usdToInrExRate }) => {
                 </span>
               </div>{" "}
               <div className={styles.exchangeRateValuesPayezy}>
-                <p> $ {usdToInrExRate * THOUSAND - PAYEZY_TRANSFER_FEE}</p>
+                <p> ₹ {usdToInrExRate * THOUSAND - PAYEZY_TRANSFER_FEE}</p>
               </div>
               <div className={styles.exchangeRateValues}>
                 <p>
                   {" "}
-                  ${" "}
+                  ₹{" "}
                   {calculateRecipientGetsValue(
                     exchangeRateData.westernUnion,
                     transferFeeData.westernUnion
@@ -278,7 +278,7 @@ const BestInMarket = ({ usdToInrExRate }) => {
               </div>
               <div className={styles.exchangeRateValues}>
                 <p>
-                  ${" "}
+                  ₹{" "}
                   {calculateRecipientGetsValue(
                     exchangeRateData.wise,
                     transferFeeData.wise
@@ -288,7 +288,7 @@ const BestInMarket = ({ usdToInrExRate }) => {
               <div className={styles.exchangeRateValues}>
                 <p>
                   {" "}
-                  ${" "}
+                  ₹{" "}
                   {calculateRecipientGetsValue(
                     exchangeRateData.remitly,
                     transferFeeData.remitly
@@ -297,7 +297,7 @@ const BestInMarket = ({ usdToInrExRate }) => {
               </div>
               <div className={styles.exchangeRateValues}>
                 <p>
-                  ${" "}
+                  ₹{" "}
                   {calculateRecipientGetsValue(
                     exchangeRateData.xoom,
                     transferFeeData.xoom
@@ -306,7 +306,7 @@ const BestInMarket = ({ usdToInrExRate }) => {
               </div>
               <div className={styles.exchangeRateValues}>
                 <p>
-                  ${" "}
+                  ₹{" "}
                   {calculateRecipientGetsValue(
                     exchangeRateData.instaram,
                     transferFeeData.instaram
