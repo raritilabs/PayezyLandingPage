@@ -75,10 +75,7 @@ const BestInMarket = ({ usdToInrExRate }) => {
   );
   //Function to calculate recipient gets
   function calculateRecipientGetsValue(exchangeRateData, transferFeeData) {
-    console.log("exchangeRateData", exchangeRateData);
-    console.log("transferFeeData", transferFeeData);
     const result = exchangeRateData * (THOUSAND - transferFeeData);
-    console.log("result", result);
     return result.toFixed(TWO_FIXED_TWO);
   }
   //Function to calculate trur value
@@ -103,18 +100,19 @@ const BestInMarket = ({ usdToInrExRate }) => {
         });
         const data = response.data;
         setExchangeRateData({
-          westernUnion: data.providers[13].quotes[0].rate,
-          wise: data.providers[11].quotes[0].rate,
-          remitly: data.providers[1].quotes[0].rate,
-          xoom: data.providers[0].quotes[0].rate,
-          instaram: data.providers[10].quotes[0].rate,
+          westernUnion: data.providers[0].quotes[0].rate,
+          wise: data.providers[12].quotes[0].rate,
+          remitly: data.providers[2].quotes[0].rate,
+          xoom: data.providers[10].quotes[0].rate,
+          instaram: data.providers[13].quotes[0].rate,
         });
+        console.log("data.providers[13].quotes[0].fee", data);
         setTransferFeeData({
-          westernUnion: data.providers[13].quotes[0].fee,
-          wise: data.providers[11].quotes[0].fee,
-          remitly: data.providers[1].quotes[0].fee,
-          xoom: data.providers[0].quotes[0].fee,
-          instaram: data.providers[10].quotes[0].fee,
+          westernUnion: data.providers[0].quotes[0].fee,
+          wise: data.providers[12].quotes[0].fee,
+          remitly: data.providers[2].quotes[0].fee,
+          xoom: data.providers[10].quotes[0].fee,
+          instaram: data.providers[13].quotes[0].fee,
         });
       } catch (error) {
         console.error("Error fetching exchange rates:", error);

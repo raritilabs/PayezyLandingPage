@@ -44,7 +44,6 @@ const SendINRLandingPage = ({
 
   // Handles the click on the Proceed button
   const handleClickProceedButton = async () => {
-    console.log("button cliked");
     // Check if required fields are filled and amount is valid
     if (!profileEmail && amountInUSD && amountInUSD >= MIN_ALLOWED_TRANSFER) {
       // Proceed to the next page in the Google login flow

@@ -56,7 +56,6 @@ const ExchangeRateDisplay = ({
     amountInUSD > 0
       ? styles.exchangeRateValues
       : styles.exchangeRateMainContainer;
-  console.log("containerClass", containerClass);
 
   return (
     <div className={containerClass}>
