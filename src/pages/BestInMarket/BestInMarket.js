@@ -173,7 +173,8 @@ const BestInMarket = ({ usdToInrExRate }) => {
 
               <div className={styles.exchangeRateValuesPayezy}>
                 <p>
-                  ₹ {usdToInrExRate ? usdToInrExRate : "0"}
+                  ₹{" "}
+                  {usdToInrExRate ? usdToInrExRate.toFixed(TWO_FIXED_TWO) : "0"}
                   <OverlayTrigger
                     placement="right"
                     overlay={renderTooltipPayezy}
@@ -243,7 +244,7 @@ const BestInMarket = ({ usdToInrExRate }) => {
             <div className={styles.transferFeeContainer}>
               <div className={styles.transferFeeheading}>Transfer Fee</div>
               <div className={styles.exchangeRateValuesPayezy}>
-                <p> $ {PAYEZY_TRANSFER_FEE}</p>
+                <p> $ {PAYEZY_TRANSFER_FEE.toFixed(TWO_FIXED_TWO)}</p>
               </div>
               {providers.map((provider) => (
                 <div key={provider} className={styles.exchangeRateValues}>
@@ -264,7 +265,13 @@ const BestInMarket = ({ usdToInrExRate }) => {
                 </span>
               </div>{" "}
               <div className={styles.exchangeRateValuesPayezy}>
-                <p> ₹ {usdToInrExRate * THOUSAND - PAYEZY_TRANSFER_FEE}</p>
+                <p>
+                  {" "}
+                  ₹{" "}
+                  {(usdToInrExRate * THOUSAND - PAYEZY_TRANSFER_FEE).toFixed(
+                    TWO_FIXED_TWO
+                  )}
+                </p>
               </div>
               <div className={styles.exchangeRateValues}>
                 <p>
