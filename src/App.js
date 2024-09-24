@@ -53,7 +53,6 @@ function App() {
           process.env.REACT_APP_PAYEZY_SERVER_URI + "/get-usdinr-rate",
           requestOptions
         );
-
         const { UsdToInr } = await response.json();
         setUsdToInrExRate(UsdToInr);
       } catch (error) {

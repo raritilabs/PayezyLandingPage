@@ -13,9 +13,7 @@ const JoinWaitlistSection = () => {
   // State to set the Modal open or close
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const handleClickJoinWaitlistButton = () => {
-    console.log("Hai");
     setModalIsOpen(true);
-    console.log("modalIsOpen", modalIsOpen);
   };
   return (
     <div className={styles.joinWaitlistContainer}>

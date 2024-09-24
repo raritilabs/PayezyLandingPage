@@ -18,6 +18,7 @@ import FAQSection from "../FAQSection/FAQSection";
 import Footer from "../Footer/Footer";
 import backgroundLeftImage from "../../assets/backGroundSectionOneLeft.svg";
 import backgroundRightSectionOneMob from "../../assets/backgroundRightSectionOneMob.svg";
+import BestInMarket from "../BestInMarket/BestInMarket";
 const SendINRLandingPage = ({
   profileEmail,
   setAmountInUSD,
@@ -43,7 +44,6 @@ const SendINRLandingPage = ({
 
   // Handles the click on the Proceed button
   const handleClickProceedButton = async () => {
-    console.log("button cliked");
     // Check if required fields are filled and amount is valid
     if (!profileEmail && amountInUSD && amountInUSD >= MIN_ALLOWED_TRANSFER) {
       // Proceed to the next page in the Google login flow
@@ -220,6 +220,7 @@ const SendINRLandingPage = ({
         />
       )} */}
       <WhyPayezy />
+      <BestInMarket usdToInrExRate={usdToInrExRate} />
       {!isMobile && (
         <img
           src={backgroundLeftImage}

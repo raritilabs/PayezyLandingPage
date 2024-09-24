@@ -65,7 +65,7 @@ export const SEND_ENUM = {
   yourOrderCompleted: "Your transfer order has been delivered successfully at",
   youHaveCancelledThisOrder:
     "You have cancelled this transfer order. Please be patient while we process your refund. ",
-  transactionInProgress: "Storage in progress..",
+  transactionInProgress: "Please wait..",
   paymentRecievedButton: "Awaiting settlement",
   addNewReceiverDetails: "Add New Recipient",
   backButton: "Back",
@@ -134,4 +134,12 @@ export const SEND_ENUM = {
   privacyPolicy: "Privacy Policy",
   termsOfUse: "Terms of Use",
   copyRight: "© 2024 Rariti, Inc.  All rights reserved.",
+  bestInMarket: "Best in Market",
+  comparison: "Comparison",
+  provider: "Provider",
+  exchangeRate: "Exchange Rate",
+  USDToINR: "[1 USD → INR]",
+  transferFee: "Transfer Fee",
+  recipientGets: "Recipient gets",
+  sendingThousand: "Sending 1000 USD",
 };
