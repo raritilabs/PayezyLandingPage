@@ -32,7 +32,7 @@ const ExchangeRateDisplay = ({
     if (!amountInUSD) {
       setErrorForLogin("Please enter an amount to continue!");
     } else {
-      window.open("https://app.payezy.io", "_blank");
+      setModalIsOpen(true);
     }
   };
   useEffect(() => {
