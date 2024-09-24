@@ -30,7 +30,6 @@ const JoinWaitListEmailFetching = ({ setModalIsOpen }) => {
     setEmail(e.target.value);
   };
   const handleClickConfirm = async () => {
-    setOnClickSubmit(true);
     // Regular expression to validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -48,12 +47,12 @@ const JoinWaitListEmailFetching = ({ setModalIsOpen }) => {
       const emailDocRef = doc(waitlistRef, email);
       const emailDocSnapshot = await getDoc(emailDocRef);
       mixpanel.track("User clicked on Join Waitlist buttton!");
-
       if (emailDocSnapshot.exists()) {
         setOnClickSubmit(false);
         // If email already exists, set it to the email error state
         setErrorForEmail("Email already exists!");
       } else {
+        setOnClickSubmit(true);
         mixpanel.track("User email stored in firebase!");
         // If email doesn't exist, store it in Firestore
         await setDoc(emailDocRef, {

@@ -348,5 +348,18 @@
   margin-top: 30px;
 }
 .priceDifference {
-  color: var(--orange, #f9b959);
+  color: #fd5252;
+  margin-left: 8px;
+}
+.downArrow {
+  width: 10px;
+  height: 10px;
+}
+.priceDiffContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  margin-top: 147px;
+  margin-left: -90px;
+  margin-right: 40px;
 }
