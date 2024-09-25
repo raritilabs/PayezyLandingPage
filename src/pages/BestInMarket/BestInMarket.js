@@ -27,13 +27,6 @@ const BestInMarket = ({ usdToInrExRate }) => {
   const THOUSAND = 1000;
   const TWO_FIXED_TWO = 2;
   const PAYEZY_TRANSFER_FEE = 0.0;
-  const [exchangeRates, setExchangeRates] = useState({
-    westernUnion: null,
-    wise: null,
-    remitly: null,
-    xoom: null,
-    instarem: null,
-  });
 
   const renderTooltipPayezy = (props) => (
     <Tooltip {...props} className={styles.toolTipStyle}>
@@ -91,13 +84,20 @@ const BestInMarket = ({ usdToInrExRate }) => {
   useEffect(() => {
     const fetchExchangeRates = async () => {
       try {
-        const response = await axios.get("https://copperx.io/api/comparisons", {
-          params: {
-            sendAmount: THOUSAND,
-            sourceCurrency: "USD",
-            targetCurrency: "INR",
-          },
-        });
+        const response = await axios.get(
+          "https://proxy.cors.sh/https://copperx.io/api/comparisons",
+          {
+            params: {
+              sendAmount: THOUSAND,
+              sourceCurrency: "USD",
+              targetCurrency: "INR",
+            },
+            headers: {
+              "x-cors-api-key": process.env.REACT_APP_CORS_API_KEY,
+            },
+          }
+        );
+
         const data = response.data;
         setExchangeRateData({
           westernUnion: data.providers[0].quotes[0].rate,
@@ -120,6 +120,7 @@ const BestInMarket = ({ usdToInrExRate }) => {
 
     fetchExchangeRates();
   }, [THOUSAND]);
+
   if (!exchangeRateData && !transferFeeData) return <div>Loading...</div>;
   return (
     <>
@@ -403,7 +404,11 @@ const BestInMarket = ({ usdToInrExRate }) => {
                   placement="right"
                   overlay={renderTooltipTruRate}
                 >
-                  <img src={ToolttipIcon} className={styles.toolTipIcon} />
+                  <img
+                    src={ToolttipIcon}
+                    className={styles.toolTipIcon}
+                    alt="Tooltip"
+                  />
                 </OverlayTrigger>
                 <br />
                 <span className={styles.USDToINR}>
