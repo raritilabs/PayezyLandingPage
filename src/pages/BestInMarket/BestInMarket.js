@@ -6,14 +6,14 @@ import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import { AppContext } from "../../context";
 import PayezyIcon from "../../assets/PayezyIcon.svg";
-import InstaramIcon from "../../assets/InstaramIcon.svg";
+import InstaremIcon from "../../assets/InstaramIcon.svg";
 import RemitlyIcon from "../../assets/RemitlyIcon.svg";
 import WiselyIcon from "../../assets/WiseIcon.svg";
-import XoomIcon from "../../assets/XoomIcon.svg";
 import ToolttipIcon from "../../assets/ToolTipIcon.svg";
 import WesternUnionIcon from "../../assets/westernUnionImage.svg";
 import AOS from "aos";
 import downArrow from "../../assets/downArrow.svg";
+
 const BestInMarket = ({ usdToInrExRate }) => {
   const { isMobile } = useContext(AppContext);
 
@@ -48,11 +48,6 @@ const BestInMarket = ({ usdToInrExRate }) => {
       Less than Mid-Market Rate
     </Tooltip>
   );
-  const renderTooltipXoom = (props) => (
-    <Tooltip {...props} className={styles.toolTipStyle}>
-      Very Less than Mid-Market Rate
-    </Tooltip>
-  );
   const renderTooltipInstarem = (props) => (
     <Tooltip {...props} className={styles.toolTipStyle}>
       Less than Mid-Market Rate
@@ -79,12 +74,11 @@ const BestInMarket = ({ usdToInrExRate }) => {
     ).toFixed(TWO_FIXED_TWO);
     return result;
   }
-  const providers = ["westernUnion", "wise", "remitly", "xoom", "instaram"];
 
   useEffect(() => {
     const fetchExchangeRates = async () => {
       try {
-        const response = await axios.get(
+        const copperxResponse = await axios.get(
           "https://proxy.cors.sh/https://copperx.io/api/comparisons",
           {
             params: {
@@ -97,21 +91,54 @@ const BestInMarket = ({ usdToInrExRate }) => {
             },
           }
         );
-
-        const data = response.data;
+        const copperxData = copperxResponse.data.providers;
+        // Fetch Wise exchange rate from Wise API
+        // const wiseResponse = await axios.get(
+        //   "https://proxy.cors.sh/https://api.wise.com/v1/rates/live?source=USD&target=INR",
+        //   {
+        //     headers: {
+        //       "x-cors-api-key": process.env.REACT_APP_CORS_API_KEY,
+        //     },
+        //   }
+        // );
+        // const wiseData = wiseResponse.data;
+        // Fetch Remitly exchange rate from Remitly API
+        // const remitlyResponse = await axios.get(
+        //   "https://proxy.cors.sh/https://api.remitly.io/v3/calculator/estimate?conduit=USA%3AUSD-IND%3AINR&anchor=SEND&amount=5000&purpose=OTHER&customer_segment=UNRECOGNIZED&strict_promo=false",
+        //   {
+        //     headers: {
+        //       "x-cors-api-key": process.env.REACT_APP_CORS_API_KEY,
+        //     },
+        //   }
+        // );
+        // const remitlyData = remitlyResponse.data;
+        // console.log(
+        //   "remitlyResponse",
+        //   remitlyResponse,
+        //   remitlyData.estimate.exchange_rate.base_rate,
+        //   remitlyData.estimate.fee.total_fee_amount
+        // );
+        const westernUnion = copperxData.find(
+          (provider) => provider.alias === "western-union"
+        );
+        const wise = copperxData.find((provider) => provider.alias === "wise");
+        const remitly = copperxData.find(
+          (provider) => provider.alias === "remitly"
+        );
+        const instarem = copperxData.find(
+          (provider) => provider.alias === "instarem"
+        );
         setExchangeRateData({
-          westernUnion: data.providers[0].quotes[0].rate,
-          wise: data.providers[12].quotes[0].rate,
-          remitly: data.providers[2].quotes[0].rate,
-          xoom: data.providers[10].quotes[0].rate,
-          instaram: data.providers[13].quotes[0].rate,
+          westernUnion: westernUnion?.quotes[0]?.rate,
+          wise: wise?.quotes[0]?.rate,
+          remitly: remitly?.quotes[0]?.rate,
+          instarem: instarem?.quotes[0]?.rate,
         });
         setTransferFeeData({
-          westernUnion: data.providers[0].quotes[0].fee,
-          wise: data.providers[12].quotes[0].fee,
-          remitly: data.providers[2].quotes[0].fee,
-          xoom: data.providers[10].quotes[0].fee,
-          instaram: data.providers[13].quotes[0].fee,
+          westernUnion: westernUnion?.quotes[0]?.fee,
+          wise: wise?.quotes[0]?.fee,
+          remitly: remitly?.quotes[0]?.fee,
+          instarem: instarem?.quotes[0]?.fee,
         });
       } catch (error) {
         console.error("Error fetching exchange rates:", error);
@@ -135,341 +162,256 @@ const BestInMarket = ({ usdToInrExRate }) => {
       {!isMobile && (
         <div ref={featuresContainerRef} className={styles.feauturesContainer}>
           {/* <AnimatedOnScroll animationIn="bounce" delay={1000}> */}
-          <div
-            className={`${styles.feauturesSubContainer} ${styles.subContainer1}`}
-          >
-            <div className={styles.providerContainer}>
-              <div className={styles.heading}>{SEND_ENUM.provider}</div>
 
-              <div>
-                <img src={PayezyIcon} className={styles.payezyImages} />
-              </div>
-              <div>
-                <img src={WesternUnionIcon} className={styles.wiseImage} />
-              </div>
-              <div>
-                <img src={WiselyIcon} className={styles.wiseImage} />
-              </div>
-              <div>
-                <img src={RemitlyIcon} className={styles.remitlyImage} />
-              </div>
-              <div>
-                <img src={XoomIcon} className={styles.xoomIcon} />
-              </div>
-              <div>
-                <img src={InstaramIcon} className={styles.images} />
-              </div>
+          <div className={styles.headerContainer}>
+            <div className={styles.providerHeading}>{SEND_ENUM.provider}</div>
+            <div className={styles.exchangeRateHeading}>
+              {SEND_ENUM.exchangeRate}
+              <br />
+              <span className={styles.USDToINR}>{SEND_ENUM.USDToINR}</span>
             </div>
-          </div>
-          <div
-            className={`${styles.feauturesSubContainer} ${styles.subContainer1}`}
-          >
-            <div className={styles.exchangeRateContainer}>
-              <div className={styles.heading}>
-                {SEND_ENUM.exchangeRate}
-                <br />
-                <span className={styles.USDToINR}>{SEND_ENUM.USDToINR}</span>
-              </div>
-
-              <div className={styles.exchangeRateValuesPayezy}>
-                <p>
-                  ₹{" "}
-                  {usdToInrExRate ? usdToInrExRate.toFixed(TWO_FIXED_TWO) : "0"}
-                  <OverlayTrigger
-                    placement="right"
-                    overlay={renderTooltipPayezy}
-                  >
-                    <img src={ToolttipIcon} className={styles.toolTipIcon} />
-                  </OverlayTrigger>
-                </p>
-              </div>
-              <div className={styles.exchangeRateValues}>
-                <p>
-                  ₹{" "}
-                  {exchangeRateData.westernUnion
-                    ? exchangeRateData.westernUnion.toFixed(TWO_FIXED_TWO)
-                    : "0"}
-                  <OverlayTrigger
-                    placement="right"
-                    overlay={renderTooltipWesternUnion}
-                  >
-                    <img src={ToolttipIcon} className={styles.toolTipIcon} />
-                  </OverlayTrigger>
-                </p>
-              </div>
-              <div className={styles.exchangeRateValues}>
-                <p>
-                  ₹ {exchangeRateData.wise.toFixed(TWO_FIXED_TWO)}{" "}
-                  <OverlayTrigger placement="right" overlay={renderTooltipWise}>
-                    <img src={ToolttipIcon} className={styles.toolTipIcon} />
-                  </OverlayTrigger>
-                </p>
-              </div>
-              <div className={styles.exchangeRateValues}>
-                <p>
-                  {" "}
-                  ₹ {exchangeRateData.remitly.toFixed(TWO_FIXED_TWO)}{" "}
-                  <OverlayTrigger
-                    placement="right"
-                    overlay={renderTooltipRemitely}
-                  >
-                    <img src={ToolttipIcon} className={styles.toolTipIcon} />
-                  </OverlayTrigger>
-                </p>
-              </div>
-              <div className={styles.exchangeRateValues}>
-                <p>
-                  ₹ {exchangeRateData.xoom.toFixed(TWO_FIXED_TWO)}{" "}
-                  <OverlayTrigger placement="right" overlay={renderTooltipXoom}>
-                    <img src={ToolttipIcon} className={styles.toolTipIcon} />
-                  </OverlayTrigger>
-                </p>
-              </div>
-              <div className={styles.exchangeRateValues}>
-                <p>
-                  ₹ {exchangeRateData.instaram.toFixed(TWO_FIXED_TWO)}{" "}
-                  <OverlayTrigger
-                    placement="right"
-                    overlay={renderTooltipInstarem}
-                  >
-                    <img src={ToolttipIcon} className={styles.toolTipIcon} />
-                  </OverlayTrigger>
-                </p>
-              </div>
+            <div className={styles.transferFeeHeading}>
+              {SEND_ENUM.transferFee}
             </div>
-          </div>
-          <div
-            className={`${styles.feauturesSubContainer} ${styles.subContainer1}`}
-          >
-            <div className={styles.transferFeeContainer}>
-              <div className={styles.transferFeeheading}>Transfer Fee</div>
-              <div className={styles.exchangeRateValuesPayezy}>
-                <p> $ {PAYEZY_TRANSFER_FEE.toFixed(TWO_FIXED_TWO)}</p>
-              </div>
-              {providers.map((provider) => (
-                <div key={provider} className={styles.exchangeRateValues}>
-                  <p>$ {transferFeeData[provider].toFixed(TWO_FIXED_TWO)}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div
-            className={`${styles.feauturesSubContainer} ${styles.subContainer1}`}
-          >
-            <div className={styles.transferFeeContainer}>
-              <div className={styles.heading}>
-                {SEND_ENUM.recipientGets}
-                <br />
-                <span className={styles.USDToINR}>
-                  {SEND_ENUM.sendingThousand}
-                </span>
-              </div>{" "}
-              <div className={styles.exchangeRateValuesPayezy}>
-                <p>
-                  {" "}
-                  ₹{" "}
-                  {(usdToInrExRate * THOUSAND - PAYEZY_TRANSFER_FEE).toFixed(
-                    TWO_FIXED_TWO
-                  )}
-                </p>
-              </div>
-              <div className={styles.exchangeRateValues}>
-                <p>
-                  {" "}
-                  ₹{" "}
-                  {calculateRecipientGetsValue(
-                    exchangeRateData.westernUnion,
-                    transferFeeData.westernUnion
-                  )}
-                </p>
-              </div>
-              <div className={styles.exchangeRateValues}>
-                <p>
-                  ₹{" "}
-                  {calculateRecipientGetsValue(
-                    exchangeRateData.wise,
-                    transferFeeData.wise
-                  )}
-                </p>
-              </div>
-              <div className={styles.exchangeRateValues}>
-                <p>
-                  {" "}
-                  ₹{" "}
-                  {calculateRecipientGetsValue(
-                    exchangeRateData.remitly,
-                    transferFeeData.remitly
-                  )}
-                </p>
-              </div>
-              <div className={styles.exchangeRateValues}>
-                <p>
-                  ₹{" "}
-                  {calculateRecipientGetsValue(
-                    exchangeRateData.xoom,
-                    transferFeeData.xoom
-                  )}
-                </p>
-              </div>
-              <div className={styles.exchangeRateValues}>
-                <p>
-                  ₹{" "}
-                  {calculateRecipientGetsValue(
-                    exchangeRateData.instaram,
-                    transferFeeData.instaram
-                  )}
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className={styles.priceDiffContainer}>
-            <div>
-              {" "}
-              <span className={styles.priceDifference}>
-                <img src={downArrow} className={styles.downArrow} alt="" /> -
-                {(
-                  usdToInrExRate * THOUSAND -
-                  PAYEZY_TRANSFER_FEE -
-                  calculateRecipientGetsValue(
-                    exchangeRateData.westernUnion,
-                    transferFeeData.westernUnion
-                  )
-                ).toFixed(TWO_FIXED_TWO)}{" "}
+            <div className={styles.recipientGetsHeading}>
+              {SEND_ENUM.recipientGets}
+              <br />
+              <span className={styles.USDToINR}>
+                {SEND_ENUM.sendingThousand}
               </span>
             </div>
-            <div>
-              {" "}
-              <span className={styles.priceDifference}>
-                <img src={downArrow} className={styles.downArrow} alt="" /> -
-                {(
-                  usdToInrExRate * THOUSAND -
-                  PAYEZY_TRANSFER_FEE -
-                  calculateRecipientGetsValue(
-                    exchangeRateData.wise,
-                    transferFeeData.wise
-                  )
-                ).toFixed(TWO_FIXED_TWO)}{" "}
-              </span>
-            </div>
-            <div>
-              {" "}
-              <span className={styles.priceDifference}>
-                <img src={downArrow} className={styles.downArrow} alt="" /> -
-                {(
-                  usdToInrExRate * THOUSAND -
-                  PAYEZY_TRANSFER_FEE -
-                  calculateRecipientGetsValue(
-                    exchangeRateData.remitly,
-                    transferFeeData.remitly
-                  )
-                ).toFixed(TWO_FIXED_TWO)}{" "}
-              </span>
-            </div>
-            <div>
-              {" "}
-              <span className={styles.priceDifference}>
-                <img src={downArrow} className={styles.downArrow} alt="" /> -
-                {(
-                  usdToInrExRate * THOUSAND -
-                  PAYEZY_TRANSFER_FEE -
-                  calculateRecipientGetsValue(
-                    exchangeRateData.xoom,
-                    transferFeeData.xoom
-                  )
-                ).toFixed(TWO_FIXED_TWO)}{" "}
-              </span>
-            </div>
-            <div>
-              {" "}
-              <span className={styles.priceDifference}>
-                <img src={downArrow} className={styles.downArrow} alt="" /> -
-                {(
-                  usdToInrExRate * THOUSAND -
-                  PAYEZY_TRANSFER_FEE -
-                  calculateRecipientGetsValue(
-                    exchangeRateData.instaram,
-                    transferFeeData.instaram
-                  )
-                ).toFixed(TWO_FIXED_TWO)}{" "}
-              </span>
+            <div className={styles.trueRateHeading}>
+              {SEND_ENUM.trueRate}
+              <OverlayTrigger placement="right" overlay={renderTooltipTruRate}>
+                <img
+                  src={ToolttipIcon}
+                  className={styles.toolTipIcon}
+                  alt="Tooltip"
+                />
+              </OverlayTrigger>
+              <br />
+              <span className={styles.USDToINR}>Effective Mid-Market Rate</span>
             </div>
           </div>
-          <div
-            className={`${styles.feauturesSubContainer} ${styles.subContainer1}`}
-          >
-            <div className={styles.transferFeeContainer}>
-              <div className={styles.heading}>
-                True Rate{" "}
-                <OverlayTrigger
-                  placement="right"
-                  overlay={renderTooltipTruRate}
-                >
-                  <img
-                    src={ToolttipIcon}
-                    className={styles.toolTipIcon}
-                    alt="Tooltip"
-                  />
+          <div className={styles.payezyDetailsContainer}>
+            <div className={styles.payezyIcon}>
+              <img src={PayezyIcon} className={styles.payezyImages} />
+            </div>
+            <div className={styles.exchangeRateValuePayezy}>
+              <div className={styles.valueAndTooltipPayezy}>
+                ₹ {usdToInrExRate ? usdToInrExRate.toFixed(TWO_FIXED_TWO) : "0"}
+                <OverlayTrigger placement="right" overlay={renderTooltipPayezy}>
+                  <img src={ToolttipIcon} className={styles.toolTipIcon} />
                 </OverlayTrigger>
-                <br />
-                <span className={styles.USDToINR}>
-                  Effective Mid-Market Rate
+              </div>
+            </div>
+            <div className={styles.transferFeesPayezy}>
+              <div className={styles.valueAndTooltipPayezy}>
+                {" "}
+                $ {PAYEZY_TRANSFER_FEE.toFixed(TWO_FIXED_TWO)}
+              </div>
+            </div>
+            <div className={styles.recipientGetsValuePayezy}>
+              <div className={styles.valueAndTooltipPayezy}>
+                ₹{" "}
+                {(usdToInrExRate * THOUSAND - PAYEZY_TRANSFER_FEE).toFixed(
+                  TWO_FIXED_TWO
+                )}
+              </div>
+            </div>
+            <div className={styles.trueRateValuePayezy}>
+              <div className={styles.valueAndTooltipPayezy}>
+                ${" "}
+                {(usdToInrExRate * (THOUSAND - PAYEZY_TRANSFER_FEE)) / THOUSAND}
+              </div>
+            </div>
+          </div>
+          <div className={styles.providerDetailsContainer}>
+            <div className={styles.providerIcon}>
+              <img src={WesternUnionIcon} className={styles.wiseImage} />
+            </div>
+            <div className={styles.providerExchangeRateValues}>
+              ₹{" "}
+              {exchangeRateData.westernUnion
+                ? exchangeRateData.westernUnion.toFixed(TWO_FIXED_TWO)
+                : "0"}
+              <OverlayTrigger
+                placement="right"
+                overlay={renderTooltipWesternUnion}
+              >
+                <img src={ToolttipIcon} className={styles.toolTipIcon} />
+              </OverlayTrigger>
+            </div>
+            <div className={styles.providerTransferFees}>
+              ${" "}
+              {transferFeeData.westernUnion
+                ? transferFeeData.westernUnion.toFixed(TWO_FIXED_TWO)
+                : "0"}
+            </div>
+            <div className={styles.providerRecipientGetsValues}>
+              <div className={styles.recipientGets}>
+                ₹{" "}
+                {calculateRecipientGetsValue(
+                  exchangeRateData.westernUnion,
+                  transferFeeData.westernUnion
+                )}
+              </div>
+              <div>
+                {" "}
+                <span className={styles.priceDifference}>
+                  <img src={downArrow} className={styles.downArrow} alt="" /> -
+                  {(
+                    usdToInrExRate * THOUSAND -
+                    PAYEZY_TRANSFER_FEE -
+                    calculateRecipientGetsValue(
+                      exchangeRateData.westernUnion,
+                      transferFeeData.westernUnion
+                    )
+                  ).toFixed(TWO_FIXED_TWO)}{" "}
                 </span>
-              </div>{" "}
-              <div className={styles.exchangeRateValuesPayezy}>
-                <p>
-                  {" "}
-                  ${" "}
-                  {(usdToInrExRate * (THOUSAND - PAYEZY_TRANSFER_FEE)) /
-                    THOUSAND}
-                </p>
               </div>
-              <div className={styles.exchangeRateValues}>
-                <p>
-                  {" "}
-                  ${" "}
-                  {calculateTrueValue(
-                    exchangeRateData.westernUnion,
-                    transferFeeData.westernUnion
-                  )}{" "}
-                </p>
+            </div>
+            <div className={styles.providerTrueRateValues}>
+              ${" "}
+              {calculateTrueValue(
+                exchangeRateData.westernUnion,
+                transferFeeData.westernUnion
+              )}
+            </div>
+          </div>
+          <div className={styles.providerDetailsContainer}>
+            <div className={styles.providerIcon}>
+              <img src={WiselyIcon} className={styles.wiseImage} />
+            </div>
+            <div className={styles.providerExchangeRateValues}>
+              ₹ {exchangeRateData.wise.toFixed(TWO_FIXED_TWO)}{" "}
+              <OverlayTrigger placement="right" overlay={renderTooltipWise}>
+                <img src={ToolttipIcon} className={styles.toolTipIcon} />
+              </OverlayTrigger>
+            </div>
+            <div className={styles.providerTransferFees}>
+              ${" "}
+              {transferFeeData.wise
+                ? transferFeeData.wise.toFixed(TWO_FIXED_TWO)
+                : "0"}
+            </div>
+            <div className={styles.providerRecipientGetsValues}>
+              <div className={styles.recipientGets}>
+                ₹{" "}
+                {calculateRecipientGetsValue(
+                  exchangeRateData.wise,
+                  transferFeeData.wise
+                )}
               </div>
-              <div className={styles.exchangeRateValues}>
-                <p>
-                  ${" "}
-                  {calculateTrueValue(
-                    exchangeRateData.wise,
-                    transferFeeData.wise
-                  )}
-                </p>
+              <div>
+                <span className={styles.priceDifference}>
+                  <img src={downArrow} className={styles.downArrow} alt="" /> -
+                  {(
+                    usdToInrExRate * THOUSAND -
+                    PAYEZY_TRANSFER_FEE -
+                    calculateRecipientGetsValue(
+                      exchangeRateData.wise,
+                      transferFeeData.wise
+                    )
+                  ).toFixed(TWO_FIXED_TWO)}
+                </span>
               </div>
-              <div className={styles.exchangeRateValues}>
-                <p>
-                  {" "}
-                  ${" "}
-                  {calculateTrueValue(
-                    exchangeRateData.remitly,
-                    transferFeeData.remitly
-                  )}
-                </p>
+            </div>
+            <div className={styles.providerTrueRateValues}>
+              ${" "}
+              {calculateTrueValue(exchangeRateData.wise, transferFeeData.wise)}
+            </div>
+          </div>
+          <div className={styles.providerDetailsContainer}>
+            <div className={styles.providerIcon}>
+              <img src={RemitlyIcon} className={styles.remitlyImage} />
+            </div>
+            <div className={styles.providerExchangeRateValues}>
+              ₹ {exchangeRateData.remitly.toFixed(TWO_FIXED_TWO)}{" "}
+              <OverlayTrigger placement="right" overlay={renderTooltipRemitely}>
+                <img src={ToolttipIcon} className={styles.toolTipIcon} />
+              </OverlayTrigger>
+            </div>
+            <div className={styles.providerTransferFees}>
+              ${" "}
+              {transferFeeData.remitly
+                ? transferFeeData.remitly.toFixed(TWO_FIXED_TWO)
+                : "0"}
+            </div>
+            <div className={styles.providerRecipientGetsValues}>
+              <div className={styles.recipientGets}>
+                ₹{" "}
+                {calculateRecipientGetsValue(
+                  exchangeRateData.remitly,
+                  transferFeeData.remitly
+                )}
               </div>
-              <div className={styles.exchangeRateValues}>
-                <p>
-                  ${" "}
-                  {calculateTrueValue(
-                    exchangeRateData.xoom,
-                    transferFeeData.xoom
-                  )}
-                </p>
+              <div>
+                <span className={styles.priceDifference}>
+                  <img src={downArrow} className={styles.downArrow} alt="" /> -
+                  {(
+                    usdToInrExRate * THOUSAND -
+                    PAYEZY_TRANSFER_FEE -
+                    calculateRecipientGetsValue(
+                      exchangeRateData.remitly,
+                      transferFeeData.remitly
+                    )
+                  ).toFixed(TWO_FIXED_TWO)}
+                </span>
               </div>
-              <div className={styles.exchangeRateValues}>
-                <p>
-                  ${" "}
-                  {calculateTrueValue(
-                    exchangeRateData.instaram,
-                    transferFeeData.instaram
-                  )}
-                </p>
+            </div>
+            <div className={styles.providerTrueRateValues}>
+              ${" "}
+              {calculateTrueValue(
+                exchangeRateData.remitly,
+                transferFeeData.remitly
+              )}
+            </div>
+          </div>
+          <div className={styles.providerDetailsContainer}>
+            <div className={styles.providerIcon}>
+              <img src={InstaremIcon} className={styles.images} />
+            </div>
+            <div className={styles.providerExchangeRateValues}>
+              ₹ {exchangeRateData.instarem.toFixed(TWO_FIXED_TWO)}{" "}
+              <OverlayTrigger placement="right" overlay={renderTooltipInstarem}>
+                <img src={ToolttipIcon} className={styles.toolTipIcon} />
+              </OverlayTrigger>
+            </div>
+            <div className={styles.providerTransferFees}>
+              ${" "}
+              {transferFeeData.instarem
+                ? transferFeeData.instarem.toFixed(TWO_FIXED_TWO)
+                : "0"}
+            </div>
+            <div className={styles.providerRecipientGetsValues}>
+              <div className={styles.recipientGets}>
+                ₹{" "}
+                {calculateRecipientGetsValue(
+                  exchangeRateData.instarem,
+                  transferFeeData.instarem
+                )}
               </div>
+              <div>
+                <span className={styles.priceDifference}>
+                  <img src={downArrow} className={styles.downArrow} alt="" /> -
+                  {(
+                    usdToInrExRate * THOUSAND -
+                    PAYEZY_TRANSFER_FEE -
+                    calculateRecipientGetsValue(
+                      exchangeRateData.instarem,
+                      transferFeeData.instarem
+                    )
+                  ).toFixed(TWO_FIXED_TWO)}
+                </span>
+              </div>
+            </div>
+            <div className={styles.providerTrueRateValues}>
+              ${" "}
+              {calculateTrueValue(
+                exchangeRateData.instarem,
+                transferFeeData.instarem
+              )}
             </div>
           </div>
         </div>
@@ -494,13 +436,13 @@ const BestInMarket = ({ usdToInrExRate }) => {
                 <div>
                   <div>
                     <div>
-                      <p className={styles.exchangeRateInMob}>
+                      <div className={styles.exchangeRateInMob}>
                         {SEND_ENUM.exchangeRate}
-                      </p>
-                      <p className={styles.USDToINRInamob}>
+                      </div>
+                      <div className={styles.USDToINRInamob}>
                         {SEND_ENUM.USDToINR}
-                      </p>
-                      <p className={styles.exchangeRateInMob}>
+                      </div>
+                      <div className={styles.exchangeRateInMob}>
                         ₹ {usdToInrExRate ? usdToInrExRate : "-"}
                         <OverlayTrigger
                           placement="right"
@@ -511,30 +453,30 @@ const BestInMarket = ({ usdToInrExRate }) => {
                             className={styles.toolTipIconImage}
                           />
                         </OverlayTrigger>
-                      </p>
-                      <p className={styles.recipientGetsInMob}>
+                      </div>
+                      <div className={styles.recipientGetsInMob}>
                         {SEND_ENUM.recipientGets}
-                      </p>
-                      <p className={styles.USDToINRInamob}>
+                      </div>
+                      <div className={styles.USDToINRInamob}>
                         {SEND_ENUM.sendingThousand}
-                      </p>
-                      <p className={styles.exchangeRateInMob}>
+                      </div>
+                      <div className={styles.exchangeRateInMob}>
                         ₹ {usdToInrExRate * (THOUSAND - PAYEZY_TRANSFER_FEE)}
-                      </p>
+                      </div>
                     </div>
                   </div>
                 </div>
                 <div>
                   <div>
                     <div>
-                      <p className={styles.transferRateInMob}>
+                      <div className={styles.transferRateInMob}>
                         {SEND_ENUM.transferFee}
-                      </p>
-                      <p className={styles.exchangeRateInMob}>$ 0</p>
-                      <p className={styles.trueRateInMob}>
+                      </div>
+                      <div className={styles.exchangeRateInMob}>$ 0</div>
+                      <div className={styles.trueRateInMob}>
                         Tru Rate{" "}
                         <OverlayTrigger
-                          placement="right"
+                          placement="left"
                           overlay={renderTooltipTruRate}
                         >
                           <img
@@ -542,13 +484,13 @@ const BestInMarket = ({ usdToInrExRate }) => {
                             className={styles.toolTipIcon}
                           />
                         </OverlayTrigger>
-                      </p>
-                      <p className={styles.USDToINRInamob}>
+                      </div>
+                      <div className={styles.USDToINRInamob}>
                         Effective Mid-Market Rate
-                      </p>
-                      <p className={styles.exchangeRateInMob}>
+                      </div>
+                      <div className={styles.exchangeRateInMob}>
                         $ {usdToInrExRate}{" "}
-                      </p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -565,13 +507,13 @@ const BestInMarket = ({ usdToInrExRate }) => {
                 <div>
                   <div>
                     <div>
-                      <p className={styles.exchangeRateInMob}>
+                      <div className={styles.exchangeRateInMob}>
                         {SEND_ENUM.exchangeRate}
-                      </p>
-                      <p className={styles.USDToINRInamob}>
+                      </div>
+                      <div className={styles.USDToINRInamob}>
                         {SEND_ENUM.USDToINR}
-                      </p>
-                      <p className={styles.exchangeRateNotPayezyInMob}>
+                      </div>
+                      <div className={styles.exchangeRateNotPayezyInMob}>
                         ₹{" "}
                         {exchangeRateData.westernUnion
                           ? exchangeRateData.westernUnion.toFixed(TWO_FIXED_TWO)
@@ -585,20 +527,20 @@ const BestInMarket = ({ usdToInrExRate }) => {
                             className={styles.toolTipIconImage}
                           />
                         </OverlayTrigger>
-                      </p>
-                      <p className={styles.recipientGetsInMob}>
+                      </div>
+                      <div className={styles.recipientGetsInMob}>
                         {SEND_ENUM.recipientGets}
-                      </p>
-                      <p className={styles.USDToINRInamob}>
+                      </div>
+                      <div className={styles.USDToINRInamob}>
                         {SEND_ENUM.sendingThousand}
-                      </p>
-                      <p className={styles.exchangeRateNotPayezyInMob}>
+                      </div>
+                      <div className={styles.exchangeRateNotPayezyInMob}>
                         ₹{" "}
                         {calculateRecipientGetsValue(
                           exchangeRateData.westernUnion,
                           transferFeeData.westernUnion
                         )}
-                        <span className={styles.priceDifference}>
+                        <span className={styles.priceDifferenceInMob}>
                           <img
                             src={downArrow}
                             className={styles.downArrow}
@@ -614,31 +556,31 @@ const BestInMarket = ({ usdToInrExRate }) => {
                             )
                           ).toFixed(TWO_FIXED_TWO)}{" "}
                         </span>
-                      </p>
+                      </div>
                     </div>
                   </div>
                 </div>
                 <div>
                   <div>
                     <div>
-                      <p className={styles.transferRateInMob}>
+                      <div className={styles.transferRateInMob}>
                         {SEND_ENUM.transferFee}
-                      </p>
+                      </div>
 
-                      <p className={styles.exchangeRateNotPayezyInMob}>
+                      <div className={styles.exchangeRateNotPayezyInMob}>
                         $ {transferFeeData.westernUnion.toFixed(TWO_FIXED_TWO)}
-                      </p>
-                      <p className={styles.trueRateInMob}>Tru Rate</p>
-                      <p className={styles.USDToINRInamob}>
+                      </div>
+                      <div className={styles.trueRateInMob}>Tru Rate</div>
+                      <div className={styles.USDToINRInamob}>
                         Effective Mid-Market Rate
-                      </p>
-                      <p className={styles.exchangeRateNotPayezyInMob}>
+                      </div>
+                      <div className={styles.exchangeRateNotPayezyInMob}>
                         ${" "}
                         {calculateTrueValue(
                           exchangeRateData.westernUnion,
                           transferFeeData.westernUnion
                         )}{" "}
-                      </p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -652,13 +594,13 @@ const BestInMarket = ({ usdToInrExRate }) => {
                 <div>
                   <div>
                     <div>
-                      <p className={styles.exchangeRateInMob}>
+                      <div className={styles.exchangeRateInMob}>
                         {SEND_ENUM.exchangeRate}
-                      </p>
-                      <p className={styles.USDToINRInamob}>
+                      </div>
+                      <div className={styles.USDToINRInamob}>
                         {SEND_ENUM.USDToINR}
-                      </p>
-                      <p className={styles.exchangeRateNotPayezyInMob}>
+                      </div>
+                      <div className={styles.exchangeRateNotPayezyInMob}>
                         ₹{" "}
                         {exchangeRateData.wise
                           ? exchangeRateData.wise.toFixed(TWO_FIXED_TWO)
@@ -672,20 +614,20 @@ const BestInMarket = ({ usdToInrExRate }) => {
                             className={styles.toolTipIconImage}
                           />
                         </OverlayTrigger>
-                      </p>
-                      <p className={styles.recipientGetsInMob}>
+                      </div>
+                      <div className={styles.recipientGetsInMob}>
                         {SEND_ENUM.recipientGets}
-                      </p>
-                      <p className={styles.USDToINRInamob}>
+                      </div>
+                      <div className={styles.USDToINRInamob}>
                         {SEND_ENUM.sendingThousand}
-                      </p>
-                      <p className={styles.exchangeRateNotPayezyInMob}>
+                      </div>
+                      <div className={styles.exchangeRateNotPayezyInMob}>
                         ₹{" "}
                         {calculateRecipientGetsValue(
                           exchangeRateData.wise,
                           transferFeeData.wise
                         )}
-                        <span className={styles.priceDifference}>
+                        <span className={styles.priceDifferenceInMob}>
                           <img
                             src={downArrow}
                             className={styles.downArrow}
@@ -701,24 +643,24 @@ const BestInMarket = ({ usdToInrExRate }) => {
                             )
                           ).toFixed(TWO_FIXED_TWO)}{" "}
                         </span>
-                      </p>
+                      </div>
                     </div>
                   </div>
                 </div>
                 <div>
                   <div>
                     <div>
-                      <p className={styles.transferRateInMob}>
+                      <div className={styles.transferRateInMob}>
                         {SEND_ENUM.transferFee}
-                      </p>
+                      </div>
 
-                      <p className={styles.exchangeRateNotPayezyInMob}>
+                      <div className={styles.exchangeRateNotPayezyInMob}>
                         $ {transferFeeData.wise.toFixed(TWO_FIXED_TWO)}
-                      </p>
-                      <p className={styles.trueRateInMob}>
+                      </div>
+                      <div className={styles.trueRateInMob}>
                         True Rate{" "}
                         <OverlayTrigger
-                          placement="right"
+                          placement="left"
                           overlay={renderTooltipTruRate}
                         >
                           <img
@@ -726,17 +668,17 @@ const BestInMarket = ({ usdToInrExRate }) => {
                             className={styles.toolTipIcon}
                           />
                         </OverlayTrigger>
-                      </p>
-                      <p className={styles.USDToINRInamob}>
+                      </div>
+                      <div className={styles.USDToINRInamob}>
                         Effective Mid-Market Rate
-                      </p>
-                      <p className={styles.exchangeRateNotPayezyInMob}>
+                      </div>
+                      <div className={styles.exchangeRateNotPayezyInMob}>
                         ${" "}
                         {calculateTrueValue(
                           exchangeRateData.wise,
                           transferFeeData.wise
                         )}{" "}
-                      </p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -750,13 +692,13 @@ const BestInMarket = ({ usdToInrExRate }) => {
                 <div>
                   <div>
                     <div>
-                      <p className={styles.exchangeRateInMob}>
+                      <div className={styles.exchangeRateInMob}>
                         {SEND_ENUM.exchangeRate}
-                      </p>
-                      <p className={styles.USDToINRInamob}>
+                      </div>
+                      <div className={styles.USDToINRInamob}>
                         {SEND_ENUM.USDToINR}
-                      </p>
-                      <p className={styles.exchangeRateNotPayezyInMob}>
+                      </div>
+                      <div className={styles.exchangeRateNotPayezyInMob}>
                         ₹{" "}
                         {exchangeRateData.remitly
                           ? exchangeRateData.remitly.toFixed(TWO_FIXED_TWO)
@@ -770,20 +712,20 @@ const BestInMarket = ({ usdToInrExRate }) => {
                             className={styles.toolTipIconImage}
                           />
                         </OverlayTrigger>
-                      </p>
-                      <p className={styles.recipientGetsInMob}>
+                      </div>
+                      <div className={styles.recipientGetsInMob}>
                         {SEND_ENUM.recipientGets}
-                      </p>
-                      <p className={styles.USDToINRInamob}>
+                      </div>
+                      <div className={styles.USDToINRInamob}>
                         {SEND_ENUM.sendingThousand}
-                      </p>
-                      <p className={styles.exchangeRateNotPayezyInMob}>
+                      </div>
+                      <div className={styles.exchangeRateNotPayezyInMob}>
                         ₹{" "}
                         {calculateRecipientGetsValue(
                           exchangeRateData.remitly,
                           transferFeeData.remitly
                         )}
-                        <span className={styles.priceDifference}>
+                        <span className={styles.priceDifferenceInMob}>
                           <img
                             src={downArrow}
                             className={styles.downArrow}
@@ -799,24 +741,24 @@ const BestInMarket = ({ usdToInrExRate }) => {
                             )
                           ).toFixed(TWO_FIXED_TWO)}{" "}
                         </span>
-                      </p>
+                      </div>
                     </div>
                   </div>
                 </div>
                 <div>
                   <div>
                     <div>
-                      <p className={styles.transferRateInMob}>
+                      <div className={styles.transferRateInMob}>
                         {SEND_ENUM.transferFee}
-                      </p>
+                      </div>
 
-                      <p className={styles.exchangeRateNotPayezyInMob}>
+                      <div className={styles.exchangeRateNotPayezyInMob}>
                         $ {transferFeeData.remitly.toFixed(TWO_FIXED_TWO)}
-                      </p>
-                      <p className={styles.trueRateInMob}>
+                      </div>
+                      <div className={styles.trueRateInMob}>
                         True Rate{" "}
                         <OverlayTrigger
-                          placement="right"
+                          placement="left"
                           overlay={renderTooltipTruRate}
                         >
                           <img
@@ -824,17 +766,17 @@ const BestInMarket = ({ usdToInrExRate }) => {
                             className={styles.toolTipIcon}
                           />
                         </OverlayTrigger>
-                      </p>
-                      <p className={styles.USDToINRInamob}>
+                      </div>
+                      <div className={styles.USDToINRInamob}>
                         Effective Mid-Market Rate
-                      </p>
-                      <p className={styles.exchangeRateNotPayezyInMob}>
+                      </div>
+                      <div className={styles.exchangeRateNotPayezyInMob}>
                         ${" "}
                         {calculateTrueValue(
                           exchangeRateData.remitly,
                           transferFeeData.remitly
                         )}{" "}
-                      </p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -842,120 +784,22 @@ const BestInMarket = ({ usdToInrExRate }) => {
             </div>
             <div className={styles.priceComparisonMainContainer}>
               <div className={styles.payezyImageMobContainer}>
-                <img src={XoomIcon} className={styles.wiseLyImageMob} />
+                <img src={InstaremIcon} className={styles.wiseLyImageMob} />
               </div>
               <div className={styles.priceComparisonSubContainer}>
                 <div>
                   <div>
                     <div>
-                      <p className={styles.exchangeRateInMob}>
+                      <div className={styles.exchangeRateInMob}>
                         {SEND_ENUM.exchangeRate}
-                      </p>
-                      <p className={styles.USDToINRInamob}>
+                      </div>
+                      <div className={styles.USDToINRInamob}>
                         {SEND_ENUM.USDToINR}
-                      </p>
-                      <p className={styles.exchangeRateNotPayezyInMob}>
+                      </div>
+                      <div className={styles.exchangeRateNotPayezyInMob}>
                         ₹{" "}
-                        {exchangeRateData.xoom
-                          ? exchangeRateData.xoom.toFixed(TWO_FIXED_TWO)
-                          : "-"}
-                        <OverlayTrigger
-                          placement="right"
-                          overlay={renderTooltipXoom}
-                        >
-                          <img
-                            src={ToolttipIcon}
-                            className={styles.toolTipIconImage}
-                          />
-                        </OverlayTrigger>
-                      </p>
-                      <p className={styles.recipientGetsInMob}>
-                        {SEND_ENUM.recipientGets}
-                      </p>
-                      <p className={styles.USDToINRInamob}>
-                        {SEND_ENUM.sendingThousand}
-                      </p>
-                      <p className={styles.exchangeRateNotPayezyInMob}>
-                        ₹{" "}
-                        {calculateRecipientGetsValue(
-                          exchangeRateData.instaram,
-                          transferFeeData.instaram
-                        )}{" "}
-                        <span className={styles.priceDifference}>
-                          <img
-                            src={downArrow}
-                            className={styles.downArrow}
-                            alt=""
-                          />{" "}
-                          -
-                          {(
-                            usdToInrExRate * THOUSAND -
-                            PAYEZY_TRANSFER_FEE -
-                            calculateRecipientGetsValue(
-                              exchangeRateData.xoom,
-                              transferFeeData.xoom
-                            )
-                          ).toFixed(TWO_FIXED_TWO)}{" "}
-                        </span>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div>
-                  <div>
-                    <div>
-                      <p className={styles.transferRateInMob}>
-                        {SEND_ENUM.transferFee}
-                      </p>
-
-                      <p className={styles.exchangeRateNotPayezyInMob}>
-                        $ {transferFeeData.xoom.toFixed(TWO_FIXED_TWO)}
-                      </p>
-                      <p className={styles.trueRateInMob}>
-                        True Rate{" "}
-                        <OverlayTrigger
-                          placement="right"
-                          overlay={renderTooltipTruRate}
-                        >
-                          <img
-                            src={ToolttipIcon}
-                            className={styles.toolTipIcon}
-                          />
-                        </OverlayTrigger>
-                      </p>
-                      <p className={styles.USDToINRInamob}>
-                        Effective Mid-Market Rate
-                      </p>
-                      <p className={styles.exchangeRateNotPayezyInMob}>
-                        ${" "}
-                        {calculateTrueValue(
-                          exchangeRateData.xoom,
-                          transferFeeData.xoom
-                        )}{" "}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className={styles.priceComparisonMainContainer}>
-              <div className={styles.payezyImageMobContainer}>
-                <img src={InstaramIcon} className={styles.wiseLyImageMob} />
-              </div>
-              <div className={styles.priceComparisonSubContainer}>
-                <div>
-                  <div>
-                    <div>
-                      <p className={styles.exchangeRateInMob}>
-                        {SEND_ENUM.exchangeRate}
-                      </p>
-                      <p className={styles.USDToINRInamob}>
-                        {SEND_ENUM.USDToINR}
-                      </p>
-                      <p className={styles.exchangeRateNotPayezyInMob}>
-                        ₹{" "}
-                        {exchangeRateData.instaram
-                          ? exchangeRateData.instaram.toFixed(TWO_FIXED_TWO)
+                        {exchangeRateData.instarem
+                          ? exchangeRateData.instarem.toFixed(TWO_FIXED_TWO)
                           : "-"}
                         <OverlayTrigger
                           placement="right"
@@ -966,20 +810,20 @@ const BestInMarket = ({ usdToInrExRate }) => {
                             className={styles.toolTipIconImage}
                           />
                         </OverlayTrigger>
-                      </p>
-                      <p className={styles.recipientGetsInMob}>
+                      </div>
+                      <div className={styles.recipientGetsInMob}>
                         {SEND_ENUM.recipientGets}
-                      </p>
-                      <p className={styles.USDToINRInamob}>
+                      </div>
+                      <div className={styles.USDToINRInamob}>
                         {SEND_ENUM.sendingThousand}
-                      </p>
-                      <p className={styles.exchangeRateNotPayezyInMob}>
+                      </div>
+                      <div className={styles.exchangeRateNotPayezyInMob}>
                         ₹{" "}
                         {calculateRecipientGetsValue(
-                          exchangeRateData.instaram,
-                          transferFeeData.instaram
+                          exchangeRateData.instarem,
+                          transferFeeData.instarem
                         )}
-                        <span className={styles.priceDifference}>
+                        <span className={styles.priceDifferenceInMob}>
                           <img
                             src={downArrow}
                             className={styles.downArrow}
@@ -990,29 +834,29 @@ const BestInMarket = ({ usdToInrExRate }) => {
                             usdToInrExRate * THOUSAND -
                             PAYEZY_TRANSFER_FEE -
                             calculateRecipientGetsValue(
-                              exchangeRateData.instaram,
-                              transferFeeData.instaram
+                              exchangeRateData.instarem,
+                              transferFeeData.instarem
                             )
                           ).toFixed(TWO_FIXED_TWO)}{" "}
                         </span>
-                      </p>
+                      </div>
                     </div>
                   </div>
                 </div>
                 <div>
                   <div>
                     <div>
-                      <p className={styles.transferRateInMob}>
+                      <div className={styles.transferRateInMob}>
                         {SEND_ENUM.transferFee}
-                      </p>
+                      </div>
 
-                      <p className={styles.exchangeRateNotPayezyInMob}>
-                        $ {transferFeeData.instaram.toFixed(TWO_FIXED_TWO)}
-                      </p>
-                      <p className={styles.trueRateInMob}>
+                      <div className={styles.exchangeRateNotPayezyInMob}>
+                        $ {transferFeeData.instarem.toFixed(TWO_FIXED_TWO)}
+                      </div>
+                      <div className={styles.trueRateInMob}>
                         True Rate{" "}
                         <OverlayTrigger
-                          placement="right"
+                          placement="left"
                           overlay={renderTooltipTruRate}
                         >
                           <img
@@ -1020,17 +864,17 @@ const BestInMarket = ({ usdToInrExRate }) => {
                             className={styles.toolTipIcon}
                           />
                         </OverlayTrigger>
-                      </p>
-                      <p className={styles.USDToINRInamob}>
+                      </div>
+                      <div className={styles.USDToINRInamob}>
                         Effective Mid-Market Rate
-                      </p>
-                      <p className={styles.exchangeRateNotPayezyInMob}>
+                      </div>
+                      <div className={styles.exchangeRateNotPayezyInMob}>
                         ${" "}
                         {calculateTrueValue(
-                          exchangeRateData.instaram,
-                          transferFeeData.instaram
+                          exchangeRateData.instarem,
+                          transferFeeData.instarem
                         )}{" "}
-                      </p>
+                      </div>
                     </div>
                   </div>
                 </div>
