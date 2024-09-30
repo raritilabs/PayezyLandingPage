@@ -142,4 +142,5 @@ export const SEND_ENUM = {
   transferFee: "Transfer Fee",
   recipientGets: "Recipient gets",
   sendingThousand: "Sending 1000 USD",
+  trueRate: "True Rate",
 };

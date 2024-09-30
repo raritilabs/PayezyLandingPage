@@ -61,9 +61,7 @@
 .termsOfUse:hover {
   color: #a1e6f6;
 }
-.termsOfUse {
-  // margin-left: 47px;
-}
+
 .privacyPolicyContainer {
   display: flex;
   align-items: center;
@@ -71,7 +69,6 @@
   @media screen and (max-width: 992px) {
     justify-content: center;
   }
-  // margin-top: 15px;
 }
 .copyRight {
   color: var(--Gray-font, #a5a2b8);
@@ -112,14 +109,7 @@
 .privacyPolicyIcon {
   margin-left: 19px;
 }
-.instgramIcon {
-  height: 40px;
-  width: 40px;
-  margin-right: 18px;
-  cursor: pointer;
-  padding: 12px;
-  background: #434343;
-}
+.linkedinIcon,
 .discordIcon,
 .XIcon {
   margin-right: 18px;
@@ -130,6 +120,7 @@
     height: 48px;
   }
 }
+.instagramIcon,
 .linkedinIcon {
   @media screen and (max-width: 992px) {
     width: 48px;
@@ -140,9 +131,11 @@
 .privacyPolicy:hover {
   cursor: pointer;
 }
+.instagramIcon,
 .linkedinIcon {
   border: 1px solid transparent;
 }
+.instagramIcon:hover,
 .XIcon:hover,
 .discordIcon:hover,
 .linkedinIcon:hover {

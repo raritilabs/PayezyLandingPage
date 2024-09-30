@@ -168,12 +168,7 @@
   color: #ffffff;
   padding: 7px 0px;
   border: 1px solid #212c3d;
-  background: linear-gradient(186deg, #242421 30%, #1d1e29) 100%;
-  // border: 1px solid #fff;
-
-  // opacity: 0.1;
   background: linear-gradient(180deg, #2c2e38 0%, #1c1e2a 100%);
-
   cursor: pointer;
   border-radius: 4px;
   width: 100%;
@@ -244,7 +239,6 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-fill-color: transparent;
 }
 .questionMark {
   font-family: "Metrophobic";
@@ -382,29 +376,6 @@ input:focus {
   color: #fd5252;
   stroke: #fd5252;
 }
-.popupOverlay {
-  position: fixed;
-  inset: 0px;
-  background: rgba(196, 196, 196, 0.15);
-  backdrop-filter: blur(4px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000000000000;
-  color: white;
-}
-.popupContent {
-  background: #081527;
-  border-radius: 15px;
-  width: 506px;
-  height: auto;
-  overflow: auto;
-  @media screen and (max-width: 992px) {
-    width: 100%;
-    margin-left: 14px;
-    margin-right: 14px;
-  }
-}
 .feeBreakDown,
 .feeBreakDownNetTransfer {
   color: var(--gray-font, #a5a2b8);
@@ -534,16 +505,11 @@ input:focus {
   margin-bottom: 21px;
 }
 .exchangeRateMainContainer {
-  //  background: linear-gradient(180deg, #212c3d 0%, #101d2e 100%);
   background: linear-gradient(180deg, #232532 3.57%, #131521 103.57%);
   height: 360px;
   z-index: 2;
   border-radius: 5px;
   padding-bottom: 20px;
-  @media screen and (min-width: 992px) and (max-width: 1380px) {
-    // height: 384px;
-  }
-
   @media screen and (max-width: 992px) {
     margin-left: 20px;
     margin-right: 20px;
@@ -571,7 +537,6 @@ input:focus {
   margin-right: -536px;
   margin-top: -286px;
   animation: mymove 9s infinite;
-  // animation: rotateAnimation 5s linear infinite;
 }
 @keyframes mymove {
   50% {
@@ -595,12 +560,22 @@ input:focus {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 200000;
+  z-index: 2;
   color: white;
 }
+@keyframes zoomInAnimation {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 .popupContent {
-  background: linear-gradient(180deg, #212c3d 0%, #101d2e 100%);
-
+  background: #081527;
+  animation: zoomInAnimation 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
   border-radius: 15px;
   width: 506px;
   padding: 36px 36px 26px 36px;

@@ -23,7 +23,6 @@ const SimpleWayToSendMoney = () => {
   useEffect(() => {
     AOS.init({
       once: true,
-      // disable: "mobile",
     });
   }, []);
   return (
@@ -73,7 +72,6 @@ const SimpleWayToSendMoney = () => {
             {isMobile && (
               <img
                 src={simpleWayToSendMoneyIconOverlayOne}
-                // className={styles.simpleWayToSendMoneyIconOverlay}
                 className={styles.simpleWayToSendMoneyIconOverlayMobile}
                 alt="simpleWayToSendMoney"
               />
@@ -114,7 +112,6 @@ const SimpleWayToSendMoney = () => {
             {isMobile && (
               <img
                 src={simpleWayToSendMoneyIconOverlayTwo}
-                // className={styles.simpleWayToSendMoneyIconOverlay}
                 className={styles.simpleWayToSendMoneyIconOverlayMobile}
                 alt="simpleWayToSendMoney"
               />
@@ -155,7 +152,6 @@ const SimpleWayToSendMoney = () => {
             {isMobile && (
               <img
                 src={simpleWayToSendMoneyIconOverlayThree}
-                // className={styles.simpleWayToSendMoneyIconOverlay}
                 className={styles.simpleWayToSendMoneyIconOverlayMobile}
                 alt="simpleWayToSendMoney"
               />
@@ -197,7 +193,6 @@ const SimpleWayToSendMoney = () => {
           {isMobile && (
             <img
               src={simpleWayToSendMoneyIconOverlayFour}
-              // className={styles.simpleWayToSendMoneyIconOverlay}
               className={styles.simpleWayToSendMoneyIconOverlayMobile}
               alt="simpleWayToSendMoney"
             />
@@ -211,7 +206,6 @@ const SimpleWayToSendMoney = () => {
             {hoveredIndex === 0 && !isMobile && (
               <img
                 src={simpleWayToSendMoneyIconOverlayOne}
-                // className={styles.simpleWayToSendMoneyIconOverlay}
                 className={`${styles.simpleWayToSendMoneyIconOverlay} animate`}
                 alt="simpleWayToSendMoney"
               />
@@ -219,7 +213,6 @@ const SimpleWayToSendMoney = () => {
             {hoveredIndex === 1 && !isMobile && (
               <img
                 src={simpleWayToSendMoneyIconOverlayTwo}
-                // className={styles.simpleWayToSendMoneyIconOverlay}
                 className={`${styles.simpleWayToSendMoneyIconOverlay} animate`}
                 alt="simpleWayToSendMoney"
               />
@@ -227,7 +220,6 @@ const SimpleWayToSendMoney = () => {
             {hoveredIndex === 2 && !isMobile && (
               <img
                 src={simpleWayToSendMoneyIconOverlayThree}
-                // className={styles.simpleWayToSendMoneyIconOverlay}
                 className={`${styles.simpleWayToSendMoneyIconOverlay} animate`}
                 alt="simpleWayToSendMoney"
               />
@@ -235,7 +227,6 @@ const SimpleWayToSendMoney = () => {
             {hoveredIndex === 3 && !isMobile && (
               <img
                 src={simpleWayToSendMoneyIconOverlayFour}
-                // className={styles.simpleWayToSendMoneyIconOverlay}
                 className={`${styles.simpleWayToSendMoneyIconOverlay} animate`}
                 alt="simpleWayToSendMoney"
               />
@@ -285,7 +276,6 @@ const SimpleWayToSendMoney = () => {
                 {" "}
                 <img
                   src={simpleWaytoSendmoneyImageOne}
-                  // className={styles.simpleWayToSendMoneyIconOverlay}
                   className={styles.simpleWayToSendMoneyIconOverlayMobileOne}
                   alt="simpleWayToSendMoney"
                 />
@@ -320,7 +310,6 @@ const SimpleWayToSendMoney = () => {
             {isMobile && (
               <img
                 src={simpleWaytoSendmoneyImageTwo}
-                // className={styles.simpleWayToSendMoneyIconOverlay}
                 className={styles.simpleWayToSendMoneyIconOverlayMobile}
                 alt="simpleWayToSendMoney"
               />
@@ -354,7 +343,6 @@ const SimpleWayToSendMoney = () => {
             {isMobile && (
               <img
                 src={simpleWaytoSendmoneyImageThree}
-                // className={styles.simpleWayToSendMoneyIconOverlay}
                 className={styles.simpleWayToSendMoneyIconOverlayMobile}
                 alt="simpleWayToSendMoney"
               />
@@ -389,7 +377,6 @@ const SimpleWayToSendMoney = () => {
           {isMobile && (
             <img
               src={simpleWaytoSendmoneyImageFour}
-              // className={styles.simpleWayToSendMoneyIconOverlay}
               className={styles.simpleWayToSendMoneyIconOverlayMobile}
               alt="simpleWayToSendMoney"
             />
@@ -403,7 +390,6 @@ const SimpleWayToSendMoney = () => {
             {hoveredIndex === 0 && !isMobile && (
               <img
                 src={simpleWayToSendMoneyIconOverlayOne}
-                // className={styles.simpleWayToSendMoneyIconOverlay}
                 className={`${styles.simpleWayToSendMoneyIconOverlay} animate`}
                 alt="simpleWayToSendMoney"
               />
@@ -411,7 +397,6 @@ const SimpleWayToSendMoney = () => {
             {hoveredIndex === 1 && !isMobile && (
               <img
                 src={simpleWayToSendMoneyIconOverlayTwo}
-                // className={styles.simpleWayToSendMoneyIconOverlay}
                 className={`${styles.simpleWayToSendMoneyIconOverlay} animate`}
                 alt="simpleWayToSendMoney"
               />
@@ -419,7 +404,6 @@ const SimpleWayToSendMoney = () => {
             {hoveredIndex === 2 && !isMobile && (
               <img
                 src={simpleWayToSendMoneyIconOverlayThree}
-                // className={styles.simpleWayToSendMoneyIconOverlay}
                 className={`${styles.simpleWayToSendMoneyIconOverlay} animate`}
                 alt="simpleWayToSendMoney"
               />
@@ -427,7 +411,6 @@ const SimpleWayToSendMoney = () => {
             {hoveredIndex === 3 && !isMobile && (
               <img
                 src={simpleWayToSendMoneyIconOverlayFour}
-                // className={styles.simpleWayToSendMoneyIconOverlay}
                 className={`${styles.simpleWayToSendMoneyIconOverlay} animate`}
                 alt="simpleWayToSendMoney"
               />

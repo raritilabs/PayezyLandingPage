@@ -4,7 +4,7 @@ import payezyLogo from "../../assets/payezyIconForFooter.svg";
 import linkedinIcon from "../../assets/linkedinIconForFooter.svg";
 import discordIcon from "../../assets/discordIconForFooter.svg";
 import XIcon from "../../assets/XIconFooter.svg";
-import InstagramIcon from "../../assets/instagramIcon.svg";
+import instagramIcon from "../../assets/instagramIconFooter.svg";
 import { SEND_ENUM } from "../../enums/sendEnum";
 import { useContext } from "react";
 import { AppContext } from "../../context";
@@ -65,13 +65,13 @@ const Footer = () => {
             />
           </a>
           <a
-            href="https://www.linkedin.com/authwall?trk=bf&trkInfo=AQGkYPcLkrpcWQAAAY3vQ6fI1FaAKmRrXsCGHNm2v-6RjHyqe7ZEqzW8gFsRJZm4zO1DgZcSrLBRJhQ1FAV2sCPgFm23nEovz44q4_S6xJDj1pyVa7SqmSDwsLK9LJPBTktTp7Q=&original_referer=&sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fcompany%2Frariti-inc%2F"
+            href="https://www.instagram.com/payezy_io?igsh=MWhxNXRjajZicDV3OQ=="
             target="_blank"
             rel="noreferrer"
           >
             <img
-              src={InstagramIcon}
-              className={styles.instgramIcon}
+              src={instagramIcon}
+              className={styles.instagramIcon}
               alt="instagram"
             />
           </a>

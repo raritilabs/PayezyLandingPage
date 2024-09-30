@@ -15,10 +15,6 @@
   font-weight: 400;
   line-height: 160%; /* 72px */
   width: 447px;
-  // @media screen and (min-width: 1440px) {
-  //   width: 400px;
-  //   font-size: 43px;
-  // }
 
   @media screen and (min-width: 992px) and (max-width: 1519px) {
     width: 400px;
@@ -183,10 +179,6 @@
   }
 }
 
-.feauturesSubContainer {
-  // animation: slideIn 0.5s ease forwards; /* Apply the slideIn animation to each div */
-  // opacity: 0; /* Set initial opacity to 0 to ensure the divs start invisible */
-}
 @keyframes slideInMob {
   from {
     transform: translateX(
@@ -199,13 +191,6 @@
     opacity: 1; /* End with opacity 1 */
   }
 }
-
-// .feauturesSubContainer {
-//   @media screen and (max-width: 992px) {
-//     animation: slideInMob 0.8s ease forwards; /* Apply the slideIn animation to each div */
-//     opacity: 0; /* Set initial opacity to 0 to ensure the divs start invisible */
-//   }
-// }
 
 .feauturesSubContainer:nth-child(1) {
   animation-delay: 0.5s; /* Delay the animation for the first div by 0.1s */

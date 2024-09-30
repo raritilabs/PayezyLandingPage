@@ -93,7 +93,6 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     border: 1px solid #05d2ff; /* Start with a transparent border */
-    //  box-shadow: 0 0 10px #05D2FF; /* Add box shadow on hover */
     margin-bottom: 0;
   }
   @media screen and (min-width: 992px) and (max-width: 1159px) {
@@ -133,8 +132,19 @@
   z-index: 200000;
   color: white;
 }
+@keyframes zoomInAnimation {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 .popupContent {
   background: #081527;
+  animation: zoomInAnimation 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
   border-radius: 15px;
   width: 548px;
   padding: 66px 71px 44px 71px;
