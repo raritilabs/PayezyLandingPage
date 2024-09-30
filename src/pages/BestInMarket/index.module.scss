@@ -110,15 +110,13 @@
     display: none;
   }
 }
-.feauturesContainer {
+.featuresContainer {
   margin-left: 162px;
-  display: flex;
-  justify-content: space-between;
   margin-right: 122px;
-  margin-top: 48px;
+  margin-top: 22px;
   margin-bottom: 313px;
   border-radius: 10px;
-  padding: 22px 93px 33px 73px;
+  padding: 22px 43px 33px 43px;
   background: linear-gradient(180deg, #232532 3.57%, #131521 103.57%);
   @media screen and (max-width: 1275px) and (min-width: 1196px) {
     padding: 22px 43px 33px 43px;
@@ -126,23 +124,36 @@
   @media screen and (max-width: 1195px) and (min-width: 990px) {
     padding: 22px 23px 33px 23px;
   }
-
-  // @media screen and (max-width: 992px) {
-  //   flex-direction: column;
-  //   margin-right: 20px;
-  //   align-items: center;
-  //   margin-left: 20px;
-  //   margin-top: 28px;
-  //   margin-bottom: 181px;
-  //   gap: 40px;
-  // }
 }
 
-.feauturesSubContainer {
-  border-radius: 5px;
+.headerContainer,
+.payezyDetailsContainer,
+.providerRecipientGetsValues,
+.providerDetailsContainer {
+  display: flex;
 }
-
-.providerContainer,
+.providerRecipientGetsValues {
+  gap: 15px;
+  @media screen and (max-width: 1100px) {
+    gap: 12px;
+  }
+  @media screen and (max-width: 1080px) {
+    gap: 7px;
+  }
+  @media screen and (max-width: 1045px) {
+    gap: 5px;
+  }
+}
+.payezyDetailsContainer {
+  border: 2px solid #a1e6f6;
+  border-radius: 10px;
+  padding: 18px 0px 18px 15px;
+  margin-top: 30px;
+  margin-bottom: 25px;
+}
+.providerDetailsContainer {
+  padding-left: 15px;
+}
 .exchangeRateContainer,
 .transferFeeContainer {
   display: flex;
@@ -153,25 +164,55 @@
   gap: 10px;
 }
 
-.heading,
-.transferFeeheading {
+.providerHeading,
+.exchangeRateHeading,
+.recipientGetsHeading,
+.transferFeeHeading,
+.trueRateHeading {
   color: var(--Light-Blue-New-Payezy, #a1e6f6);
-
-  // text-align: center;
-  font-family: Metrophobic;
+  font-family: "Metrophobic";
   font-size: 21px;
   font-style: normal;
   font-weight: 400;
   line-height: 121.5%; /* 25.515px */
 }
-.transferFeeheading {
-  margin-bottom: 23px;
+.providerHeading {
+  padding-left: 15px;
+}
+.trueRateHeading,
+.providerTrueRateValues,
+.trueRateValuePayezy,
+.providerExchangeRateValues,
+.providerTransferFees,
+.exchangeRateValuePayezy,
+.transferFeesPayezy,
+.transferFeeHeading,
+.exchangeRateHeading {
+  width: 18%;
+}
+.trueRateHeading,
+.providerTrueRateValues,
+.trueRateValuePayezy {
+  width: 20%;
+}
+
+.trueRateValuePayezy {
+  display: flex;
+  justify-content: space-between;
+}
+
+.providerHeading,
+.providerIcon,
+.payezyIcon {
+  width: 22%;
+}
+.recipientGetsValuePayezy,
+.providerRecipientGetsValues,
+.recipientGetsHeading {
+  width: 28%;
 }
 .payezyImages {
   width: 140px;
-  height: 30px;
-  margin-top: 50px;
-  margin-bottom: 38px;
 }
 .westernUnionImages {
   margin-bottom: 52px;
@@ -186,12 +227,11 @@
 .remitlyImage {
   width: 112.123px;
   height: 30px;
-  margin-bottom: 39px;
+  margin-bottom: 40px;
 }
-.xoomIcon {
-  width: 92px;
-  height: 30.141px;
-  margin-bottom: 31px;
+.ofxIcon {
+  height: 30px;
+  margin-bottom: 40px;
 }
 .instaRoom {
   width: 108.3px;
@@ -206,14 +246,29 @@
   font-weight: 400;
   line-height: 121.5%; /* 17.01px */
 }
-.exchangeRateValuesPayezy {
+.exchangeRateValuePayezy,
+.transferFeesPayezy,
+.recipientGetsValuePayezy,
+.trueRateValuePayezy,
+.providerExchangeRateValues,
+.providerRecipientGetsValues,
+.providerTrueRateValues,
+.providerTransferFees {
   color: var(--Light-Blue-New-Payezy, #a1e6f6);
   text-align: center;
-  font-family: Metrophobic;
-  font-size: 18px;
+  font-family: "Metrophobic";
+  font-size: 20px;
   font-style: normal;
   font-weight: 400;
   line-height: 121.5%; /* 21.87px */
+  text-align: left;
+}
+.providerTrueRateValues,
+.providerTransferFees,
+.providerRecipientGetsValues,
+.providerExchangeRateValues {
+  font-size: 18px;
+  color: #fff;
 }
 .exchangeRateValues {
   color: #e6e6e6;
@@ -226,8 +281,8 @@
 }
 .toolTipIcon {
   cursor: pointer;
-  margin-left: 8px;
-  margin-bottom: -2px;
+  margin-left: 6px;
+  margin-bottom: -1px;
 }
 .toolTipIconImage {
   margin-left: 8px;
@@ -258,11 +313,21 @@
   padding: 10px 10px 10px 10px;
   font-family: "metrophobic";
 }
-.exchangeRateValues p,
-.exchangeRateValuesPayezy p {
+.exchangeRateValues p {
   text-align: left;
 }
 .liveGoogleRate {
+  margin-top: 30px;
+  color: var(--white, var(--linear-stroke-of-blug-bg, #fff));
+  text-align: left;
+  font-family: Metrophobic;
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 121.5%; /* 25.515px */
+  margin-left: 162px;
+}
+.liveGoogleRateMob {
   color: var(--linear-stroke-of-blug-bg, #fff);
   text-align: center;
   font-family: Metrophobic;
@@ -274,7 +339,7 @@
 }
 .priceComaprisonContainer {
   background: linear-gradient(180deg, #232532 3.57%, #131521 103.57%);
-  padding: 16px 8px 251px 19px;
+  padding: 16px 8px 20px 19px;
   border-radius: 10px;
   margin-left: 20px;
   margin-right: 20px;
@@ -285,7 +350,7 @@
 .recipientGetsInMob,
 .exchangeRateNotPayezyInMob {
   color: var(--Light-Blue-New-Payezy, #a1e6f6);
-  font-family: Metrophobic;
+  font-family: "Metrophobic";
   font-size: 15px;
   font-style: normal;
   font-weight: 400;
@@ -295,31 +360,38 @@
   color: #fff;
 }
 .recipientGetsInMob {
-  margin-top: 30px;
+  margin-top: 25px;
 }
 .USDToINRInamob {
   color: #b4b4b4;
-
   font-family: Metrophobic;
   font-size: 11px;
   font-style: normal;
   font-weight: 400;
   line-height: 121.5%; /* 13.365px */
+  margin-bottom: 14px;
+  margin-top: 2px;
 }
 .priceComparisonSubContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 28px;
+  border-bottom: 1px solid #524f67;
+  padding-bottom: 18px;
+}
+.priceComparisonSubContainerInstarem {
   display: flex;
   justify-content: space-between;
   margin-bottom: 28px;
 }
 .transferRateInMob {
   color: var(--Light-Blue-New-Payezy, #a1e6f6);
-
   font-family: Metrophobic;
   font-size: 15px;
   font-style: normal;
   font-weight: 400;
   line-height: 121.5%; /* 18.225px */
-  margin-bottom: 42px;
+  margin-bottom: 28px;
 }
 .payezyImageMob {
   width: 94.037px;
@@ -334,6 +406,14 @@
   width: 80.868px;
   height: 18.308px;
 }
+.remitlyIconMob {
+  width: 80.868px;
+  height: 20px;
+}
+.ofxIconMob {
+  width: 80.868px;
+  height: 22px;
+}
 .westernUnionImageMob {
   width: 83px;
   height: 19px;
@@ -345,21 +425,75 @@
   font-style: normal;
   font-weight: 400;
   line-height: 121.5%; /* 18.225px */
-  margin-top: 30px;
+  margin-top: 25px;
 }
+.priceDifferenceInMob,
 .priceDifference {
   color: #fd5252;
-  margin-left: 8px;
+}
+.priceDifference {
+  font-size: 16px;
+}
+.priceDifferenceInMob {
+  padding-left: 5px;
+  font-size: 14px;
 }
 .downArrow {
   width: 10px;
   height: 10px;
 }
-.priceDiffContainer {
+.valueAndTooltipPayezy {
+  font-size: 20px;
+  font-family: "metrophobic";
+}
+.recipientGets {
+  width: 100px;
+}
+.sendNowButton {
+  font-family: "Metrophobic";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21px;
+  color: #ffffff;
+  padding: 3px 10px;
+  border: 1px solid #2c2e38;
+  background: linear-gradient(180deg, #2c2e38 0%, #1c1e2a 100%);
+  cursor: pointer;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+.popupOverlay {
+  position: fixed;
+  inset: 0px;
+  background: rgba(196, 196, 196, 0.15);
+  backdrop-filter: blur(4px);
   display: flex;
-  flex-direction: column;
-  gap: 50px;
-  margin-top: 147px;
-  margin-left: -90px;
-  margin-right: 40px;
+  justify-content: center;
+  align-items: center;
+  z-index: 200000;
+  color: white;
+}
+@keyframes zoomInAnimation {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.popupContent {
+  background: linear-gradient(180deg, #212c3d 0%, #101d2e 100%);
+  animation: zoomInAnimation 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  border-radius: 15px;
+  width: 506px;
+  padding: 36px 36px 26px 36px;
+  height: auto;
+  overflow: auto;
+  @media screen and (max-width: 992px) {
+    width: 100%;
+    margin-left: 14px;
+    margin-right: 14px;
+  }
 }

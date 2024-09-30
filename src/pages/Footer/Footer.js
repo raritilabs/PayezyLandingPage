@@ -4,7 +4,7 @@ import payezyLogo from "../../assets/payezyIconForFooter.svg";
 import linkedinIcon from "../../assets/linkedinIconForFooter.svg";
 import discordIcon from "../../assets/discordIconForFooter.svg";
 import XIcon from "../../assets/XIconFooter.svg";
-import InstagramIcon from "../../assets/instagramIcon.svg";
+import instagramIcon from "../../assets/instagramIconFooter.svg";
 import { SEND_ENUM } from "../../enums/sendEnum";
 import { useContext } from "react";
 import { AppContext } from "../../context";
@@ -70,8 +70,8 @@ const Footer = () => {
             rel="noreferrer"
           >
             <img
-              src={InstagramIcon}
-              className={styles.instgramIcon}
+              src={instagramIcon}
+              className={styles.instagramIcon}
               alt="instagram"
             />
           </a>
