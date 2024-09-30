@@ -84,7 +84,6 @@ const JoinWaitListEmailFetching = ({ setModalIsOpen }) => {
                 type="text"
                 placeholder="Enter your email"
                 value={email}
-                //   autoComplete="off"
                 className={cx(styles.inputAmount, {
                   [styles.inputAmountMob]: isMobile,
                 })}

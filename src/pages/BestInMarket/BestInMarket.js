@@ -15,9 +15,6 @@ import AOS from "aos";
 import downArrow from "../../assets/downArrow.svg";
 import ofxIcon from "../../assets/ofxIcon.svg";
 import Spinner from "../../components/Spinner/Spinner";
-import ButtonRade from "../../components/RadeButtons";
-import Modal from "react-modal";
-import JoinWaitListEmailFetching from "../JoinWaitListEmailFetching/JoinWaitListEmailFetching";
 
 const BestInMarket = ({ usdToInrExRate }) => {
   const { isMobile } = useContext(AppContext);
@@ -80,9 +77,6 @@ const BestInMarket = ({ usdToInrExRate }) => {
     ).toFixed(TWO_FIXED_TWO);
     return result;
   }
-  const handleOnClickSendNow = () => {
-    setModalIsOpen(true);
-  };
 
   useEffect(() => {
     const fetchExchangeRates = async () => {
@@ -244,14 +238,6 @@ const BestInMarket = ({ usdToInrExRate }) => {
                 ${" "}
                 {(usdToInrExRate * (THOUSAND - PAYEZY_TRANSFER_FEE)) / THOUSAND}
               </div>
-              <div>
-                <ButtonRade
-                  customStyling={styles.sendNowButton}
-                  onClick={handleOnClickSendNow}
-                >
-                  Send Now
-                </ButtonRade>
-              </div>
             </div>
           </div>
           <div className={styles.providerDetailsContainer}>
@@ -321,7 +307,7 @@ const BestInMarket = ({ usdToInrExRate }) => {
               ${" "}
               {transferFeeData.wise
                 ? transferFeeData.wise.toFixed(TWO_FIXED_TWO)
-                : "0"}
+                : "0.00"}
             </div>
             <div className={styles.providerRecipientGetsValues}>
               <div className={styles.recipientGets}>
@@ -361,7 +347,7 @@ const BestInMarket = ({ usdToInrExRate }) => {
               </OverlayTrigger>
             </div>
             <div className={styles.providerTransferFees}>
-              $ {transferFeeData.remitly ? transferFeeData.remitly : "0"}
+              $ {transferFeeData.remitly ? transferFeeData.remitly : "0.00"}
             </div>
             <div className={styles.providerRecipientGetsValues}>
               <div className={styles.recipientGets}>
@@ -404,7 +390,7 @@ const BestInMarket = ({ usdToInrExRate }) => {
               </OverlayTrigger>
             </div>
             <div className={styles.providerTransferFees}>
-              $ {transferFeeData.ofx ? transferFeeData.ofx : "0"}
+              $ {transferFeeData.ofx ? transferFeeData.ofx : "0.00"}
             </div>
             <div className={styles.providerRecipientGetsValues}>
               <div className={styles.recipientGets}>
@@ -446,7 +432,7 @@ const BestInMarket = ({ usdToInrExRate }) => {
               ${" "}
               {transferFeeData.instarem
                 ? transferFeeData.instarem.toFixed(TWO_FIXED_TWO)
-                : "0"}
+                : "0.00"}
             </div>
             <div className={styles.providerRecipientGetsValues}>
               <div className={styles.recipientGets}>
@@ -536,7 +522,9 @@ const BestInMarket = ({ usdToInrExRate }) => {
                       <div className={styles.transferRateInMob}>
                         {SEND_ENUM.transferFee}
                       </div>
-                      <div className={styles.exchangeRateInMob}>$ 0</div>
+                      <div className={styles.exchangeRateInMob}>
+                        $ {PAYEZY_TRANSFER_FEE.toFixed(TWO_FIXED_TWO)}
+                      </div>
                       <div className={styles.trueRateInMob}>
                         Tru Rate{" "}
                         <OverlayTrigger
@@ -1045,15 +1033,6 @@ const BestInMarket = ({ usdToInrExRate }) => {
           </div>
         </>
       )}
-      <Modal
-        isOpen={modalIsOpen}
-        overlayClassName={styles.popupOverlay}
-        className={styles.popupContent}
-        shouldCloseOnOverlayClick={false}
-        ariaHideApp={false}
-      >
-        <JoinWaitListEmailFetching setModalIsOpen={setModalIsOpen} />
-      </Modal>
     </>
   );
 };

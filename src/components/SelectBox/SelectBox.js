@@ -16,7 +16,6 @@ const SelectBox = ({
 
   // Function for Displaying the drop down options
   const handleInputClick = (e) => {
-    //e.stopPropagation();
     setShowMenu(!showMenu);
     errorDismissOnclick();
   };

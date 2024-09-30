@@ -512,7 +512,6 @@ input:focus {
   margin-left: -516px;
   margin-top: -200px;
   animation: mymove 50s infinite;
-  //  animation: rotateAnimation 5s linear infinite;
 }
 .backgroundLeftImageInMobile {
   position: absolute;
@@ -524,18 +523,11 @@ input:focus {
   margin-top: -200px;
   animation: mymove 200s infinite;
 }
-// .backgroundLeftImageSimpleStyleSectionInMobile {
-//   display: none;
-//   position: absolute;
-//   margin-left: -516px;
-//   margin-top: -245px;
-// }
+
 .RighSideBackgroundSectionOne {
   position: absolute;
   right: -336px;
   bottom: 23px;
-  //  animation: mymove 60s infinite;
-  // animation: rotateAnimation 5s linear infinite;
 }
 .RighSideBackgroundSectionOneInMobile {
   position: absolute;

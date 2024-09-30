@@ -24,7 +24,6 @@ const WhyPayezy = () => {
       </div>
       {!isMobile && (
         <div ref={featuresContainerRef} className={styles.feauturesContainer}>
-          {/* <AnimatedOnScroll animationIn="bounce" delay={1000}> */}
           <div
             className={`${styles.feauturesSubContainer} ${styles.subContainer1}`}
             data-aos="slide-up"
@@ -45,8 +44,6 @@ const WhyPayezy = () => {
               {SEND_ENUM.fullyTransparentDefinition}
             </p>
           </div>
-          {/* </AnimatedOnScroll> */}
-          {/* <AnimatedOnScroll animationIn="bounce" delay={1200}> */}
           <div
             data-aos="fade-up"
             data-aos-offset="200"
@@ -68,8 +65,6 @@ const WhyPayezy = () => {
               {SEND_ENUM.fastAndEasyDefinition}
             </p>
           </div>
-          {/* </AnimatedOnScroll> */}
-          {/* <AnimatedOnScroll animationIn="bounce" delay={1400}> */}
           <div
             data-aos="fade-up"
             data-aos-offset="200"
@@ -91,7 +86,6 @@ const WhyPayezy = () => {
               {SEND_ENUM.bestFXRateDefinition}
             </p>
           </div>
-          {/* </AnimatedOnScroll> */}
         </div>
       )}
       {isMobile && (
@@ -99,7 +93,6 @@ const WhyPayezy = () => {
           <div
             className={`${styles.feauturesSubContainer} ${styles.subContainer1}`}
             data-aos="fade-left"
-            // data-aos-offset="200"
             data-aos-duration="200"
             data-aos-easing="ease-in"
             data-aos-delay="120"
@@ -119,10 +112,8 @@ const WhyPayezy = () => {
           <div
             className={`${styles.feauturesSubContainer} ${styles.subContainer2}`}
             data-aos="fade-left"
-            // data-aos-offset="200"
             data-aos-duration="400"
             data-aos-easing="ease-in"
-            // data-aos-delay="240"
           >
             {" "}
             <p className={styles.featuresText}>
@@ -140,10 +131,8 @@ const WhyPayezy = () => {
           <div
             className={`${styles.feauturesSubContainer} ${styles.subContainer3}`}
             data-aos="fade-left"
-            // data-aos-offset="200"
             data-aos-duration="600"
             data-aos-easing="ease-in"
-            // data-aos-delay="360"
           >
             {" "}
             <p className={styles.featuresText}>

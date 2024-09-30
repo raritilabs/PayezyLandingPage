@@ -60,7 +60,7 @@
 }
 .simpleWayToSendMoneySubContainer {
   display: flex;
-  // align-items: center;
+
   gap: 17px;
   @media screen and (max-width: 992px) {
     padding: 11px 5px 19px 6px;
@@ -71,7 +71,6 @@
   }
 }
 .simpleWayToSendMoneyDefContainer {
-  // background: linear-gradient(180deg, #22242F 3.57%, #141622 103.57%);
   border-radius: 10px;
   padding: 15px 11px 39px 11px;
   margin-top: 0;
@@ -131,8 +130,6 @@
   @media screen and (max-width: 992px) {
     cursor: none;
     height: auto;
-
-    // position: static;
   }
 }
 
@@ -157,7 +154,7 @@
 
 .simpleWayToSendMoneyDefContainer::before {
   content: "";
-  //   position: absolute;
+
   top: 0;
   left: 0;
   margin-top: 0;
@@ -178,14 +175,8 @@
     line-height: normal;
   }
 }
-// .delayed-animation {
-//   opacity: 0; /* Initially make the image transparent */
-//   transition: opacity 6s ease; /* Define the transition */
-// }
 
 .simpleWayToSendMoneyIconOverlay {
-  // margin-left: 257px;
-  // padding-right: 249px;
   position: relative;
   left: 94px;
   bottom: 739px;
@@ -210,7 +201,6 @@
     width: 20.474px;
     height: 20.474px;
     margin-top: 3px;
-    // margin-bottom: 33px;
   }
 }
 .simpleWayToSendMoneyIconOverlayMobile {
@@ -229,7 +219,6 @@
   display: flex;
   justify-content: end;
 }
-// index.module.scss
 
 .simpleWayToSendMoneySubContainer {
   // Your existing styles for the container
