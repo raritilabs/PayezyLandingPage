@@ -13,6 +13,11 @@ import ToolttipIcon from "../../assets/ToolTipIcon.svg";
 import WesternUnionIcon from "../../assets/westernUnionImage.svg";
 import AOS from "aos";
 import downArrow from "../../assets/downArrow.svg";
+import ofxIcon from "../../assets/ofxIcon.svg";
+import Spinner from "../../components/Spinner/Spinner";
+import ButtonRade from "../../components/RadeButtons";
+import Modal from "react-modal";
+import JoinWaitListEmailFetching from "../JoinWaitListEmailFetching/JoinWaitListEmailFetching";
 
 const BestInMarket = ({ usdToInrExRate }) => {
   const { isMobile } = useContext(AppContext);
@@ -24,6 +29,7 @@ const BestInMarket = ({ usdToInrExRate }) => {
 
   const [exchangeRateData, setExchangeRateData] = useState(null);
   const [transferFeeData, setTransferFeeData] = useState(null);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
   const THOUSAND = 1000;
   const TWO_FIXED_TWO = 2;
   const PAYEZY_TRANSFER_FEE = 0.0;
@@ -74,6 +80,9 @@ const BestInMarket = ({ usdToInrExRate }) => {
     ).toFixed(TWO_FIXED_TWO);
     return result;
   }
+  const handleOnClickSendNow = () => {
+    setModalIsOpen(true);
+  };
 
   useEffect(() => {
     const fetchExchangeRates = async () => {
@@ -93,31 +102,35 @@ const BestInMarket = ({ usdToInrExRate }) => {
         );
         const copperxData = copperxResponse.data.providers;
         // Fetch Wise exchange rate from Wise API
-        // const wiseResponse = await axios.get(
-        //   "https://proxy.cors.sh/https://api.wise.com/v1/rates/live?source=USD&target=INR",
-        //   {
-        //     headers: {
-        //       "x-cors-api-key": process.env.REACT_APP_CORS_API_KEY,
-        //     },
-        //   }
-        // );
-        // const wiseData = wiseResponse.data;
+        const wiseResponse = await axios.get(
+          "https://proxy.cors.sh/https://api.wise.com/v1/rates/live?source=USD&target=INR",
+          {
+            headers: {
+              "x-cors-api-key": process.env.REACT_APP_CORS_API_KEY,
+            },
+          }
+        );
+        const wiseData = wiseResponse.data;
         // Fetch Remitly exchange rate from Remitly API
-        // const remitlyResponse = await axios.get(
-        //   "https://proxy.cors.sh/https://api.remitly.io/v3/calculator/estimate?conduit=USA%3AUSD-IND%3AINR&anchor=SEND&amount=5000&purpose=OTHER&customer_segment=UNRECOGNIZED&strict_promo=false",
-        //   {
-        //     headers: {
-        //       "x-cors-api-key": process.env.REACT_APP_CORS_API_KEY,
-        //     },
-        //   }
-        // );
-        // const remitlyData = remitlyResponse.data;
-        // console.log(
-        //   "remitlyResponse",
-        //   remitlyResponse,
-        //   remitlyData.estimate.exchange_rate.base_rate,
-        //   remitlyData.estimate.fee.total_fee_amount
-        // );
+        const remitlyResponse = await axios.get(
+          "https://proxy.cors.sh/https://api.remitly.io/v3/calculator/estimate?conduit=USA%3AUSD-IND%3AINR&anchor=SEND&amount=5000&purpose=OTHER&customer_segment=UNRECOGNIZED&strict_promo=false",
+          {
+            headers: {
+              "x-cors-api-key": process.env.REACT_APP_CORS_API_KEY,
+            },
+          }
+        );
+        const remitlyData = remitlyResponse.data;
+        // Fetch ofx exchange rate from ofx API
+        const ofxResponse = await axios.get(
+          "https://proxy.cors.sh/https://api.ofx.com/PublicSite.ApiService/OFX/spotrate/Individual/USD/INR/1000",
+          {
+            headers: {
+              "x-cors-api-key": process.env.REACT_APP_CORS_API_KEY,
+            },
+          }
+        );
+        const ofxData = ofxResponse.data;
         const westernUnion = copperxData.find(
           (provider) => provider.alias === "western-union"
         );
@@ -130,14 +143,16 @@ const BestInMarket = ({ usdToInrExRate }) => {
         );
         setExchangeRateData({
           westernUnion: westernUnion?.quotes[0]?.rate,
-          wise: wise?.quotes[0]?.rate,
-          remitly: remitly?.quotes[0]?.rate,
+          wise: wiseData.value,
+          remitly: remitlyData.estimate.exchange_rate.base_rate,
+          ofx: ofxData.CustomerRate,
           instarem: instarem?.quotes[0]?.rate,
         });
         setTransferFeeData({
           westernUnion: westernUnion?.quotes[0]?.fee,
           wise: wise?.quotes[0]?.fee,
-          remitly: remitly?.quotes[0]?.fee,
+          remitly: remitlyData.estimate.fee.total_fee_amount,
+          ofx: ofxData.Fee,
           instarem: instarem?.quotes[0]?.fee,
         });
       } catch (error) {
@@ -148,19 +163,24 @@ const BestInMarket = ({ usdToInrExRate }) => {
     fetchExchangeRates();
   }, [THOUSAND]);
 
-  if (!exchangeRateData && !transferFeeData) return <div>Loading...</div>;
+  if (!exchangeRateData && !transferFeeData) return <Spinner />;
   return (
     <>
       {!isMobile && (
-        <div className={styles.whyPayezyContainer}>
-          <div className={styles.whyPayezy}>{SEND_ENUM.bestInMarket}</div>
-          <div className={styles.lineContainer}></div>
-          <div className={styles.features}>{SEND_ENUM.comparison}</div>
-        </div>
+        <>
+          <div className={styles.whyPayezyContainer}>
+            <div className={styles.whyPayezy}>{SEND_ENUM.bestInMarket}</div>
+            <div className={styles.lineContainer}></div>
+            <div className={styles.features}>{SEND_ENUM.comparison}</div>
+          </div>
+          <div className={styles.liveGoogleRate}>
+            Live google rate: {usdToInrExRate} INR/USD
+          </div>
+        </>
       )}
 
       {!isMobile && (
-        <div ref={featuresContainerRef} className={styles.feauturesContainer}>
+        <div ref={featuresContainerRef} className={styles.featuresContainer}>
           {/* <AnimatedOnScroll animationIn="bounce" delay={1000}> */}
 
           <div className={styles.headerContainer}>
@@ -223,6 +243,14 @@ const BestInMarket = ({ usdToInrExRate }) => {
               <div className={styles.valueAndTooltipPayezy}>
                 ${" "}
                 {(usdToInrExRate * (THOUSAND - PAYEZY_TRANSFER_FEE)) / THOUSAND}
+              </div>
+              <div>
+                <ButtonRade
+                  customStyling={styles.sendNowButton}
+                  onClick={handleOnClickSendNow}
+                >
+                  Send Now
+                </ButtonRade>
               </div>
             </div>
           </div>
@@ -327,16 +355,13 @@ const BestInMarket = ({ usdToInrExRate }) => {
               <img src={RemitlyIcon} className={styles.remitlyImage} />
             </div>
             <div className={styles.providerExchangeRateValues}>
-              ₹ {exchangeRateData.remitly.toFixed(TWO_FIXED_TWO)}{" "}
+              ₹ {exchangeRateData.remitly}{" "}
               <OverlayTrigger placement="right" overlay={renderTooltipRemitely}>
                 <img src={ToolttipIcon} className={styles.toolTipIcon} />
               </OverlayTrigger>
             </div>
             <div className={styles.providerTransferFees}>
-              ${" "}
-              {transferFeeData.remitly
-                ? transferFeeData.remitly.toFixed(TWO_FIXED_TWO)
-                : "0"}
+              $ {transferFeeData.remitly ? transferFeeData.remitly : "0"}
             </div>
             <div className={styles.providerRecipientGetsValues}>
               <div className={styles.recipientGets}>
@@ -366,6 +391,45 @@ const BestInMarket = ({ usdToInrExRate }) => {
                 exchangeRateData.remitly,
                 transferFeeData.remitly
               )}
+            </div>
+          </div>
+          <div className={styles.providerDetailsContainer}>
+            <div className={styles.providerIcon}>
+              <img src={ofxIcon} className={styles.ofxIcon} />
+            </div>
+            <div className={styles.providerExchangeRateValues}>
+              ₹ {exchangeRateData.ofx.toFixed(TWO_FIXED_TWO)}{" "}
+              <OverlayTrigger placement="right" overlay={renderTooltipRemitely}>
+                <img src={ToolttipIcon} className={styles.toolTipIcon} />
+              </OverlayTrigger>
+            </div>
+            <div className={styles.providerTransferFees}>
+              $ {transferFeeData.ofx ? transferFeeData.ofx : "0"}
+            </div>
+            <div className={styles.providerRecipientGetsValues}>
+              <div className={styles.recipientGets}>
+                ₹{" "}
+                {calculateRecipientGetsValue(
+                  exchangeRateData.ofx,
+                  transferFeeData.ofx
+                )}
+              </div>
+              <div>
+                <span className={styles.priceDifference}>
+                  <img src={downArrow} className={styles.downArrow} alt="" /> -
+                  {(
+                    usdToInrExRate * THOUSAND -
+                    PAYEZY_TRANSFER_FEE -
+                    calculateRecipientGetsValue(
+                      exchangeRateData.ofx,
+                      transferFeeData.ofx
+                    )
+                  ).toFixed(TWO_FIXED_TWO)}
+                </span>
+              </div>
+            </div>
+            <div className={styles.providerTrueRateValues}>
+              $ {calculateTrueValue(exchangeRateData.ofx, transferFeeData.ofx)}
             </div>
           </div>
           <div className={styles.providerDetailsContainer}>
@@ -422,8 +486,8 @@ const BestInMarket = ({ usdToInrExRate }) => {
             <div className={styles.whyPayezyMob}>{SEND_ENUM.bestInMarket}</div>
 
             <div className={styles.comparisonMob}>{SEND_ENUM.comparison}</div>
-            <div className={styles.liveGoogleRate}>
-              Live google rate: 83.88 INR/USD
+            <div className={styles.liveGoogleRateMob}>
+              Live google rate: {usdToInrExRate} INR/USD
             </div>
           </div>
           <div className={styles.priceComaprisonContainer}>
@@ -686,7 +750,7 @@ const BestInMarket = ({ usdToInrExRate }) => {
             </div>
             <div className={styles.priceComparisonMainContainer}>
               <div className={styles.payezyImageMobContainer}>
-                <img src={RemitlyIcon} className={styles.wiseLyImageMob} />
+                <img src={RemitlyIcon} className={styles.remitlyIconMob} />
               </div>
               <div className={styles.priceComparisonSubContainer}>
                 <div>
@@ -701,7 +765,7 @@ const BestInMarket = ({ usdToInrExRate }) => {
                       <div className={styles.exchangeRateNotPayezyInMob}>
                         ₹{" "}
                         {exchangeRateData.remitly
-                          ? exchangeRateData.remitly.toFixed(TWO_FIXED_TWO)
+                          ? exchangeRateData.remitly
                           : "-"}
                         <OverlayTrigger
                           placement="right"
@@ -753,7 +817,7 @@ const BestInMarket = ({ usdToInrExRate }) => {
                       </div>
 
                       <div className={styles.exchangeRateNotPayezyInMob}>
-                        $ {transferFeeData.remitly.toFixed(TWO_FIXED_TWO)}
+                        $ {transferFeeData.remitly}
                       </div>
                       <div className={styles.trueRateInMob}>
                         True Rate{" "}
@@ -784,9 +848,107 @@ const BestInMarket = ({ usdToInrExRate }) => {
             </div>
             <div className={styles.priceComparisonMainContainer}>
               <div className={styles.payezyImageMobContainer}>
-                <img src={InstaremIcon} className={styles.wiseLyImageMob} />
+                <img src={ofxIcon} className={styles.ofxIconMob} />
               </div>
               <div className={styles.priceComparisonSubContainer}>
+                <div>
+                  <div>
+                    <div>
+                      <div className={styles.exchangeRateInMob}>
+                        {SEND_ENUM.exchangeRate}
+                      </div>
+                      <div className={styles.USDToINRInamob}>
+                        {SEND_ENUM.USDToINR}
+                      </div>
+                      <div className={styles.exchangeRateNotPayezyInMob}>
+                        ₹{" "}
+                        {exchangeRateData.ofx
+                          ? exchangeRateData.ofx.toFixed(TWO_FIXED_TWO)
+                          : "-"}
+                        <OverlayTrigger
+                          placement="right"
+                          overlay={renderTooltipPayezy}
+                        >
+                          <img
+                            src={ToolttipIcon}
+                            className={styles.toolTipIconImage}
+                          />
+                        </OverlayTrigger>
+                      </div>
+                      <div className={styles.recipientGetsInMob}>
+                        {SEND_ENUM.recipientGets}
+                      </div>
+                      <div className={styles.USDToINRInamob}>
+                        {SEND_ENUM.sendingThousand}
+                      </div>
+                      <div className={styles.exchangeRateNotPayezyInMob}>
+                        ₹{" "}
+                        {calculateRecipientGetsValue(
+                          exchangeRateData.ofx,
+                          transferFeeData.ofx
+                        )}
+                        <span className={styles.priceDifferenceInMob}>
+                          <img
+                            src={downArrow}
+                            className={styles.downArrow}
+                            alt=""
+                          />{" "}
+                          -
+                          {(
+                            usdToInrExRate * THOUSAND -
+                            PAYEZY_TRANSFER_FEE -
+                            calculateRecipientGetsValue(
+                              exchangeRateData.ofx,
+                              transferFeeData.ofx
+                            )
+                          ).toFixed(TWO_FIXED_TWO)}{" "}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <div>
+                      <div className={styles.transferRateInMob}>
+                        {SEND_ENUM.transferFee}
+                      </div>
+
+                      <div className={styles.exchangeRateNotPayezyInMob}>
+                        $ {transferFeeData.ofx.toFixed(TWO_FIXED_TWO)}
+                      </div>
+                      <div className={styles.trueRateInMob}>
+                        True Rate{" "}
+                        <OverlayTrigger
+                          placement="left"
+                          overlay={renderTooltipTruRate}
+                        >
+                          <img
+                            src={ToolttipIcon}
+                            className={styles.toolTipIcon}
+                          />
+                        </OverlayTrigger>
+                      </div>
+                      <div className={styles.USDToINRInamob}>
+                        Effective Mid-Market Rate
+                      </div>
+                      <div className={styles.exchangeRateNotPayezyInMob}>
+                        ${" "}
+                        {calculateTrueValue(
+                          exchangeRateData.ofx,
+                          transferFeeData.ofx
+                        )}{" "}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className={styles.priceComparisonMainContainer}>
+              <div className={styles.payezyImageMobContainer}>
+                <img src={InstaremIcon} className={styles.wiseLyImageMob} />
+              </div>
+              <div className={styles.priceComparisonSubContainerInstarem}>
                 <div>
                   <div>
                     <div>
@@ -883,6 +1045,15 @@ const BestInMarket = ({ usdToInrExRate }) => {
           </div>
         </>
       )}
+      <Modal
+        isOpen={modalIsOpen}
+        overlayClassName={styles.popupOverlay}
+        className={styles.popupContent}
+        shouldCloseOnOverlayClick={false}
+        ariaHideApp={false}
+      >
+        <JoinWaitListEmailFetching setModalIsOpen={setModalIsOpen} />
+      </Modal>
     </>
   );
 };

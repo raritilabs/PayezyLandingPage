@@ -204,7 +204,6 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-fill-color: transparent;
 }
 .questionMark {
   font-family: "Metrophobic";
@@ -296,18 +295,14 @@ input:focus {
   align-items: center;
   overflow: hidden;
   @media screen and (max-width: 992px) {
-   height: 3vh;
+    height: 3vh;
   }
   @media screen and (max-height: 955px) {
-
-   height: 5vh;
- 
-}
- @media screen and (max-height: 738px) {
-
-   height: 6vh;
- 
-}
+    height: 5vh;
+  }
+  @media screen and (max-height: 738px) {
+    height: 6vh;
+  }
 }
 
 .spinnerContainer {
@@ -321,9 +316,9 @@ input:focus {
   -webkit-animation: spin 1.5s ease-in-out infinite;
   margin-bottom: 32px;
   margin-top: 20px;
-@media screen and (max-width: 992px) {
+  @media screen and (max-width: 992px) {
     width: 15px;
-     height: 15px;
+    height: 15px;
   }
   @keyframes spin {
     to {
@@ -369,7 +364,8 @@ input:focus {
     margin-right: 14px;
   }
 }
-.feeBreakDown, .feeBreakDownNetTransfer{
+.feeBreakDown,
+.feeBreakDownNetTransfer {
   color: var(--gray-font, #a5a2b8);
   font-family: "Metrophobic";
   font-size: 17px;
@@ -382,29 +378,30 @@ input:focus {
   @media screen and (max-width: 992px) {
     margin-left: 32px;
     font-size: 16px;
-     margin-right: 28px;
+    margin-right: 28px;
   }
 }
-.feeBreakDownNetTransfer{
+.feeBreakDownNetTransfer {
   margin-bottom: 7px;
 }
-.feeBreakDownContainer, .feeBreakDownContainerAmountPaid, .feeBreakDownContainerHighlighted {
+.feeBreakDownContainer,
+.feeBreakDownContainerAmountPaid,
+.feeBreakDownContainerHighlighted {
   display: flex;
   justify-content: space-between;
   margin-left: 58px;
   margin-top: -15px;
-margin-bottom: 3px;
+  margin-bottom: 3px;
   margin-right: 47px;
   @media screen and (max-width: 992px) {
     margin-left: 32px;
     margin-right: 28px;
   }
 }
-.feeBreakDownContainerAmountPaid{
+.feeBreakDownContainerAmountPaid {
   margin-bottom: 17px;
-
 }
-.radeFeeContainer{
+.radeFeeContainer {
   display: flex;
   justify-content: space-between;
   margin-left: 58px;
@@ -415,7 +412,7 @@ margin-bottom: 3px;
     margin-right: 28px;
   }
 }
-.radeFeeContainerInclucingTax{
+.radeFeeContainerInclucingTax {
   display: flex;
   justify-content: space-between;
   margin-left: 58px;
@@ -426,7 +423,7 @@ margin-bottom: 3px;
     margin-right: 28px;
   }
 }
-.cappedAt5Container{
+.cappedAt5Container {
   display: flex;
   justify-content: space-between;
   margin-left: 58px;
@@ -436,7 +433,8 @@ margin-bottom: 3px;
     margin-left: 32px;
   }
 }
-.bankTransferCharge, .bankTransferChargeTotal{
+.bankTransferCharge,
+.bankTransferChargeTotal {
   color: #fff;
   font-family: "Metrophobic";
   font-size: 17px;
@@ -446,7 +444,7 @@ margin-bottom: 3px;
     font-size: 14px;
   }
 }
-.includingTaxes{
+.includingTaxes {
   color: #fff;
   font-family: "Metrophobic";
   font-size: 14px;
@@ -456,12 +454,11 @@ margin-bottom: 3px;
     font-size: 12px;
   }
 }
-.bankTransferChargeTotal{
-   font-size: 17px;
-     color: #f9b959;
-
+.bankTransferChargeTotal {
+  font-size: 17px;
+  color: #f9b959;
 }
-.cappedAt5{
+.cappedAt5 {
   font-family: "Metrophobic";
   font-size: 14px;
   font-weight: 400;
@@ -472,25 +469,25 @@ margin-bottom: 3px;
     font-size: 12px;
   }
 }
-.bankTransferChargeHighlighted{
-  color: #F3E445;
-    font-family: "Metrophobic";
-    font-size: 17px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 30px; 
-    height:27px;
-  border-bottom: 1.5px solid #F3E445; /* Adjust the thickness and color as needed */
+.bankTransferChargeHighlighted {
+  color: #f3e445;
+  font-family: "Metrophobic";
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+  height: 27px;
+  border-bottom: 1.5px solid #f3e445; /* Adjust the thickness and color as needed */
   display: inline-block;
 }
-.bankTransferChargeValueHighlighted{
-   color: #F3E445;
-    font-family: "Metrophobic";
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 160%; 
+.bankTransferChargeValueHighlighted {
+  color: #f3e445;
+  font-family: "Metrophobic";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%;
 }
-.feeBreakDownContainerHighlighted{
+.feeBreakDownContainerHighlighted {
   margin-bottom: 21px;
 }

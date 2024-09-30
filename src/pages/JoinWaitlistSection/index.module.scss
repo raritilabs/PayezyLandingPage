@@ -133,8 +133,19 @@
   z-index: 200000;
   color: white;
 }
+@keyframes zoomInAnimation {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 .popupContent {
   background: #081527;
+  animation: zoomInAnimation 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
   border-radius: 15px;
   width: 548px;
   padding: 66px 71px 44px 71px;

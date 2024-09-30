@@ -175,6 +175,7 @@
     height: 19px;
   }
 }
+
 .popupOverlay {
   position: fixed;
   inset: 0px;
@@ -186,31 +187,19 @@
   z-index: 200000;
   color: white;
 }
-.popupContent {
-  background: #081527;
-  border-radius: 15px;
-  width: 506px;
-  height: auto;
-  overflow: auto;
-  @media screen and (max-width: 992px) {
-    width: 100%;
-    margin-left: 14px;
-    margin-right: 14px;
+@keyframes zoomInAnimation {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1);
   }
 }
-.popupOverlay {
-  position: fixed;
-  inset: 0px;
-  background: rgba(196, 196, 196, 0.15);
-  backdrop-filter: blur(4px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 200000;
-  color: white;
-}
 .popupContent {
   background: #081527;
+  animation: zoomInAnimation 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
   border-radius: 15px;
   width: 506px;
   padding: 36px 36px 26px 36px;
