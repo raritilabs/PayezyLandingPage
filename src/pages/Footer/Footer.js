@@ -103,6 +103,14 @@ const Footer = () => {
           >
             AML/KYC
           </a>
+          <a
+            className={styles.termsOfUse}
+            href="https://docs.payezy.io/platform/partner-user-agreement"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Partner Agreement
+          </a>
         </div>
         {!isMobile && (
           <div className={styles.copyRight}>{SEND_ENUM.copyRight}</div>
