@@ -30,6 +30,8 @@ const SendINRLandingPage = ({
   const [errorForLogin, setErrorForLogin] = useState(false); //state for storing login error
   const [fetchingPrice, setFetchingPrice] = useState(null); //state for fetching USD price
   const [modalIsOpen, setModalIsOpen] = useState(false); // state for opening the modal
+  const [exchangeRateData, setExchangeRateData] = useState(null);
+  const [transferFeeData, setTransferFeeData] = useState(null);
 
   const [paymentType, setPaymentType] = useState(SEND_ENUM.bankTransfer); //state that stored payment type
   const MAX_ALLOWED_TRANSFER = 2000; //varibale that store maximum allowed tranfer
@@ -219,8 +221,17 @@ const SendINRLandingPage = ({
           alt="backgroundLeftImage"
         />
       )} */}
-      <WhyPayezy />
-      <BestInMarket usdToInrExRate={usdToInrExRate} />
+      <WhyPayezy
+        exchangeRateData={exchangeRateData}
+        transferFeeData={transferFeeData}
+      />
+      <BestInMarket
+        usdToInrExRate={usdToInrExRate}
+        exchangeRateData={exchangeRateData}
+        setExchangeRateData={setExchangeRateData}
+        transferFeeData={transferFeeData}
+        setTransferFeeData={setTransferFeeData}
+      />
       {!isMobile && (
         <img
           src={backgroundLeftImage}

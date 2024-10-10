@@ -7,7 +7,9 @@ import bestFXRateIcon from "../../assets/bestFXRate.svg";
 import { AppContext } from "../../context";
 import AOS from "aos";
 import "aos/dist/aos.css";
-const WhyPayezy = () => {
+import cx from "classnames";
+
+const WhyPayezy = ({ exchangeRateData, transferFeeData }) => {
   const { isMobile } = useContext(AppContext);
 
   const featuresContainerRef = useRef(null);
@@ -23,7 +25,13 @@ const WhyPayezy = () => {
         <div className={styles.features}>{SEND_ENUM.features}</div>
       </div>
       {!isMobile && (
-        <div ref={featuresContainerRef} className={styles.feauturesContainer}>
+        <div
+          ref={featuresContainerRef}
+          className={cx(styles.feauturesContainer, {
+            [styles.feauturesContainerIfNotExchangeRate]:
+              !exchangeRateData || !transferFeeData,
+          })}
+        >
           <div
             className={`${styles.feauturesSubContainer} ${styles.subContainer1}`}
             data-aos="slide-up"

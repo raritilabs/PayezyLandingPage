@@ -1,10 +1,11 @@
 .spinnerOverlay {
-  height: 50vh;
+  height: 40vh;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  margin-bottom: 80px;
 }
 
 .spinnerContainer {

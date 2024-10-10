@@ -16,7 +16,13 @@ import downArrow from "../../assets/downArrow.svg";
 import ofxIcon from "../../assets/ofxIcon.svg";
 import Spinner from "../../components/Spinner/Spinner";
 
-const BestInMarket = ({ usdToInrExRate }) => {
+const BestInMarket = ({
+  usdToInrExRate,
+  exchangeRateData,
+  setExchangeRateData,
+  transferFeeData,
+  setTransferFeeData,
+}) => {
   const { isMobile } = useContext(AppContext);
 
   const featuresContainerRef = useRef(null);
@@ -24,8 +30,6 @@ const BestInMarket = ({ usdToInrExRate }) => {
     AOS.init({});
   }, []);
 
-  const [exchangeRateData, setExchangeRateData] = useState(null);
-  const [transferFeeData, setTransferFeeData] = useState(null);
   const THOUSAND = 1000;
   const TWO_FIXED_TWO = 2;
   const PAYEZY_TRANSFER_FEE = 0.0;
@@ -966,7 +970,7 @@ const BestInMarket = ({ usdToInrExRate }) => {
                       </div>
                       <div className={styles.exchangeRateNotPayezyInMob}>
                         ₹{" "}
-                        {exchangeRateData.ofx && transferFeeData.ofx
+                        {exchangeRateData.ofx
                           ? calculateRecipientGetsValue(
                               exchangeRateData.ofx,
                               transferFeeData.ofx
@@ -979,7 +983,7 @@ const BestInMarket = ({ usdToInrExRate }) => {
                             alt=""
                           />{" "}
                           -
-                          {exchangeRateData.ofx && transferFeeData.ofx
+                          {exchangeRateData.ofx && usdToInrExRate
                             ? (
                                 usdToInrExRate * THOUSAND -
                                 PAYEZY_TRANSFER_FEE -
@@ -1024,7 +1028,7 @@ const BestInMarket = ({ usdToInrExRate }) => {
                       </div>
                       <div className={styles.exchangeRateNotPayezyInMob}>
                         ${" "}
-                        {exchangeRateData.ofx && transferFeeData.ofx
+                        {exchangeRateData.ofx
                           ? calculateTrueValue(
                               exchangeRateData.ofx,
                               transferFeeData.ofx
