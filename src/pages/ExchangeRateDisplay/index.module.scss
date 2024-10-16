@@ -385,8 +385,8 @@ input:focus {
   line-height: normal;
   margin-left: 44px;
   margin-right: 32px;
-  margin-bottom: 21px;
-  margin-top: 28px;
+  margin-bottom: 15px;
+  margin-top: 18px;
   @media screen and (max-width: 992px) {
     margin-left: 32px;
     font-size: 16px;
@@ -456,6 +456,14 @@ input:focus {
   @media screen and (max-width: 992px) {
     font-size: 14px;
   }
+}
+.payezyPlatformFees {
+  color: #a1e6f6;
+  font-family: "Metrophobic";
+  font-size: 19px;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 10px;
 }
 .includingTaxes {
   color: #fff;

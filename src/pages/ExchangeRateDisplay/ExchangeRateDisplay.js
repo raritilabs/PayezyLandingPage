@@ -167,7 +167,7 @@ const ExchangeRateDisplay = ({
 
               <input
                 type="number"
-                placeholder="0.00"
+                placeholder="00.00"
                 value={amountInINR || ""}
                 min="0"
                 autoComplete="off"
@@ -193,11 +193,11 @@ const ExchangeRateDisplay = ({
         {amountInUSD > 0 && (
           <div className={styles.radeFeeContainer}>
             {" "}
-            <div className={styles.bankTransferCharge}>
+            <div className={styles.payezyPlatformFees}>
               Payezy Platform Fees
             </div>
-            <div className={styles.bankTransferCharge}>
-              <>$0.00</>
+            <div className={styles.payezyPlatformFees}>
+              <>$00.00</>
             </div>
           </div>
         )}
@@ -206,7 +206,7 @@ const ExchangeRateDisplay = ({
             {" "}
             <div className={styles.bankTransferCharge}>Amount Paid (Due)</div>
             <div className={styles.bankTransferCharge}>
-              <>$ {amountInUSD}</>
+              <>$ {Number(amountInUSD).toFixed(MAX_DECIMAL_PLACE)}</>
             </div>
           </div>
         )}
@@ -215,7 +215,7 @@ const ExchangeRateDisplay = ({
             {" "}
             <div className={styles.bankTransferCharge}>Amount Exchanged</div>
             <div className={styles.bankTransferCharge}>
-              <>$ {amountInUSD}</>
+              <>$ {Number(amountInUSD).toFixed(MAX_DECIMAL_PLACE)}</>
             </div>
           </div>
         )}
