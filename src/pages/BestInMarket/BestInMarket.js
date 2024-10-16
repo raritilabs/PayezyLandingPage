@@ -6,7 +6,6 @@ import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import { AppContext } from "../../context";
 import PayezyIcon from "../../assets/PayezyIcon.svg";
-import InstaremIcon from "../../assets/InstaramIcon.svg";
 import RemitlyIcon from "../../assets/RemitlyIcon.svg";
 import WiselyIcon from "../../assets/WiseIcon.svg";
 import ToolttipIcon from "../../assets/ToolTipIcon.svg";
@@ -69,13 +68,15 @@ const BestInMarket = ({
   );
   //Function to calculate recipient gets
   function calculateRecipientGetsValue(exchangeRateData, transferFeeData) {
-    const result = exchangeRateData * THOUSAND - transferFeeData;
-    return result.toFixed(TWO_FIXED_TWO);
+    const result = (exchangeRateData * THOUSAND - transferFeeData).toFixed(
+      TWO_FIXED_TWO
+    );
+    return result;
   }
   //Function to calculate trur value
   function calculateTrueValue(exchangeRateData, transferFeeData) {
     const result = (
-      (exchangeRateData * (THOUSAND - transferFeeData)) /
+      (exchangeRateData * THOUSAND - transferFeeData) /
       THOUSAND
     ).toFixed(TWO_FIXED_TWO);
     return result;
@@ -98,6 +99,7 @@ const BestInMarket = ({
           }
         );
         const copperxData = copperxResponse.data.providers;
+        console.log("copperxResponse", copperxResponse);
         // Fetch Wise exchange rate from Wise API
         const wiseResponse = await axios.get(
           "https://proxy.cors.sh/https://api.wise.com/v1/rates/live?source=USD&target=INR",
