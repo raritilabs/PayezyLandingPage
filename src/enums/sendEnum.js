@@ -127,6 +127,8 @@ export const SEND_ENUM = {
   whichCountriesAre: "Which countries are supported for remittance?",
   howToSendMoneyToIndia: "How to send money to India?",
   doesReciepientNeedToSignup: "Does the recipient need to sign up on payezy?",
+  whatTypeOfBeneficiaryAccountSupoorted:
+    "What type of beneficiary account is supported?",
   howMuchTimeItTakes: "How much time does it take?",
   whyIsKYCRequired: "Why is KYC required?",
   areTransactionDoneOne:
