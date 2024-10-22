@@ -133,9 +133,9 @@
   display: flex;
 }
 .providerRecipientGetsValues {
-  gap: 15px;
+  gap: 12px;
   @media screen and (max-width: 1100px) {
-    gap: 12px;
+    gap: 10px;
   }
   @media screen and (max-width: 1080px) {
     gap: 7px;
@@ -188,7 +188,7 @@
 .transferFeesPayezy,
 .transferFeeHeading,
 .exchangeRateHeading {
-  width: 19%;
+  width: 20%;
 }
 
 .trueRateValuePayezy {
@@ -267,7 +267,7 @@
 .providerTransferFees,
 .providerRecipientGetsValues,
 .providerExchangeRateValues {
-  font-size: 18px;
+  font-size: 16px;
   color: #fff;
 }
 .exchangeRateValues {
@@ -432,7 +432,7 @@
   color: #fd5252;
 }
 .priceDifference {
-  font-size: 16px;
+  font-size: 15px;
 }
 .priceDifferenceInMob {
   padding-left: 5px;
@@ -443,7 +443,7 @@
   height: 10px;
 }
 .valueAndTooltipPayezy {
-  font-size: 20px;
+  font-size: 18px;
   font-family: "metrophobic";
 }
 .recipientGets {
