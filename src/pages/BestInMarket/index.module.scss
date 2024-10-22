@@ -116,7 +116,7 @@
   margin-top: 22px;
   margin-bottom: 313px;
   border-radius: 10px;
-  padding: 22px 43px 33px 43px;
+  padding: 22px 30px 33px 30px;
   background: linear-gradient(180deg, #232532 3.57%, #131521 103.57%);
   @media screen and (max-width: 1275px) and (min-width: 1196px) {
     padding: 22px 43px 33px 43px;
@@ -188,7 +188,7 @@
 .transferFeesPayezy,
 .transferFeeHeading,
 .exchangeRateHeading {
-  width: 18%;
+  width: 19%;
 }
 
 .trueRateValuePayezy {
@@ -199,33 +199,38 @@
 .providerHeading,
 .providerIcon,
 .payezyIcon {
-  width: 22%;
+  width: 18%;
 }
 .recipientGetsValuePayezy,
 .providerRecipientGetsValues,
 .recipientGetsHeading {
-  width: 28%;
+  width: 26%;
 }
 .payezyImages {
-  width: 140px;
+  width: 120px;
 }
 .westernUnionImages {
   margin-bottom: 52px;
   width: 95px;
   height: 22px;
 }
+.westernUnionImage {
+  width: 87px;
+  height: 20px;
+  margin-bottom: 40px;
+}
 .wiseImage {
-  width: 102.865px;
-  height: 23.289px;
+  width: 83px;
+  height: 20px;
   margin-bottom: 40px;
 }
 .remitlyImage {
-  width: 112.123px;
-  height: 30px;
-  margin-bottom: 40px;
+  width: 96px;
+  height: 26px;
+  margin-bottom: 39px;
 }
 .ofxIcon {
-  height: 30px;
+  height: 28px;
   margin-bottom: 10px;
 }
 .instaRoom {
@@ -334,7 +339,7 @@
 }
 .priceComaprisonContainer {
   background: linear-gradient(180deg, #232532 3.57%, #131521 103.57%);
-  padding: 16px 8px 20px 19px;
+  padding: 16px 19px 20px 19px;
   border-radius: 10px;
   margin-left: 20px;
   margin-right: 20px;
@@ -389,8 +394,8 @@
   margin-bottom: 28px;
 }
 .payezyImageMob {
-  width: 94.037px;
-  height: 16.002px;
+  width: 105px;
+  height: 20px;
 }
 .payezyImageMobContainer {
   display: flex;
@@ -456,4 +461,14 @@
   cursor: pointer;
   border-radius: 4px;
   margin-right: 10px;
+}
+.totalCostInMob {
+  color: var(--Light-Blue-New-Payezy, #a1e6f6);
+  font-family: "Metrophobic";
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 121.5%;
+  margin-bottom: 28px;
+  margin-top: 25px;
 }
