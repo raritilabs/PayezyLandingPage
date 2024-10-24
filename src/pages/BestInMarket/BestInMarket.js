@@ -679,7 +679,7 @@ const BestInMarket = ({
                       <div className={styles.USDToINRInamob}>
                         {SEND_ENUM.sendingThousand}
                       </div>
-                      <div className={styles.exchangeRateInMob}>
+                      <div className={styles.exchangeRateNotPayezyInMob}>
                         ${" "}
                         {calculateTotalCost(
                           transferFeeData.westernUnion
@@ -784,7 +784,7 @@ const BestInMarket = ({
                       <div className={styles.USDToINRInamob}>
                         {SEND_ENUM.sendingThousand}
                       </div>
-                      <div className={styles.exchangeRateInMob}>
+                      <div className={styles.exchangeRateNotPayezyInMob}>
                         ${" "}
                         {calculateTotalCost(transferFeeData.wise).toFixed(
                           TWO_FIXED_TWO
@@ -884,7 +884,7 @@ const BestInMarket = ({
                       <div className={styles.USDToINRInamob}>
                         {SEND_ENUM.sendingThousand}
                       </div>
-                      <div className={styles.exchangeRateInMob}>
+                      <div className={styles.exchangeRateNotPayezyInMob}>
                         ${" "}
                         {calculateTotalCost(transferFeeData.remitly).toFixed(
                           TWO_FIXED_TWO
@@ -986,7 +986,7 @@ const BestInMarket = ({
                       <div className={styles.USDToINRInamob}>
                         {SEND_ENUM.sendingThousand}
                       </div>
-                      <div className={styles.exchangeRateInMob}>
+                      <div className={styles.exchangeRateNotPayezyInMob}>
                         ${" "}
                         {calculateTotalCost(transferFeeData.ofx).toFixed(
                           TWO_FIXED_TWO
