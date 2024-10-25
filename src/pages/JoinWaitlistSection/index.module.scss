@@ -68,7 +68,7 @@
   background: none;
   border-radius: 32px;
   margin-bottom: 40px;
-  width: 219px;
+  width: 209px;
   height: 55px;
   font-family: Michroma;
   font-size: 18px;
@@ -185,7 +185,7 @@
   /* Your existing styles for the arrow icon */
   position: absolute; /* Position it relative to the button */
   top: 50%; /* Position it in the middle vertically */
-  left: calc(100% + 5px); /* Position it to the right of the button */
+  left: calc(100% + 1px); /* Position it to the right of the button */
   transform: translateY(-50%); /* Center it vertically */
   transition: transform 0.4s ease-in-out; /* Smooth transition for rotation */
   transition-delay: 0.2s; /* Add a delay of 0.2 seconds */

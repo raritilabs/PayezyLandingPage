@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./index.module.scss";
 import cx from "classnames";
 import { useContext, useEffect } from "react";
@@ -6,33 +6,26 @@ import { AppContext } from "../../context";
 import { SEND_ENUM } from "../../enums/sendEnum";
 import RadeButton from "../../components/RadeButtons";
 import SendNowArrow from "../../assets/sendNowArrow.js";
-import Modal from "react-modal";
-import JoinWaitListEmailFetching from "../JoinWaitListEmailFetching/JoinWaitListEmailFetching.js";
 
 const ExchangeRateDisplay = ({
   amountInUSD,
   amountInINR,
   setAmountInINR,
   usdToInrExRate,
-  treasuryBalance,
   handleChageAmountInUSD,
-  paymentType,
   setFetchingPrice,
   setErrorForLogin,
   errorForLogin,
 }) => {
-  const { isMobile, profileEmail } = useContext(AppContext);
+  const { isMobile } = useContext(AppContext);
   const MAX_DECIMAL_PLACE = 2; //varibale that defines maximum decimal place after integer
-  const [processingCharge, setProcessingCharge] = useState(null); //state that store processing charge
-  const MAX_BANK_PROCESSING_CHARGE = 5; //varibale that store maximum bank tranfer processing charge
-  const MAX_ALLOWED_TRANSFER = 2000; //varibale that store maximum allowed tranfer
-  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const handleClickSendNow = () => {
     if (!amountInUSD) {
       setErrorForLogin("Please enter an amount to continue!");
     } else {
-      setModalIsOpen(true);
+      // Redirect to the app.payezy.io homepage or specific URL
+      window.open("https://app.payezy.io", "_blank");
     }
   };
   useEffect(() => {
@@ -44,14 +37,7 @@ const ExchangeRateDisplay = ({
     };
 
     convert();
-  }, [
-    amountInUSD,
-    usdToInrExRate,
-    setAmountInINR,
-    paymentType,
-    processingCharge,
-    setFetchingPrice,
-  ]);
+  }, [amountInUSD, usdToInrExRate, setAmountInINR, setFetchingPrice]);
   const containerClass =
     amountInUSD > 0
       ? styles.exchangeRateValues
@@ -219,10 +205,8 @@ const ExchangeRateDisplay = ({
             </div>
           </div>
         )}
-        {errorForLogin ? (
+        {errorForLogin && (
           <div className={styles.errorMessageForLogin}>{errorForLogin} </div>
-        ) : (
-          "-"
         )}
         <div
           className={cx(styles.buttonContainer, {
@@ -242,15 +226,6 @@ const ExchangeRateDisplay = ({
           </RadeButton>
         </div>
       </div>
-      <Modal
-        isOpen={modalIsOpen}
-        overlayClassName={styles.popupOverlay}
-        className={styles.popupContent}
-        shouldCloseOnOverlayClick={false}
-        ariaHideApp={false}
-      >
-        <JoinWaitListEmailFetching setModalIsOpen={setModalIsOpen} />
-      </Modal>
     </div>
   );
 };

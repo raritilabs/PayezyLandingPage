@@ -526,11 +526,9 @@ input:focus {
   }
 }
 .exchangeRateValues {
-  height: 521px;
   background: linear-gradient(180deg, #232532 3.57%, #131521 103.57%);
   z-index: 2;
   border-radius: 5px;
-  padding-bottom: 20px;
   @media screen and (max-width: 992px) {
     height: 475px;
     margin-left: 20px;
