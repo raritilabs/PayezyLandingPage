@@ -1,19 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import cx from "classnames";
 import { useContext } from "react";
 import { AppContext } from "../../context";
 import styles from "./index.module.scss";
 import ButtonRade from "../../components/RadeButtons";
 import { SEND_ENUM } from "../../enums/sendEnum";
-import Modal from "react-modal";
-import JoinWaitListEmailFetching from "../JoinWaitListEmailFetching/JoinWaitListEmailFetching";
 import joinWaitlistButtonArrow from "../../assets/joinWaitlistButtonArrowNew.svg";
 const JoinWaitlistSection = () => {
   const { isMobile } = useContext(AppContext);
-  // State to set the Modal open or close
-  const [modalIsOpen, setModalIsOpen] = useState(false);
   const handleClickJoinWaitlistButton = () => {
-    setModalIsOpen(true);
+    // Redirect to the app.payezy.io homepage or specific URL
+    window.open("https://app.payezy.io", "_blank");
   };
   return (
     <div className={styles.joinWaitlistContainer}>
@@ -47,7 +44,7 @@ const JoinWaitlistSection = () => {
           customStyling={styles.joinWaitlistButton}
           onClick={handleClickJoinWaitlistButton}
         >
-          {SEND_ENUM.joinWaitlist}
+          {SEND_ENUM.sendNow}
           <div className={styles.joinWaitlistButtonArrowContainer}>
             <img
               src={joinWaitlistButtonArrow}
@@ -57,15 +54,6 @@ const JoinWaitlistSection = () => {
           </div>
         </ButtonRade>
       </div>
-      <Modal
-        isOpen={modalIsOpen}
-        overlayClassName={styles.popupOverlay}
-        className={styles.popupContent}
-        shouldCloseOnOverlayClick={false}
-        ariaHideApp={false}
-      >
-        <JoinWaitListEmailFetching setModalIsOpen={setModalIsOpen} />
-      </Modal>
     </div>
   );
 };

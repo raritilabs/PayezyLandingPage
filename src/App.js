@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import cx from "classnames";
 import { useMediaQuery } from "react-responsive";
-import SendINR from "./pages/SendINRLandingPage/SendINRLandingPage";
+import SendINRLandingPage from "./pages/SendINRLandingPage/SendINRLandingPage";
 import { AppContext } from "./context";
 import Header from "./components/header/header";
 import styles from "./styles/app.module.scss";
@@ -13,20 +13,8 @@ mixpanel.init(process.env.REACT_APP_MIXPANEL_API, {
 function App() {
   // Stripe Integration
   const [usdToInrExRate, setUsdToInrExRate] = useState(null); // Stripe Promise from stripe server
-  const [loading, setLoading] = useState(false); // Loading state
-  const [googleLoginPageNumber, setGoogleLoginPageNumber] = useState(false); //state for storing login with google button click
-  const [sendFlowPageNumber, setSendFlowPageNumber] = useState(0); //state for storing USD send flow
-  const [onClickLoginButton, setOnClickLoginButton] = useState(false); //state for storing the onclick even of login button
-  const [profileEmail, setProfileEmail] = useState(false); // State for profile email
   const [amountInUSD, setAmountInUSD] = useState(null); // State to store amount in USD
   const [amountInINR, setAmountInINR] = useState(null); // State to store amount in INR
-  const [recipientAccountID, setRecipientAccountID] = useState(false); // State to recipient account ID
-  const [strId, setStrId] = useState(null); //state to store the stripe id
-  const [txId, setTxId] = useState(""); //state to store the transaction id
-  const [sessionId, setSessionId] = useState(null); //state to store the session id
-  const [transferHistoryData, setTranferHistoryData] = useState([]); //  state for storing transfer history data
-  // State for setting the kyc flow page number
-  const [KYCPageNumber, setKYCPageNumber] = useState(false);
   const isMobile = useMediaQuery({ query: "(max-width: 992px)" }); //Variable for mobile view
 
   useEffect(() => {
@@ -81,26 +69,6 @@ function App() {
       <AppContext.Provider
         value={{
           isMobile,
-          sendFlowPageNumber,
-          setSendFlowPageNumber,
-          googleLoginPageNumber,
-          setGoogleLoginPageNumber,
-          setOnClickLoginButton,
-          loading,
-          setLoading,
-          profileEmail,
-          recipientAccountID,
-          setRecipientAccountID,
-          strId,
-          setStrId,
-          sessionId,
-          setSessionId,
-          txId,
-          setTxId,
-          KYCPageNumber,
-          setKYCPageNumber,
-          transferHistoryData,
-          setTranferHistoryData,
         }}
       >
         <div
@@ -109,16 +77,7 @@ function App() {
           })}
         >
           {" "}
-          <Header
-            profileEmail={profileEmail}
-            setProfileEmail={setProfileEmail}
-            setGoogleLoginPageNumber={setGoogleLoginPageNumber}
-            googleLoginPageNumber={googleLoginPageNumber}
-            setOnClickLoginButton={setOnClickLoginButton}
-            setAmountInINR={setAmountInINR}
-            setAmountInUSD={setAmountInINR}
-            setSendFlowPageNumber={setSendFlowPageNumber}
-          />
+          <Header />
         </div>
 
         <div
@@ -132,9 +91,7 @@ function App() {
             })}
           >
             {" "}
-            <SendINR
-              profileEmail={profileEmail}
-              setGoogleLoginPageNumber={setGoogleLoginPageNumber}
+            <SendINRLandingPage
               setAmountInUSD={setAmountInUSD}
               amountInUSD={amountInUSD}
               amountInINR={amountInINR}
